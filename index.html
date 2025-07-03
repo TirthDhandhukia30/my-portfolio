@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script>
+  // Slide in animation on load
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".left a").classList.add("animate-slide-in");
+  });
+</script>
+
+
+<body id = "name">
+  <!--NAV-->
+  <nav>
+    <div  class="left"><a href="/">
+        Tirth Dhandhukia
+      </a>
+    </div>
+    <div class="right">
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+        <span>Github</span></a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>Linkedin</span></a>
+      <a href="mailto:contact@tirthdhandhukia.com" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Mail</span></a>
+    </div>
+  </nav>
+  <main>
+    <!--Section 1:Hero-->
+    <section id = "hero" class="hero">
+      <div class="text animate-slide-in">
+        <h2>Hi, I'm Tirth 👋🏻</h2>
+        <p>I'm a final-year B.Tech student in Electronics and Telecommunication with a growing passion for IT and
+          innovation. I love building, exploring, and turning ideas into real-world tech solutions.
+
+          Feel free to explore my portfolio — it’s a glimpse into the things I enjoy creating.
+
+          Interested in connecting or collaborating?
+          Check out my skills, browse my work, or just drop a message — let’s build something awesome together!
+
+        </p>
+        <div class="links">
+          <a href="#skills">
+            <i class="fa-solid fa-code"></i>
+            <span>Skills</span>
+            <a href="#projects">
+              <i class="fa-solid fa-diagram-project"></i>
+              <span>Projects</span>
+                <a href="#contact">
+                  <i class="fa-solid fa-envelope"></i>
+                  <span>Contact</span>
+
+
+
+                </a>
+        </div>
+      </div>
+    </section>
+
+    <!--Section 2: Skills-->
+    <section id="skills" class="skills-section">
+      <h2>Technical Skills</h2>
+      <div class="text">These technical skills have been developed through my academic journey in Electronics and Telecommunication, and further strengthened by hands-on learning from various specialized courses and self-initiated projects.
+
+      </div>
+      <div class="cells ">
+        <div class="cell">
+          <img src="images/python-logo.png" alt="python-logo">
+          <span>Python</span>
+        </div>
+
+        <div class="cell">
+          <img src="images/css-logo.webp" alt="css-logo">
+          <span>CSS</span>
+        </div>
+
+        <div class="cell">
+          <img src="images/html-logo.webp" alt="html-logo">
+          <span>HTML</span>
+        </div>
+
+        <div class="cell">
+          <img src="images/cpp-logo.png" alt="cpp-logo">
+          <span>C++</span>
+        </div>
+
+        <div class="cell">
+          <img src="images/react-logo.webp" alt="reactjs-logo">
+          <span>React.js</span>
+
+        
+    </section>
+
+    <section id="skills" class="skills-section">
+      <h3 class="softskills">Soft Skills</h3>
+      <div class="text">My soft skills have been shaped by diverse experiences — from university projects and internships to day-to-day collaboration, communication, and problem-solving in both academic and personal settings.</div>
+
+
+        <div class="cells">
+          <div class="cell">
+            
+            <span>Leadership</span>
+          </div>
+  
+          <div class="cell">
+            
+            <span>Problem-Solving</span>
+          </div>
+  
+          <div class="cell">
+            
+            <span>Communication</span>
+          </div>
+  
+          <div class="cell">
+            <span>Time Management</span>
+          </div>
+  
+          <div class="cell">
+            <span>Teamwork</span>
+          </div>
+
+
+
+    </section>
+
+
+
+
+    <!--Section 3: Projects-->
+    <section id="projects" class="projects">
+      <h2>My work</h2>
+      <div class="group">
+        <div class="project-1">
+          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" class="github-logo-projects"><i class="fa-brands fa-github"></i></a><h3>University -Capstone</h3>
+          <span>Under process</span>
+        </div>
+        <div class="project-2">
+          <a href="https://www.github.com" class="github-logo-projects"><i class="fa-brands fa-github"></i></a><h3>Front-End (Clone)</h3>
+          <span>Amazon but better; wokring on cloning amazon but in a GenZ perspective</span>
+        </div>
+        <div class="project-3">
+          <a href="https://www.github.com" class="github-logo-projects"><i class="fa-brands fa-github"></i></a> <h3> Deep Learning-Based Beamforming Optimization for 5G </h3>
+          <span>Developed a Feedforward Neural Network (FFNN) model using simulated CSI data from MATLAB’s 5G Toolbox to optimize beam-user mapping. Achieved a 25% increase in spectral efficiency, 2.3 dB SNR gain per user, and reduced misclassification to 7.1%. 
+          </span>
+        </div>
+        
+      </div>
+    </section>
+
+    
+    <!--Section 4: Contact-->
+    <section id="contact" class="contact">
+      <h2>Let's connect!</h2>
+      <div class="group">
+        <div class="text">Thanks for taking the time to explore my work — I really appreciate it!
+          If something caught your eye, you have a project in mind, or you just want to chat about tech, design, or
+          anything creative, I’d love to hear from you.
+
+          I’m always open to exciting opportunities, collaborations, or even a quick conversation to share ideas and
+          learn from each other.
+
+          <p>Feel free to drop me a message anytime.</p>
+          <a href="mailto:contact@tirthdhandhukia.com" target="_blank" rel="noopener noreferrer"><h3>📩 contact@tirthdhandhukia.com</h3></a>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="to-top">
+      <a href="#name">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+
+
+    <footer>© 2025 Tirth Dhandhukia. All rights reserved.</footer>
+
+  </main>
+
+</body>
+
+</html>
