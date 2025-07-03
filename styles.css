@@ -287,6 +287,30 @@ footer{
   margin-bottom: 50px;
 
 }
+ @media (max-width: 450px) {
+  .hero .text h2 {
+   font-size:30px;
+   }
+  .contact .group{
+    flex-direction: column;
+  }
+  .hero{
+    padding: 0 10px;
+  }
+  .hero .text h2{
+    font-size: 20px;
+  }
+  .skills-section{
+    padding: 0 20px;
+  }
+  .skills-section .cells .cell span{
+    font-size: 16px;
+  }
+  .contact{
+    padding: 0 20px;
+
+  }
+ }
  
 
 @media (max-width: 600px) {
