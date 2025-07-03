@@ -309,8 +309,11 @@ footer{
     background-color: transparent;
     padding: 0;
   }
+  nav .left a{
+    font-size: 20px;
+  }
   .hero{
-    padding: 0 20px;
+    padding: 0 10px;
   }
   .hero .text h2{
     font-size: 20px;
