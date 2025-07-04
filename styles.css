@@ -356,12 +356,23 @@ footer {
     font-size: 20px;
   }
 
-  .hero {
-    padding: 0 10px;
+  .hero .text .links a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    margin-top: 15px;
   }
 
   .hero .text h2 {
     font-size: 20px;
+  }
+  .hero .text .links {
+    margin-top: 25px;
+
   }
 
   .skills-section {
@@ -384,7 +395,73 @@ footer {
     margin-top: 100px;
   }
 }
+@media (max-width: 480px) {
 
+  /* NAV */
+  nav {
+    padding: 0px 20px;
+  }
+
+  nav .right a span {
+    display: none;
+  }
+
+  nav .right a {
+    font-size: 22px;
+  }
+
+  nav .right a:last-child {
+    color: var(--text-color);
+    background-color: transparent;
+    padding: 0;
+  }
+
+  nav .left a {
+    font-size: 20px;
+  }
+  .hero .text .links {
+    margin-top: 15px;
+  }
+
+  .hero .text .links a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    margin-top: 0px;
+  }
+
+  .hero .text h2 {
+    font-size: 20px;
+  }
+  .hero .text .links {
+    margin-top: 25px;
+
+  }
+
+  .skills-section {
+    padding: 0 20px;
+  }
+
+  .skills-section .cells .cell span {
+    font-size: 16px;
+  }
+
+  .contact {
+    padding: 0 20px;
+
+  }
+
+  .certifications h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+  }
+}
 @media (max-width: 850px) {
   .hero .text h2 {
     font-size: 35px;
@@ -484,44 +561,3 @@ footer {
   100% {background-position: 250% 0, 250% 0;}
 }
 
-@layer demo {
-  blockquote {
-    hanging-punctuation: first last;
-    display: grid;
-    gap: 2ch;
-    font-size: 1.5rem;
-    font-weight: 200;
-    line-height: 1.5;
-    
-    position: relative;
-    
-    &::before {
-      content: "";
-      z-index: -5;
-      position: absolute;
-      inset-inline: 5%;
-      inset-block: -100%;
-      aspect-ratio: 1;
-      border-radius: 5px;
-      background: rgba(175, 177, 177, 0.133);
-      filter: blur(50px);
-    }
-    
-    > p {
-      inline-size: 40ch;
-      text-align: balance;
-      
-      &::before {
-        content: open-quote;
-      }
-
-      &::after {
-        content: close-quote;
-      }
-    }
-  }
-}
-
-
-
-  
