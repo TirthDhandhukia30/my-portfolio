@@ -403,6 +403,7 @@ footer {
 }
 
 @media (max-width: 450px) {
+  
   .hero .text h2 {
     font-size: 30px;
   }
@@ -522,11 +523,45 @@ footer {
 }
 
   blockquote .quote{
-    margin-left: 420px;
-    margin-top: 250px;
-    margin-bottom: 250px;
-    font-weight: 600;
+  margin-block: 15vh;
+  padding: 0 20px;
+  font-weight: 600;
+  max-width: 600px;
+  text-align: center;;
   }
   
+/* Extra small devices (phones, 320px to 480px) */
+@media (max-width: 600px) {
+  blockquote .quote {
+    margin-block: 12vh;
+    padding: 0 15px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  blockquote .quote {
+    margin-block: 10vh;
+    padding: 0 10px;
+    font-size: 16px;
+  }
+}
+
+/* Medium devices (tablets like iPads, 601px to 900px) */
+@media (max-width: 900px) {
+  blockquote .quote {
+    margin: 12vh auto;
+    padding: 0 30px;
+    font-size: 20px;
+  }
+}
+
+/* Large devices (small laptops/desktops, up to 1200px) */
+@media (max-width: 1200px) {
+  blockquote .quote {
+    max-width: 80%;
+    font-size: 22px;
+  }
+}
 
   
