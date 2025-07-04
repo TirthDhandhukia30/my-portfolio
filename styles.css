@@ -470,8 +470,8 @@ footer {
   height: 4px;
   width: 100vw;
   --c:no-repeat linear-gradient(#000000 0 0);
-  background: var(--c), var(--c), var(--background-color);
-  background-size: 20% 100%;
+  background: var(--c), var(--c), transparent;
+  background-size:20% 100%, 20% 100%, 100% 100%;
   animation: section-bar 12s infinite;
   margin: 60px 0; /* Spacing between sections */
   overflow: hidden;
@@ -482,3 +482,51 @@ footer {
   66%  {background-position: 250% 0, -150% 0;}
   100% {background-position: 250% 0, 250% 0;}
 }
+
+@layer demo {
+  blockquote {
+    hanging-punctuation: first last;
+    display: grid;
+    gap: 2ch;
+    font-size: 1.5rem;
+    font-weight: 200;
+    line-height: 1.5;
+    
+    position: relative;
+    
+    &::before {
+      content: "";
+      z-index: -5;
+      position: absolute;
+      inset-inline: 5%;
+      inset-block: -100%;
+      aspect-ratio: 1;
+      border-radius: 5px;
+      background: rgba(175, 177, 177, 0.133);
+      filter: blur(50px);
+    }
+    
+    > p {
+      inline-size: 40ch;
+      text-align: balance;
+      
+      &::before {
+        content: open-quote;
+      }
+
+      &::after {
+        content: close-quote;
+      }
+    }
+  }
+}
+
+  blockquote .quote{
+    margin-left: 420px;
+    margin-top: 250px;
+    margin-bottom: 250px;
+    font-weight: 600;
+  }
+  
+
+  
