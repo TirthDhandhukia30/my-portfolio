@@ -394,6 +394,16 @@ footer {
     margin-bottom: 50px;
     margin-top: 100px;
   }
+  .hero .text .links a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    margin-top: 0px;
+  }
 }
 @media (max-width: 480px) {
 
@@ -480,6 +490,16 @@ footer {
 }
 
 @media (max-width: 450px) {
+  .hero .text .links a {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid var(--link-color);
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    margin-top: 0px;
+  }
   
   .hero .text h2 {
     font-size: 30px;
