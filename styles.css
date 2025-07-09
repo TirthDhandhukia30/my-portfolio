@@ -33,12 +33,17 @@ nav {
   align-items: center;
   padding: 0 50px;
   height: 80px;
+  position: relative;
 }
 
 nav .left a {
   color: var(--text-color);
   font-size: 30px;
   font-weight: 600;
+}
+
+nav .left a:hover {
+  text-shadow: 0 5px 10px rgb(204, 204, 210);
 }
 
 nav .right a {
@@ -93,11 +98,13 @@ nav .right a span {
   border-radius: 5px;
   padding-top: 15px;
   font-size: 16px;
+  width: 140vh;
 }
 
 .hero .text .links a:hover {
   color: var(--text-color);
   border: 2px solid var(--text-color);
+  transform: translateY(-10px);
 }
 
 /* section 2: skills */
@@ -146,6 +153,7 @@ nav .right a span {
 
 .skills-section .cells .cell:hover {
   background-color: #d3d3d3;
+  transform: translateY(-10px);
 }
 
 .skills-section .cells .cell img {
@@ -194,7 +202,7 @@ nav .right a span {
   border-radius: 5px;
   margin: 10px;
   gap: 2px;
-  cursor: pointer;
+  transition: 0.3s;
   background-color: #d3d3d3;
 }
 
@@ -209,7 +217,7 @@ nav .right a span {
   border-radius: 5px;
   margin: 10px;
   gap: 2px;
-  cursor: pointer;
+  transition: 0.3s;
 }
 
 .projects .group .project-3 {
@@ -222,8 +230,24 @@ nav .right a span {
   border-radius: 5px;
   margin: 10px;
   gap: 2px;
-  cursor: pointer;
+  transition: 0.3s;
 }
+
+.projects .group .project-1:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.projects .group .project-2:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.projects .group .project-3:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
 
 .paper-button-wrapper {
   margin-top: 12px;
@@ -330,6 +354,21 @@ footer {
 
 }
 
+.pg-text{
+  margin-left: 94vh;
+  margin-top: 50px;
+  padding: 8px 16px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 45px;
+
+}
+
 
 @media (max-width: 600px) {
 
@@ -370,6 +409,7 @@ footer {
   .hero .text h2 {
     font-size: 20px;
   }
+
   .hero .text .links {
     margin-top: 25px;
 
@@ -394,6 +434,7 @@ footer {
     margin-bottom: 50px;
     margin-top: 100px;
   }
+
   .hero .text .links a {
     display: inline-block;
     padding: 5px 10px;
@@ -405,6 +446,7 @@ footer {
     margin-top: 0px;
   }
 }
+
 @media (max-width: 480px) {
 
   /* NAV */
@@ -429,6 +471,7 @@ footer {
   nav .left a {
     font-size: 20px;
   }
+
   .hero .text .links {
     margin-top: 15px;
   }
@@ -447,6 +490,7 @@ footer {
   .hero .text h2 {
     font-size: 20px;
   }
+
   .hero .text .links {
     margin-top: 25px;
 
@@ -472,6 +516,7 @@ footer {
     margin-top: 100px;
   }
 }
+
 @media (max-width: 850px) {
   .hero .text h2 {
     font-size: 35px;
@@ -500,7 +545,7 @@ footer {
     transition: 0.5s;
     margin-top: 0px;
   }
-  
+
   .hero .text h2 {
     font-size: 30px;
   }
@@ -567,17 +612,25 @@ footer {
 .section-loader {
   height: 4px;
   width: 100vw;
-  --c:no-repeat linear-gradient(#000000 0 0);
+  --c: no-repeat linear-gradient(#000000 0 0);
   background: var(--c), var(--c), transparent;
-  background-size:20% 100%, 20% 100%, 100% 100%;
+  background-size: 20% 100%, 20% 100%, 100% 100%;
   animation: section-bar 12s infinite;
-  margin: 60px 0; /* Spacing between sections */
+  margin: 60px 0;
+  /* Spacing between sections */
   overflow: hidden;
 }
 
 @keyframes section-bar {
-  0%   {background-position: -150% 0, -150% 0;}
-  66%  {background-position: 250% 0, -150% 0;}
-  100% {background-position: 250% 0, 250% 0;}
-}
+  0% {
+    background-position: -150% 0, -150% 0;
+  }
 
+  66% {
+    background-position: 250% 0, -150% 0;
+  }
+
+  100% {
+    background-position: 250% 0, 250% 0;
+  }
+}
