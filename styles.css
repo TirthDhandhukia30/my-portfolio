@@ -422,7 +422,7 @@ footer {
 
 @media (max-width: 480px) {
   .hero .text h2 {
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .skills-section {
@@ -448,6 +448,10 @@ footer {
 }
 
 @media (max-width: 450px) {
+  .hero .text h2 {
+    font-size: 30px;
+  }
+
   .hero {
     padding: 0 10px;
   }
@@ -456,7 +460,31 @@ footer {
     font-size: 18px;
   }
   .pg-text {
-    margin-left: 35vh;
+    margin-left: 27vh;
+    margin-top: 50px;
+    padding: 8px 16px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 45px;
+  }
+}
+
+@media (max-width: 430px) {
+
+  .hero {
+    padding: 0 10px;
+  }
+
+  .hero .text h2 {
+    font-size: 30px;
+  }
+  .pg-text {
+    margin-left: 27vh;
     margin-top: 50px;
     padding: 8px 16px;
     background-color: #000000;
