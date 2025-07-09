@@ -451,6 +451,11 @@ footer {
   .hero .text h2 {
     font-size: 30px;
   }
+  
+  .hero .text .links {
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
 
   .hero {
     padding: 0 10px;
