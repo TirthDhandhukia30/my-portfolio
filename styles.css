@@ -212,6 +212,7 @@ transition: transform 0.3s ease;
   margin-top: 12px;
 }
 
+
 .projects .group .project-3 .view-paper {
   margin-right: 100px;
   margin-top: 50px;
@@ -314,6 +315,15 @@ footer {
   cursor: pointer;
   transition: background-color 0.3s ease;
   height: 45px;
+}
+.projectLink{
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  margin-top:47px;
+  cursor: pointer;
+  height: 30px;
+  width: 50px;
 }
 
 /* Media Queries and Fixes */
