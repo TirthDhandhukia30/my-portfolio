@@ -1,7 +1,7 @@
 :root {
-  --text-color: #1a1c20;
-  --link-color: #4a76ee;
-  --background-color: #eeeff1;
+  --text-color: #0D1B2A;
+  --link-color: #1B263B;
+  --background: linear-gradient(135deg, #E0E1DD, #C9D1C8, #A6B1A6);
 }
 
 * {
@@ -150,7 +150,7 @@ nav .right a span {
 }
 
 .skills-section .cells .cell:hover {
-  background-color: #d3d3d3;
+  background-color: white;
   transform: translateY(-10px);
 }
 
@@ -188,7 +188,7 @@ nav .right a span {
 .projects .group .project-1,
 .projects .group .project-2,
 .projects .group .project-3 {
-  background-color: #d3d3d3;
+  background-color: transparent;
   align-items: center;
   width: 350px;
   height: 500px;
