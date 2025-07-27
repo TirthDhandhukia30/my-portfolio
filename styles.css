@@ -107,6 +107,14 @@ nav .right a span {
   border: 2px solid var(--text-color);
   transform: translateY(-10px);
 }
+/* .available{
+  width: 120px;
+  height: 22px;
+  border-radius: 5px;
+  background-color: white;
+  border-color: black;
+
+} */
 
 /* section 2: skills */
 
@@ -184,7 +192,25 @@ nav .right a span {
   margin-bottom: 50px;
   padding: 10px;
 }
-
+.projects .group .project-1:hover{
+  background: linear-gradient(135deg, #9edbef 0%, #ffffff 100%);
+}
+.projects .group .project-2:hover{
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #ffd6dc 30%,
+    #f0b0b0 70%,
+    #ffffff 100%)
+}
+.projects .group .project-3:hover{
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f0f5f2 40%,
+    #d8e8dc 70%,
+    #e6e6e6 100%)
+}
 .projects .group .project-1,
 .projects .group .project-2,
 .projects .group .project-3 {
