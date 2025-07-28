@@ -107,8 +107,42 @@
 
 
     </section>
+    <div class="progressbars">
+    <div class="progress-container">
+      <span class="progress-text">90%</span>
+      <div class="progress-label">FrontEnd Development</div>
+      
+      <div class="progress-bar">
+        <div class="progress-fill1">
+          <div class="progress-tooltip">90%</div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="progress-container">
+      <span class="progress-text">50%</span>
+      <div class="progress-label">BackEnd Development</div>
+      <div class="progress-bar">
+        <div class="progress-fill2">
+          <div class="progress-tooltip">40%</div>
+        </div>
+      </div>
+    </div>
+    <div class="progress-container">
+      <span class="progress-text">75%</span>
+      <div class="progress-label">Data Analysis</div>
+      <div class="progress-bar">
+        <div class="progress-fill3">
+          <div class="progress-tooltip">75%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
 
-    <section id="skills" class="skills-section">
+    <!-- <section id="skills" class="skills-section">
       <h3 class="softskills">Miscellaneous</h3>
       <div class="text">My miscellaneous skills have been shaped by diverse experiences — from university projects and
         internships to day-to-day collaboration, communication, and problem-solving in both academic and personal
@@ -139,7 +173,7 @@
 
         <div class="cell">
           <span>Teamwork</span>
-        </div>
+        </div> -->
 
 
 
@@ -241,6 +275,23 @@
     <footer>Made with ❤️ ~ Tirth Dhandhukia</footer>
 
   </main>
+  <!-- <script>
+    
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target); // optional: run only once
+          }
+        });
+      }, {
+        threshold: 0.5 // 50% visible
+      });
+    
+      const progressBar = document.querySelector('.progress-fill1');
+      observer.observe(progressBar);
+  
+  </script> -->
 
 </body>
 
