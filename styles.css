@@ -232,6 +232,9 @@ nav .right a span {
 .projects .group .project-3:hover {
 transform: scale(1.05);
 transition: transform 0.3s ease;
+transform: scale(1.05);
+  opacity: 1;
+
 }
 
 .paper-button-wrapper {
@@ -609,11 +612,12 @@ footer {
   padding: 20px 30px;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
   margin-top: 20px;
 
   
 }
+
 
 .progress-label {
   font-size: 14px;
@@ -686,3 +690,4 @@ footer {
   flex-wrap: wrap;
   margin-bottom: 100px;
 }
+
