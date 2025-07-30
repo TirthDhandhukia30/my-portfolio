@@ -3,7 +3,7 @@
   --text-color: #0D1B2A;
   --link-color: #1B263B;
   --options-text-color:black;
-
+  --hero-text:black;
 
   --bg-color: #E0E1DD;
   --gradient-bg: #f0f2ec;
@@ -36,6 +36,7 @@ html[data-theme="dark"] {
   --border-color: #ffffff;
   --bg-color:black;
   --progress-tooltip-bg:white;
+  --hero-text:white;
  
   
 }
@@ -52,6 +53,7 @@ html[data-theme="midnight"] {
   --progress-tooltip-bg:#e4d9ff;
   --hover-color:none;
   --options-text-color:white;
+  --hero-text:white;
 }
 html[data-theme="midnight"] .theme-icon {
   color: #fff; 
@@ -64,12 +66,27 @@ html[data-theme="cyberdusk"] {
   --border-color: #d9d9d9;
   --bg-color: #3c6e71;
   --accent-color:#227EFF;
+  --hero-text:#FFD900;
 
   --progress-tooltip-bg:#d9d9d9;
   --options-text-color:#FFD900
 }
 html[data-theme="cyberdusk"] .theme-icon {
   color: #d9d9d9;
+}
+html[data-theme="tech"] {
+  --card-bg: #068da8;
+  --text-color: #fd77ad;
+  --border-color: #068da8;
+  --bg-color:#2d2a01;
+  --accent-color:#227EFF;
+  --hero-text:#068da8;
+
+  --progress-tooltip-bg:#d9d9d9;
+  --options-text-color:#fd77ad
+}
+html[data-theme="tech"] .theme-icon {
+  color: #068da8;
 }
 
 .theme-icon {
@@ -117,14 +134,12 @@ nav {
 }
 
 nav .left a {
-  color: var(--text-color);
+  color: var(--hero-text);
   font-size: 30px;
   font-weight: 600;
 }
 
-nav .left a:hover {
-  text-shadow: var(--hover-shadow);
-}
+
 
 nav .right a {
   color: var(--text-color);
