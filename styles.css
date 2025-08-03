@@ -580,6 +580,11 @@ footer {
   .pg-text {
     margin-left: 27vh;
   }
+@media (max-width:360px) {
+  .pg-text {
+    margin-left: 18vh;
+  
+}
 }
 
 /* Animations */
