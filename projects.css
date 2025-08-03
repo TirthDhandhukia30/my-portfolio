@@ -1,0 +1,199 @@
+:root {
+ 
+  --text-color: #0D1B2A;
+  --link-color: #1B263B;
+  --options-text-color:black;
+  --hero-text:black;
+
+  --bg-color: #E0E1DD;
+  --gradient-bg: #f0f2ec;
+
+
+  --accent-color: #A6B1A6;
+
+ 
+  --border-color: #000000;
+  --hover-shadow: 0 5px 10px rgb(204, 204, 210);
+  --hover-bg-color: #ffffff;
+
+
+  --button-bg: #000000;
+  --button-text: #ffffff;
+
+
+  --progress-fill: #ffffff;
+  --progress-tooltip-bg: #000000;
+  --progress-tooltip-text: #ffffff;
+
+
+  --hover-color:white;
+  --card-bg: white;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 1400px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  background-image: var(--gradient-bg);
+  margin: 0 auto;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color);
+  width: 100%;
+  height:100%;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+
+
+}
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+
+
+
+.projects .group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.projects h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+
+.projects .group .project-1,
+.projects .group .project-2,
+.projects .group .project-3 {
+  background: rgba(255, 255, 255, 0.15);
+   backdrop-filter: blur(100px); 
+  -webkit-backdrop-filter: blur(10px); 
+  align-items: center;
+  width: 350px;
+  height: 500px;
+  padding: 10px 20px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 5px;
+  margin: 10px;
+  gap: 2px;
+  transition: 0.3s;
+  color: var(--text-color);
+  margin-bottom: 80px;
+}
+
+.projects .group .project-1:hover,
+.projects .group .project-2:hover,
+.projects .group .project-3:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  opacity: 1;
+}
+
+.projects .group h3 {
+  margin-bottom: 30px;
+}
+
+.projects .group .project-3 .view-paper {
+  margin-right: 100px;
+  margin-top: 50px;
+  padding: 8px 16px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.github-logo-projects {
+  font-size: 35px;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+.paper-button-wrapper {
+  margin-top: 12px;
+}
+
+.paper-button-wrapper .paper-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pg-text,
+.projectLink,
+.resume {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.pg-text {
+  margin-left: 94vh;
+  margin-top: 50px;
+  padding: 8px 16px;
+  height: 45px;
+}
+
+.projectLink {
+  margin-top: 47px;
+  height: 30px;
+  width: 50px;
+}
+
+.resume {
+  font-size: 20px;
+  font-weight: 600;
+  height: 40px;
+  width: 130px;
+}
+
+.project-image{
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin: 10px 0;
+  height: 250px;
+  margin-left: 17px;
+
+}
+.backbutton{
+  height: 30px;
+  width: 70px;
+  margin-left: 50px;
+  position: relative;
+  margin-top: 30px;
+  background-color: black;
+  border-radius: 5px;
+  border: none;
+}
