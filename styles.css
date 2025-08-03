@@ -28,6 +28,7 @@
 
   --hover-color:white;
   --card-bg: white;
+  --awesomecolor:black;
 }
 
 html[data-theme="dark"] {
@@ -37,6 +38,8 @@ html[data-theme="dark"] {
   --bg-color:black;
   --progress-tooltip-bg:white;
   --hero-text:white;
+  --button-bg:white;
+  --button-text:black;
  
   
 }
@@ -54,6 +57,8 @@ html[data-theme="midnight"] {
   --hover-color:none;
   --options-text-color:white;
   --hero-text:white;
+  --button-bg:#fafaff;
+  --button-text:#273469;
 }
 html[data-theme="midnight"] .theme-icon {
   color: #fff; 
@@ -69,7 +74,9 @@ html[data-theme="cyberdusk"] {
   --hero-text:#FFD900;
 
   --progress-tooltip-bg:#d9d9d9;
-  --options-text-color:#FFD900
+  --options-text-color:#FFD900;
+  --button-bg:#FFD900;
+  --button-text:#3c6e71;
 }
 html[data-theme="cyberdusk"] .theme-icon {
   color: #d9d9d9;
@@ -83,7 +90,9 @@ html[data-theme="tech"] {
   --hero-text:#068da8;
 
   --progress-tooltip-bg:#d9d9d9;
-  --options-text-color:#fd77ad
+  --options-text-color:#fd77ad;
+  --button-bg:#fd77ad;
+  --button-text:#2d2a01;
 }
 html[data-theme="tech"] .theme-icon {
   color: #068da8;
@@ -390,6 +399,7 @@ nav .right a span {
   opacity: 1;
 }
 
+
 .projects .group h3 {
   margin-bottom: 30px;
 }
@@ -424,10 +434,21 @@ nav .right a span {
   gap: 12px;
 }
 
+.project-image{
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  margin: 10px 0;
+  height: 250px;
+  margin-left: 17px;
+
+}
+
 .to-top {
   display: flex;
   justify-content: center;
   margin: 30px 0;
+
 
 }
 
@@ -493,6 +514,7 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 400;
 }
 
 .pg-text {
