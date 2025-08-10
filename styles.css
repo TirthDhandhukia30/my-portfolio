@@ -451,12 +451,13 @@ nav .right a span {
 
 }
 
-to-top a {
-  font-size: 3rem;   /* makes the icon bigger */
+.to-top a {
+  font-size: 1.5rem;   /* makes the icon bigger */
   line-height: 1;    /* prevents extra spacing */
-  display: inline-flex;
-  align-items: center;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
 
 .theme-icon {
