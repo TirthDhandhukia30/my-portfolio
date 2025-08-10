@@ -22,8 +22,9 @@
 <body id="name">
   <!--NAV-->
   <nav>
+    
     <div class="left"><a href="/">
-        Tirth Dhandhukia
+      Tirth Dhandhukia 
       </a>
     </div>
     <div class="right">
@@ -39,26 +40,29 @@
     </div>
   </nav>
   <main>
-    <!--Section 1:Hero-->
-    
+
     <section id="hero" class="hero">
+      <!--Section 1:Hero-->
+       
       <div class="text animate-slide-in">
-        <h2>Hi, I'm Tirth 👋🏻</h2>
+        <h2>Hi, I'm Tirth <span class="wave">👋🏻</span> </h2>
+       
         <p>I am a final-year B.Tech student in Electronics and Telecommunication, with a strong interest in Information Technology and innovative solutions. My focus lies in transforming ideas into practical, technology-driven applications.
           This portfolio highlights selected projects and skills that reflect my areas of expertise and the work I enjoy developing.
           If you are interested in collaboration or would like to discuss potential opportunities, please feel free to connect.
 
         </p>    
         <div class="links">
-          <a href="#skills">
-            <i class="fa-solid fa-code theme-icon"></i>
-            <span>Skills</span>
-          </a>
-        
           <a href="#projects">
             <i class="fa-solid fa-diagram-project theme-icon"></i>
             <span>Projects</span>
           </a>
+
+          <a href="#skills">
+            <i class="fa-solid fa-code theme-icon"></i>
+            <span>Skills</span>
+        </a>
+          
         
           <a href="#contact">
             <i class="fa-solid fa-envelope theme-icon"></i>
@@ -82,24 +86,97 @@
         
       </div>
     </section>
+     <!--Section 3: Projects-->
+     <section id="projects" class="projects">
+      
+      <h2><i class="fa-solid fa-diagram-project"></i> My work</h2>
+      <div class="group">
+        <div class="project-1">
+          <h3><i class="fa-solid fa-cloud theme-icon"></i> Weather App</h3>
+          <span>Simple, minimal weather application
+            Built using HTML, CSS, JavaScript, and Vite.
+            Fetches real-time weather data from the OpenWeatherMap API
+            Displays:
+            Temperature
+            Humidity
+            Wind speed
+          </span>
+          <div class="paper-button-wrapper">
+            <div class="paper-links">
+              <a href="https://github.com/TirthDhandhukia30/Weather-App" class="github-logo-projects"><i class="fa-brands fa-github theme-icon theme-icon"></i>
+                <a href="https://weatherbytirth.netlify.app" target="_blank">
+                  <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
+                </a>
+            </div>
+          </div>
+        </div>
+        <div class="project-2">
+          <h3><i class="fa-solid fa-store theme-icon"></i> Nike Clone </h3> 
+          <span class="proj2content">
+            This is a front-end MVP clone of the Nike website, built using HTML, CSS, and JavaScript. 
+            It includes essential UI components like navigation, product listings, cart functionality, and a static login page, 
+            perfect for showcasing UI skills or kickstarting an e-commerce front-end.
+          </span>
+          <div class="paper-button-wrapper">
+            <div class="paper-links">
+              <a href="https://github.com/TirthDhandhukia30/Nike-Clone" class="github-logo-projects" target="_blank">
+                <i class="fa-brands fa-github theme-icon"></i>
+              </a>
+              <a href="https://nikeclonebytirth.netlify.app" target="_blank">
+                <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-3">
+          <h3><i class="fa-solid fa-microscope theme-icon"></i> Deep Learning-Based Beamforming Optimization for 5G </h3>
+          <span>
+            Developed a Feedforward Neural Network (FFNN) model using simulated CSI data from MATLAB’s 5G Toolbox to
+            optimize beam-user mapping. Achieved a 25% increase in spectral efficiency, 2.3 dB SNR gain per user, and
+            reduced misclassification to 7.1%.
+          </span>
+          <div class="paper-button-wrapper">
+            <div class="paper-links">
+              <a href="https://github.com/Yashjoshi03/Deep-Learning-Based-Beamforming-Optimization-for-5G" class="github-logo-projects" target="_blank">
+                <i class="fa-brands fa-github theme-icon"></i>
+              </a>
+              <a href="Deep Learning-Based Beamforming Optimization for 5G.pdf" target="_blank">
+                <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+    </section>
+    <div class="proj-gallery">
+      <a href="projects.html">
+        <button class="pg-button">Projects Gallery</button>
+      </a>
+    </div>
 
 
 
     <!--Section 2: Skills-->
     <section id="skills" class="skills-section">
-      <h2>Technical Skills</h2>
+      <h2><i class="fa-solid fa-book"></i> Technical Stack</h2>
       <div class="text">These technical skills have been developed through my academic journey in Electronics and
         Telecommunication, and further strengthened by hands-on learning from various specialized courses and
         self-initiated projects.
 
       </div>
+
       <div class="cells ">
         <div class="cell">
           <img src="images/python-logo.png" alt="python-logo">
           <span>Python</span>
         </div>
-
         <div class="cell">
+          <img src="images/cpp-logo.png" alt="cpp-logo">
+          <span>C++</span>
+        </div>
+
+        <!-- <div class="cell">
           <img src="images/css-logo.webp" alt="css-logo">
           <span>CSS</span>
         </div>
@@ -107,17 +184,26 @@
         <div class="cell">
           <img src="images/html-logo.webp" alt="html-logo">
           <span>HTML</span>
-        </div>
-
-        <div class="cell">
-          <img src="images/cpp-logo.png" alt="cpp-logo">
-          <span>C++</span>
-        </div>
+        </div> -->
 
         <div class="cell">
           <img src="images/javascript-logo.webp" alt="javaScript-logo">
           <span>javaScript</span>
         </div>
+
+
+        <div class="cells ">
+
+        <div class="cell">
+          <img src="images/tailwindcss.svg" alt="tailwind-logo">
+          <span>Tailwind</span>
+        </div>
+
+        <div class="cell">
+          <img src="images/react.svg" alt="react-logo">
+          <span>React</span>
+        </div>
+
         
       </div>
 
@@ -144,87 +230,13 @@
         </div>
       </div>
     </div>
-    <div class="progress-container">
-      <span class="progress-text">75%</span>
-      <div class="progress-label">Data Analysis</div>
-      <div class="progress-bar">
-        <div class="progress-fill3">
-          <div class="progress-tooltip">75%</div>
-        </div>
-      </div>
-    </div>
-  </div>
     </section>
 
-
-
-
-
-
-    <!--Section 3: Projects-->
-    <section id="projects" class="projects">
-      <h2>My work</h2>
-      <div class="group">
-        <div class="project-1">
-          <h3><i class="fa-solid fa-cloud theme-icon"></i> Weather App</h3>
-          <span>Simple, minimal weather application
-            Built using HTML, CSS, JavaScript, and Vite.
-            Fetches real-time weather data from the OpenWeatherMap API
-            Displays:
-            Temperature
-            Humidity
-            Wind speed
-          </span>
-          <div class="paper-button-wrapper">
-            <div class="paper-links">
-              <a href="https://github.com/TirthDhandhukia30/Weather-App" class="github-logo-projects"><i class="fa-brands fa-github theme-icon theme-icon"></i>
-                <a href="https://weatherbytirth.netlify.app" target="_blank">
-                  <button class="projectLink">Live</button>
-                </a>
-            </div>
-          </div>
-        </div>
-        <div class="project-2"></a>
-          <h3><i class="fa-solid fa-store theme-icon"></i> Nike Clone </h3> 
-          <!-- <img src="/images/nikeclone.jpg" alt="nike clone" class="project-image" /> -->
-          <span class="proj2content">This is a front-end MVP clone of the Nike website, built using HTML, CSS, and JavaScript. It includes essential UI components like navigation, product listings, cart functionality, and a static login page, perfect for showcasing UI skills or kickstarting an e-commerce front-end.
-          </span>
-          <div class="paper-button-wrapper">
-            <div class="paper-links">
-              <a href="https://github.com/TirthDhandhukia30/Nike-Clone" class="github-logo-projects"><i class="fa-brands fa-github theme-icon"></i>
-                <a href="https://nikeclonebytirth.netlify.app" target="_blank">
-                  <button class="projectLink">Live</button>
-                </a>
-            </div>
-          </div>
-        </div>
-        <div class="project-3">
-          <h3><i class="fa-solid fa-microscope theme-icon"></i> Deep Learning-Based Beamforming Optimization for 5G </h3>
-          <span>Developed a Feedforward Neural Network (FFNN) model using simulated CSI data from MATLAB’s 5G Toolbox to
-            optimize beam-user mapping. Achieved a 25% increase in spectral efficiency, 2.3 dB SNR gain per user, and
-            reduced misclassification to 7.1%.
-          </span>
-          <div class="paper-button-wrapper">
-            <div class="paper-links">
-              <a href="https://github.com/Yashjoshi03/Deep-Learning-Based-Beamforming-Optimization-for-5G" class="github-logo-projects theme-icon"><i class="fa-brands fa-github"></i>
-                <a href="Deep Learning-Based Beamforming Optimization for 5G.pdf" target="_blank">
-                  <button class="projectLink">Live</button>
-                </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="proj-gallery">
-        <a href="projects.html">
-          <button class="pg-text">Projects Gallery</button>
-        </a>
-      </div>
-    </section>
 
 
     <!--Section 4: Contact-->
     <section id="contact" class="contact">
-      <h2>Let's connect!</h2>
+      <h2><i class="fa-solid fa-link"></i> Let's connect!</h2>
       <div class="group">
         <div class="text">Thanks for taking the time to explore my work. I really appreciate it!
           If something caught your eye, you have a project in mind, or you just want to chat about tech, design, or
@@ -235,7 +247,7 @@
 
           <p>Feel free to drop me a message anytime.</p>
           <a href="mailto:tirth30.info@gmail.com" target="_blank" rel="noopener noreferrer">
-            <h3>📩  tirth30.info@gmail.com</h3>
+            <h3><i class="fa-solid fa-envelope"></i>  tirth30.info@gmail.com</h3>
           </a>
           <a href="TirthDhandhukia.pdf" target="_blank">
             <button class="resume">RESUME</button>
@@ -252,10 +264,9 @@
     </div>
 
 
-    <footer>Made with ❤️ ~ Tirth Dhandhukia</footer>
+    
 
   </main>
-  <!-- your HTML content -->
 
 <script>
   const themeSelector = document.getElementById("themeSelector");
