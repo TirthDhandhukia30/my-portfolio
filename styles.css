@@ -157,7 +157,7 @@ nav .left a {
 
 nav .right a {
   color: var(--text-color);
-  margin: 0 10px;
+  margin-right: 15px;
   font-size: 22px;
 }
 
@@ -172,6 +172,7 @@ nav .right a span {
   margin-left: 5px;
   background-color: none;
 }
+
 
 /* section 1:hero */
 .hero {
@@ -214,6 +215,9 @@ nav .right a span {
   font-size: 16px;
   width: 100%;
   max-width: 100%;
+  display: flex;
+  flex-wrap: balance;
+  justify-content: center;
 }
 
 .hero .text .links a:hover {
@@ -247,7 +251,7 @@ nav .right a span {
   transform: translateY(-10px);
 }
 
-/* Dropdown Options */
+
 .theme-options {
   display: none;
   flex-direction: column;
@@ -295,9 +299,7 @@ nav .right a span {
 }
 
 
-/* .theme-options div:hover {
-  color: ;
-} */
+
 
 /* section 2: skills */
 .skills-section {
@@ -309,6 +311,7 @@ nav .right a span {
   text-align: center;
   font-size: 40px;
   padding: 20px;
+  margin-top: 100px;
 }
 
 .skills-section .text {
@@ -375,15 +378,6 @@ nav .right a span {
   padding: 10px;
 }
 
-/* .projects .group .project-1:hover {
-  background: linear-gradient(135deg, #9edbef 0%, #ffffff 100%);
-}
-.projects .group .project-2:hover {
-  background: linear-gradient(135deg, #ffffff 0%, #ffd6dc 30%, #f0b0b0 70%, #ffffff 100%);
-}
-.projects .group .project-3:hover {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f5f2 40%, #d8e8dc 70%, #e6e6e6 100%);
-} */
 
 .projects .group .project-1,
 .projects .group .project-2,
@@ -454,24 +448,18 @@ nav .right a span {
 
 }
 
-.to-top {
-  display: flex;
+to-top a {
+  font-size: 3rem;   /* makes the icon bigger */
+  line-height: 1;    /* prevents extra spacing */
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin: 30px 0;
-
-
 }
 
-.to-top i {
-  padding: 10px 20px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.theme-icon {
+  font-size: inherit; /* uses the a tag's size */
 }
+
 
 
 
@@ -506,14 +494,8 @@ nav .right a span {
   color: var(--text-color);
 }
 
-footer {
-  text-align: center;
-  font-size: 10px;
-  padding-top: 100px;
-  margin-bottom: 50px;
-}
 
-.pg-text,
+
 .projectLink,
 .resume {
   background-color: var(--button-bg);
@@ -523,15 +505,28 @@ footer {
   cursor: pointer;
   font-size: 14px;
   font-weight: 400;
+}
+
+.pg-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  height: auto;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 5px;
+  text-shadow: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.proj-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
 
-.pg-text {
-  margin-left: 93.5vh;
-  margin-top: 50px;
-  padding: 8px 16px;
-  height: 40px;
-}
+
 
 .projectLink {
   margin-top: 47px;
@@ -545,6 +540,9 @@ footer {
   height: 40px;
   width: 130px;
 }
+
+
+
 
 /* Media Queries */
 @media (max-width: 1024px) {
@@ -590,151 +588,170 @@ footer {
   }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   .pg-text {
     margin-left: 27vh;
   }
 }
 
-  @media (max-width:360px) {
-    .pg-text {
-      margin-left: 18vh;
+@media (max-width:360px) {
+  .pg-text {
+    margin-left: 18vh;
 
-    }
+  }
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
   }
 
-  /* Animations */
-  @keyframes slideInLeft {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+@keyframes popIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
   }
 
-  @keyframes popIn {
-    0% {
-      transform: scale(0.95);
-      opacity: 0;
-    }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+.animate-slide-in {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Section Loader */
+.section-loader {
+  height: 4px;
+  width: 100vw;
+  --c: no-repeat linear-gradient(var(--button-bg) 0 0);
+  background: var(--c), var(--c), transparent;
+  background-size: 20% 100%, 20% 100%, 100% 100%;
+  animation: section-bar 12s infinite;
+  margin: 60px 0;
+  overflow: hidden;
+}
+
+@keyframes section-bar {
+  0% {
+    background-position: -150% 0, -150% 0;
   }
 
-  .animate-slide-in {
-    animation: slideInLeft 1s ease-out forwards;
+  66% {
+    background-position: 250% 0, -150% 0;
   }
 
-  /* Section Loader */
-  .section-loader {
-    height: 4px;
-    width: 100vw;
-    --c: no-repeat linear-gradient(var(--button-bg) 0 0);
-    background: var(--c), var(--c), transparent;
-    background-size: 20% 100%, 20% 100%, 100% 100%;
-    animation: section-bar 12s infinite;
-    margin: 60px 0;
-    overflow: hidden;
+  100% {
+    background-position: 250% 0, 250% 0;
   }
+}
+.wave {
+  display: inline-block;
+  animation: wave-animation 5s infinite;
+  transform-origin: 70% 70%; /* pivot around lower right of the hand */
+  font-size: 3rem;
+}
 
-  @keyframes section-bar {
-    0% {
-      background-position: -150% 0, -150% 0;
-    }
+@keyframes wave-animation {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
 
-    66% {
-      background-position: 250% 0, -150% 0;
-    }
+/* Progress Bars */
+.progress-container {
+  background: var(--bg-color);
+  border-radius: 10px;
+  padding: 20px 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 100px;
+}
 
-    100% {
-      background-position: 250% 0, 250% 0;
-    }
-  }
+.progress-label {
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
 
-  /* Progress Bars */
-  .progress-container {
-    background: var(--bg-color);
-    border-radius: 10px;
-    padding: 20px 30px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
-    margin-top: 20px;
-    border: 1px solid var(--border-color);
-  }
+.progress-bar {
+  position: relative;
+  height: 10px;
+  /* background-color: var(--progress-tooltip-text); */
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-  .progress-label {
-    font-size: 14px;
-    color: var(--text-color);
-    margin-bottom: 10px;
-  }
+.progress-fill1,
+.progress-fill2,
+.progress-fill3 {
+  height: 100%;
+  background-color: var(--progress-tooltip-bg);
+  border-radius: 10px 0 0 10px;
+  position: relative;
+}
 
-  .progress-bar {
-    position: relative;
-    height: 10px;
-    /* background-color: var(--progress-tooltip-text); */
-    border-radius: 10px;
-    overflow: hidden;
-  }
+.progress-fill1 {
+  width: 90%;
+}
 
-  .progress-fill1,
-  .progress-fill2,
-  .progress-fill3 {
-    height: 100%;
-    background-color: var(--progress-tooltip-bg);
-    border-radius: 10px 0 0 10px;
-    position: relative;
-  }
+.progress-fill2 {
+  width: 40%;
+}
 
-  .progress-fill1 {
-    width: 90%;
-  }
+.progress-fill3 {
+  width: 75%;
+}
 
-  .progress-fill2 {
-    width: 40%;
-  }
+.progress-tooltip {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--progress-tooltip-bg);
+  color: var(--progress-tooltip-text);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
 
-  .progress-fill3 {
-    width: 75%;
-  }
 
-  .progress-tooltip {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--progress-tooltip-bg);
-    color: var(--progress-tooltip-text);
-    font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
 
- 
+.progress-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: var(--progress-tooltip-bg) transparent;
+}
 
-  .progress-tooltip::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 6px 6px 0 6px;
-    border-style: solid;
-    border-color: var(--progress-tooltip-bg) transparent;
-  }
-  .progressbars {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 100px;
-  }
+.progressbars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
