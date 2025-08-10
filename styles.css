@@ -218,6 +218,11 @@ nav .right a span {
   display: flex;
   flex-wrap: balance;
   justify-content: center;
+  text-wrap: balance;
+}
+.hero .info{
+  font-size: 25px;
+  font-weight: 400;
 }
 
 .hero .text .links a:hover {
@@ -229,7 +234,7 @@ nav .right a span {
 .theme-selector {
   display: inline-block;
   gap: 8px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 5px 10px;
@@ -293,10 +298,7 @@ nav .right a span {
   transition: background 0.3s;
 }
 
-/* Divider effect */
-.theme-option:not(:last-child) {
-  border-right: 1.75px solid #000000;
-}
+
 
 
 
@@ -309,7 +311,7 @@ nav .right a span {
 
 .skills-section h2 {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   padding: 20px;
   margin-top: 100px;
 }
@@ -373,9 +375,10 @@ nav .right a span {
 
 .projects h2 {
   text-align: center;
-  font-size: 40px;
+  font-size: 35px;
   margin-bottom: 50px;
   padding: 10px;
+  margin-top: 100px;
 }
 
 
@@ -471,7 +474,7 @@ to-top a {
 
 .contact h2 {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   padding-top: 100px;
   margin-bottom: 50px;
 }
@@ -510,20 +513,26 @@ to-top a {
 .pg-button {
   background-color: var(--button-bg);
   color: var(--button-text);
-  height: auto;
-  width: fit-content;
+  height: 40px;
+  width: 175px;
   padding: 8px;
   border-radius: 5px;
   text-shadow: none;
   margin-top: 20px;
   cursor: pointer;
+  text-shadow: none;
+  border: none;
 }
 
 .proj-gallery {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  font-weight: 600;
+}
+.proj-gallery i{
+  margin-left: 10px;
+  margin-top: 2px;
 }
 
 
@@ -597,7 +606,9 @@ to-top a {
 @media (max-width:360px) {
   .pg-text {
     margin-left: 18vh;
-
+  }
+  .projects h2{
+    font-size: 45 px;
   }
 }
 
@@ -683,7 +694,7 @@ to-top a {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
   margin-top: 10px;
   border: 1px solid var(--border-color);
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 
 .progress-label {
@@ -753,5 +764,5 @@ to-top a {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
