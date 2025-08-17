@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 
@@ -24,7 +27,7 @@
   <nav>
     
     <div class="left"><a href="/">
-      Tirth.dev
+      portafolio / pōtoforio
       </a>
     </div>
     <div class="right">
@@ -40,17 +43,20 @@
     </div>
   </nav>
   <main>
+ 
 
     <section id="hero" class="hero">
       <!--Section 1:Hero-->
+      
        
       <div class="text animate-slide-in">
-        <h2>Build, Analyse & Develop</h2>
+        <h2>Build, Analyze & Develop.</h2>
        
-        <span class="info">Hi, I'm Tirth Dhandhukia.</span><p>A passionate Web Developer and Data Enthusiast based in Mumbai, India.
-          I love building intuitive digital experiences and exploring the power of data to solve real-world problems.
+        <span class="nameInfo">Hi, I'm</span> <span class="tirth"> Tirth Dhandhukia.</span>
 
-        </p>    
+        <div class="heroAbout">A passionate Web Developer and Data Enthusiast based in Mumbai, India.
+          I love building intuitive digital experiences and exploring the power of data to solve real-world problems.
+        </div>    
         <div class="links">
           <a href="#projects">
             <i class="fa-solid fa-diagram-project theme-icon"></i>
@@ -67,6 +73,10 @@
             <i class="fa-solid fa-envelope theme-icon"></i>
             <span>Contact</span>
           </a>
+          <a href="TirthDhandhukia.pdf" target="_blank">
+            <i class="fa-solid fa-download theme-icon"></i>
+            <span>Resume</span>
+          </a>
         
           <div class="theme-wrapper">
             <div class="theme-selector" id="themeSelector">
@@ -76,7 +86,6 @@
             <div class="theme-options" id="themeOptions">
               <div class="theme-option" data-theme="light">Light</div>
               <div class="theme-option" data-theme="dark">Dark</div>
-              <div class="theme-option"data-theme="tech">Tech</div>
               <div class="theme-option"data-theme="midnight">Midnight</div>
               <div class="theme-option"data-theme="cyberdusk">Cyber</div>
               
@@ -84,158 +93,152 @@
           </div>
         
       </div>
+     
     </section>
+
+    
+
      <!--Section 3: Projects-->
      <section id="projects" class="projects">
       
       <h2> My work</h2>
       <div class="group">
+        <a href="https://weatherbytirth.netlify.app" target="_blank">
         <div class="project-1">
+          
           <h3><i class="fa-solid fa-cloud theme-icon"></i> Weather App</h3>
-          <span>Simple, minimal weather application
+          <div class="projectContent"pan>Simple, minimal weather application
             Built using HTML, CSS, JavaScript, and Vite.
             Fetches real-time weather data from the OpenWeatherMap API
             Displays:
             Temperature
             Humidity
             Wind speed
-          </span>
+          </div>
           <div class="paper-button-wrapper">
             <div class="paper-links">
-              <a href="https://github.com/TirthDhandhukia30/Weather-App" class="github-logo-projects"><i class="fa-brands fa-github theme-icon theme-icon"></i>
+              
                 <a href="https://weatherbytirth.netlify.app" target="_blank">
                   <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
                 </a>
+              </a>
             </div>
           </div>
         </div>
+        <a href="https://nikeclonebytirth.netlify.app" target="_blank">
         <div class="project-2">
           <h3><i class="fa-solid fa-store theme-icon"></i> Nike Clone </h3> 
-          <span class="proj2content">
+          <div class="projectContent">
             This is a front-end MVP clone of the Nike website, built using HTML, CSS, and JavaScript. 
             It includes essential UI components like navigation, product listings, cart functionality, and a static login page, 
             perfect for showcasing UI skills or kickstarting an e-commerce front-end.
-          </span>
+          </div>
           <div class="paper-button-wrapper">
             <div class="paper-links">
-              <a href="https://github.com/TirthDhandhukia30/Nike-Clone" class="github-logo-projects" target="_blank">
-                <i class="fa-brands fa-github theme-icon"></i>
-              </a>
+              
               <a href="https://nikeclonebytirth.netlify.app" target="_blank">
                 <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
               </a>
+            </a>
             </div>
           </div>
         </div>
-        
+        <a href="Deep Learning-Based Beamforming Optimization for 5G.pdf" target="_blank">
         <div class="project-3">
-          <h3><i class="fa-solid fa-microscope theme-icon"></i> Deep Learning-Based Beamforming Optimization for 5G </h3>
-          <span>
+          <h3><i class="fa-solid fa-microscope theme-icon"></i> Academic Research </h3>
+          <div class="projectContent">
+            Deep Learning-Based Beamforming Optimization for 5G
             Developed a Feedforward Neural Network (FFNN) model using simulated CSI data from MATLAB’s 5G Toolbox to
             optimize beam-user mapping. Achieved a 25% increase in spectral efficiency, 2.3 dB SNR gain per user, and
             reduced misclassification to 7.1%.
-          </span>
+          </div>
           <div class="paper-button-wrapper">
             <div class="paper-links">
-              <a href="https://github.com/Yashjoshi03/Deep-Learning-Based-Beamforming-Optimization-for-5G" class="github-logo-projects" target="_blank">
-                <i class="fa-brands fa-github theme-icon"></i>
-              </a>
               <a href="Deep Learning-Based Beamforming Optimization for 5G.pdf" target="_blank">
                 <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
               </a>
+            </a>
             </div>
           </div>
         </div>
         
     </section>
+    
     <div class="proj-gallery">
       <a href="projects.html">
         <button class="pg-button">Projects Gallery  <i class="fa-solid fa-arrow-right"></i></button>
       </a>
-    </div>
-
-
-
-    <!--Section 2: Skills-->
-    <section id="skills" class="skills-section">
-      <h2><i class="fa-solid fa-book"></i> Technical Stack</h2>
-      <div class="text">These technical skills have been developed through my academic journey in Electronics and
-        Telecommunication, and further strengthened by hands-on learning from various specialized courses and
-        self-initiated projects.
-
-      </div>
-
-      <div class="cells ">
-        <div class="cell">
-          <img src="images/python-logo.png" alt="python-logo">
-          <span>Python</span>
-        </div>
-        <div class="cell">
-          <img src="images/cpp-logo.png" alt="cpp-logo">
-          <span>C++</span>
-        </div>
-
-        <!-- <div class="cell">
-          <img src="images/css-logo.webp" alt="css-logo">
-          <span>CSS</span>
-        </div>
-
-        <div class="cell">
-          <img src="images/html-logo.webp" alt="html-logo">
-          <span>HTML</span>
-        </div> -->
-
-        <div class="cell">
-          <img src="images/javascript-logo.webp" alt="javaScript-logo">
-          <span>javaScript</span>
-        </div>
-
-
-        <div class="cells ">
-
-        <div class="cell">
-          <img src="images/tailwindcss.svg" alt="tailwind-logo">
-          <span>Tailwind</span>
-        </div>
-
-        <div class="cell">
-          <img src="images/react.svg" alt="react-logo">
-          <span>React</span>
-        </div>
-
-        
-      </div>
-
-
-    </section>
-    <div class="progressbars">
-    <div class="progress-container">
-      <span class="progress-text">90%</span>
-      <div class="progress-label">FrontEnd Development</div>
+      <a href="https://github.com/TirthDhandhukia30" target="_blank" rel="noopener noreferrer">
+        <button class="pg-button">Source codes<i class="fa-solid fa-arrow-right"></i></button>
+      </a>
       
-      <div class="progress-bar">
-        <div class="progress-fill1">
-          <div class="progress-tooltip">90%</div>
-          
-        </div>
-      </div>
     </div>
-    <div class="progress-container">
-      <span class="progress-text">40%</span>
-      <div class="progress-label">BackEnd Development</div>
-      <div class="progress-bar">
-        <div class="progress-fill2">
-          <div class="progress-tooltip">40%</div>
-        </div>
-      </div>
-    </div>
-    </section>
+    
 
 
+
+    <!-- ===== Skills Section ===== -->
+<section class="skills-section">
+  <div class="skills-wrap">
+    <h2 class="skills-title"> Technical Skills </h2>
+    <h4 class="skills-referral">" Check out my résumé for a detailed stack "</h4>
+
+
+    <ul class="skills-grid">
+      <!-- Row 1 -->
+      <li class="skill-card">
+        <img src="images/HTML5.svg" alt="HTML" />
+        <span>HTML</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/CSS3.svg" alt="CSS" />
+        <span>CSS</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/cpp.svg" alt="cpp" />
+        <span>C++</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/JavaScript.svg" alt="JavaScript" />
+        <span>JAVASCRIPT</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/React.svg" alt="React JS" />
+        <span>REACT JS</span>
+      </li>
+
+      <!-- Row 2 -->
+      <li class="skill-card">
+        <img src="images/Git.svg" alt="GitHub" />
+        <span>GIT</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/Node.js.svg" alt="Node JS" />
+        <span>NODE JS</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/Python.svg" alt="Python" />
+        <span>Python</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/MongoDB.svg" alt="MongoDB" />
+        <span>MONGODB</span>
+      </li>
+      <li class="skill-card">
+        <img src="images/Docker.svg" alt="Docker" />
+        <span>DOCKER</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+    <!-- <div class="tweet-container">
+      <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">One day Tirth Dhandhukia will be somebody !</p>&mdash; Tirthhhh (@Tirthhh30) <a href="https://twitter.com/Tirthhh30/status/1956975899292897776?ref_src=twsrc%5Etfw">August 17, 2025</a></blockquote> 
+    </div> -->
 
     <!--Section 4: Contact-->
     <section id="contact" class="contact">
-      <h2><i class="fa-solid fa-link"></i> Let's connect!</h2>
+      <h2> Let's connect!</h2>
       <div class="group">
         <div class="text">Thanks for taking the time to explore my work. I really appreciate it!
           If something caught your eye, you have a project in mind, or you just want to chat about tech, design, or
@@ -245,30 +248,25 @@
           learn from each other.
 
           <p>Feel free to drop me a message anytime.</p>
-          <a href="mailto:tirth30.info@gmail.com" target="_blank" rel="noopener noreferrer">
-            <h3><i class="fa-solid fa-envelope"></i>  tirth30.info@gmail.com</h3>
-          </a>
-          <a href="TirthDhandhukia.pdf" target="_blank">
-            <button class="resume">RESUME <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1z"/>
-              <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708z"/>
-            </svg></button>
-          </a>
         </div>
-
+      </div>
+      <div class="mail">
+        <a href="mailto:tirth30.info@gmail.com" target="_blank" rel="noopener noreferrer">
+          <h3><i class="fa-solid fa-envelope"></i>  tirth30.info@gmail.com</h3>
+        </a>
       </div>
 
     <div class="to-top">
       <a href="#name">
-
         <i class="fa-solid fa-arrow-up theme-icon"></i>
       </a>
     </div>
     </section>
+   
 
 
     <div>
-    <footer>Made with love ~ Tirth Dhandhukia</footer>
+    <!-- <footer>Made with love ~ Tirth Dhandhukia</footer> -->
   </div>
 
 
@@ -303,6 +301,7 @@
     }
   });
 </script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
 
