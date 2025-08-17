@@ -32,13 +32,13 @@
 }
 
 html[data-theme="dark"] {
-  --card-bg: white;
-  --text-color: #f5f5f5;
+  --card-bg: #EDEDED;
+  --text-color: #EDEDED;
   --border-color: #ffffff;
   --bg-color: black;
-  --progress-tooltip-bg: white;
-  --hero-text: white;
-  --button-bg: white;
+  --progress-tooltip-bg: #EDEDED;
+  --hero-text: #EDEDED;
+  --button-bg: #EDEDED;
   --button-text: black;
 
 
@@ -120,9 +120,8 @@ html {
 
 body {
   max-width: 1400px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Instrument Sans", sans-serif;
   background-color: var(--bg-color);
-  background-image: var(--gradient-bg);
   margin: 0 auto;
   overflow-x: hidden;
   background-repeat: no-repeat;
@@ -171,6 +170,7 @@ nav .right a:last-child {
 nav .right a span {
   margin-left: 5px;
   background-color: none;
+  font-weight: 500;
 }
 
 
@@ -209,7 +209,7 @@ nav .right a span {
   color: var(--text-color);
 }
 
-.hero .text p {
+.hero .text .heroAbout {
   border-radius: 5px;
   padding-top: 15px;
   font-size: 16px;
@@ -220,9 +220,17 @@ nav .right a span {
   justify-content: center;
   text-wrap: balance;
 }
-.hero .info{
-  font-size: 25px;
-  font-weight: 400;
+
+.hero .nameInfo {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+.hero .tirth {
+  font-size: 27px;
+  font-weight: 500;
+  color: var(--hero-text);
 }
 
 .hero .text .links a:hover {
@@ -301,76 +309,173 @@ nav .right a span {
 
 
 
-
+/* == tweet  embed == */
+.tweet-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 /* section 2: skills */
-.skills-section {
-  padding: 0 50px;
-  margin-bottom: 100px;
-}
 
-.skills-section h2 {
-  text-align: center;
-  font-size: 30px;
-  padding: 20px;
-  margin-top: 100px;
-}
-
-.skills-section .text {
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 30px;
-}
-
-.skills-section .cells {
+.skillButtons {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.skills-section .cells .cell {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 200px;
-  padding: 10px 20px;
-  border: 1.5px solid var(--border-color);
-  border-radius: 5px;
-  margin: 10px;
-  gap: 2px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.5s;
+  justify-content: center;
+  gap: 10px;
 }
 
-.skills-section .cells .cell:hover {
-  background-color: var(--hover-color);
-  transform: translateY(-10px);
-}
-
-.skills-section .cells .cell img {
-  width: 30px;
+.skillButtons button {
   height: 30px;
-  object-fit: contain;
-  border-radius: 2px;
-  margin-right: 10px;
+  width: 100px;
+  padding: 5px;
+  /* background-color: var(--button-bg); */
+  border-radius: 5px;
+  box-shadow: none;
+  color: var(--hero-text);
+  background-color: transparent;
+  border-color: none;
+
 }
 
-.skills-section .cells .cell span {
-  font-size: 15px;
+.skills-section {
+  --bg: #0f0f10;
+  --panel: #151517;
+  --muted: #1f1f20;
+  --text: #e9e9ea;
+  --accent: #f5c400;
+  /* yellow */
+  position: relative;
+  background: var(--bg-color);
+  color: var(--hero-text);
+  padding: 72px 24px 90px;
+  overflow: hidden;
 }
 
-.skills-section .softskills {
+
+.skills-wrap {
+  max-width: 1050px;
+  margin: 0 auto;
+  position: relative;
+
+}
+
+.skills-title {
   text-align: center;
-  font-size: 40px;
-  margin-top: 20px;
+  font-size: 45px;
+  line-height: 1.1;
+  margin: 0 0 50px;
+  font-weight: 700;
+  margin-top: 150px;
+  margin-bottom: 30px;
 }
+
+.skills-referral {
+  text-align: center;
+  line-height: 1.1;
+
+  font-weight: 600;
+
+}
+
+.skills-intro {
+  max-width: 880px;
+  margin: 0 auto 36px;
+  text-align: center;
+  color: var(--hero-text);
+  line-height: 1.7;
+}
+
+
+
+/* grid */
+.skills-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 20px;
+  margin: 22px 0 0;
+  border: 2px solid var(--hero-text);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.skill-card {
+  border-radius: 14px;
+  padding: 20px 5px 15px;
+  text-align: center;
+  /* box-shadow:0 6px 0 rgba(0,0,0,0); */
+  position: relative;
+  transition: transform .2s ease, box-shadow .2s ease;
+  width: 100%;
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  outline: 1px solid rgba(255, 255, 255, .06);
+  pointer-events: none;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, .35);
+}
+
+.skill-card img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 16px;
+  filter: none;
+}
+
+.skill-card span {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--hero-text);
+}
+
+/* responsive */
+@media (max-width:1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .skills-ribbon {
+    left: -14px;
+  }
+}
+
+@media (max-width:768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-title {
+    font-size: 36px;
+  }
+
+  .skills-ribbon {
+    display: none;
+  }
+
+  /* hide on small screens */
+}
+
 
 .projects .group {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .projects h2 {
@@ -396,6 +501,8 @@ nav .right a span {
   gap: 2px;
   transition: 0.3s;
   color: var(--text-color);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .projects .group .project-1:hover,
@@ -409,7 +516,15 @@ nav .right a span {
 
 .projects .group h3 {
   margin-bottom: 30px;
+  color: var(--hero-text);
+
 }
+
+.projects .group .projectContent {
+  color: var(--hero-text);
+  height: 300px;
+}
+
 
 .projects .group .project-3 .view-paper {
   margin-right: 100px;
@@ -451,17 +566,21 @@ nav .right a span {
 
 }
 
-.to-top a {
-  font-size: 1.5rem;   /* makes the icon bigger */
-  line-height: 1;    /* prevents extra spacing */
+.to-top {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+}
+
+.to-top a {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .theme-icon {
-  font-size: inherit; /* uses the a tag's size */
+  font-size: inherit;
 }
 
 
@@ -492,6 +611,9 @@ nav .right a span {
   align-items: center;
   justify-items: center;
   text-align: center;
+  font-weight: 500;
+  text-wrap: balance;
+
 }
 
 .contact .group a {
@@ -529,9 +651,11 @@ nav .right a span {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
+  flex-direction: row;
+  gap: 20px;
 }
-.proj-gallery i{
+
+.proj-gallery i {
   margin-left: 10px;
   margin-top: 2px;
 }
@@ -542,6 +666,7 @@ nav .right a span {
   margin-top: 47px;
   height: 30px;
   width: 50px;
+
 }
 
 .resume {
@@ -549,6 +674,24 @@ nav .right a span {
   font-weight: 600;
   height: 40px;
   width: 130px;
+}
+
+.mail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.mail h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--hero-text);
+}
+
+.mail i {
+  margin-right: 8px;
 }
 
 
@@ -572,6 +715,7 @@ nav .right a span {
 
   nav .right a span {
     display: none;
+
   }
 
   nav .left a {
@@ -608,8 +752,17 @@ nav .right a span {
   .pg-text {
     margin-left: 18vh;
   }
-  .projects h2{
+
+  .projects h2 {
     font-size: 45 px;
+  }
+
+  .proj-gallery {
+    flex-direction: column;
+  }
+
+  .pg-button {
+    margin-top: 10px;
   }
 }
 
@@ -667,22 +820,47 @@ nav .right a span {
     background-position: 250% 0, 250% 0;
   }
 }
+
 .wave {
   display: inline-block;
   animation: wave-animation 5s infinite;
-  transform-origin: 70% 70%; /* pivot around lower right of the hand */
+  transform-origin: 70% 70%;
+  /* pivot around lower right of the hand */
   font-size: 3rem;
 }
 
 @keyframes wave-animation {
-  0% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Progress Bars */
