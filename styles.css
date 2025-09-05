@@ -2,7 +2,7 @@
 
   --text-color: #0D1B2A;
   --link-color: #1B263B;
-  --options-text-color: black;
+  --options-text-color: #121212;
   --hero-text: black;
 
   --bg-color: #E0E1DD;
@@ -12,7 +12,7 @@
   --accent-color: #A6B1A6;
 
 
-  --border-color: #000000;
+  --border-color: #121212;
   --hover-shadow: 0 5px 10px rgb(204, 204, 210);
   --hover-bg-color: #ffffff;
 
@@ -22,30 +22,49 @@
 
 
   --progress-fill: #ffffff;
-  --progress-tooltip-bg: #000000;
+  --progress-tooltip-bg: #121212;
   --progress-tooltip-text: #ffffff;
 
 
   --hover-color: white;
   --card-bg: white;
-  --awesomecolor: black;
+  --awesomecolor: #121212;
 }
 
 html[data-theme="dark"] {
   --card-bg: #EDEDED;
   --text-color: #EDEDED;
   --border-color: #ffffff;
-  --bg-color: black;
+  --bg-color: #121212;
   --progress-tooltip-bg: #EDEDED;
   --hero-text: #EDEDED;
   --button-bg: #EDEDED;
-  --button-text: black;
-
-
+  --button-text: #121212;
+  --accent-color: #03DAC6;
+  --link-color: #03DAC6;
 }
 
 html[data-theme="dark"] .theme-icon {
   color: #fff;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+  border-color: #03DAC6;
+  box-shadow: 0 14px 24px rgba(3, 218, 198, 0.2);
+}
+
+html[data-theme="dark"] .pg-button:hover {
+  border-color: #03DAC6;
+  box-shadow: 0 8px 20px rgba(3, 218, 198, 0.15);
+}
+
+html[data-theme="dark"] .project-card:hover {
+  border-color: color-mix(in srgb, #03DAC6 30%, var(--border-color));
+}
+
+html[data-theme="dark"] .hero-clicker #clickBtn:hover {
+  border-color: #03DAC6;
+  box-shadow: 0 4px 12px rgba(3, 218, 198, 0.2);
 }
 
 
@@ -239,72 +258,26 @@ nav .right a span {
   transform: translateY(-10px);
 }
 
-.theme-selector {
-  display: inline-block;
-  gap: 8px;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 5px 10px;
+.theme-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
   background-color: var(--bg-color);
   color: var(--text-color);
   border: 2px solid var(--border-color);
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: fit-content;
-  transition: 0.5s;
-  position: relative;
-
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.theme-selector:hover {
-  /* color: var(--text-color);
-  border: 2px solid var(--text-color); */
-  transform: translateY(-10px);
-}
-
-
-.theme-options {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  /* from absolute to fixed */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* centers the box */
-
-  background-color: var(--card-bg);
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  padding: 6px 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.theme-options.show {
-  display: flex;
-  /* inline => flex for column stacking */
-  flex-direction: row;
-}
-
-.theme-options div {
-  padding: 10px 16px;
-  cursor: pointer;
-  color: var(--options-text-color);
-  transition: 0.2s ease;
-  text-align: center;
-}
-
-.theme-option {
-  padding: 12px 20px;
-  cursor: pointer;
-  flex: 1;
-  text-align: center;
-  font-weight: 500;
-  transition: background 0.3s;
-}
+.theme-toggle:hover { transform: translateY(-2px); box-shadow: 0 14px 24px rgba(0,0,0,0.2); }
 
 
 
@@ -407,7 +380,7 @@ nav .right a span {
   border-radius: 14px;
   padding: 20px 5px 15px;
   text-align: center;
-  /* box-shadow:0 6px 0 rgba(0,0,0,0); */
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0);
   position: relative;
   transition: transform .2s ease, box-shadow .2s ease;
   width: 100%;
@@ -503,6 +476,109 @@ nav .right a span {
   color: var(--text-color);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+/* Modern project card (shared with projects page) */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  min-height: 360px;
+  padding: 16px;
+  margin: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 600ms ease forwards;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 14px;
+  background: radial-gradient(1200px 1200px at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.12), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 28px rgba(0,0,0,0.18);
+  border-color: color-mix(in srgb, var(--border-color) 80%, transparent);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  color: var(--hero-text);
+}
+
+.project-subtitle {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.project-card .projectContent {
+  flex: 1 1 auto;
+  color: var(--hero-text);
+  line-height: 1.5;
+}
+
+.project-card .paper-button-wrapper {
+  margin-top: 16px;
+}
+
+/* Tag chips */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text-color);
+  background: color-mix(in srgb, var(--bg-color) 70%, transparent);
+}
+
+/* Stagger animation */
+.projects .group > .project-card:nth-child(1) { animation-delay: 0ms; }
+.projects .group > .project-card:nth-child(2) { animation-delay: 120ms; }
+.projects .group > .project-card:nth-child(3) { animation-delay: 240ms; }
+
+/* Actions pinned to bottom for symmetry */
+.project-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.project-actions .paper-links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
 .projects .group .project-1:hover,
@@ -634,17 +710,45 @@ nav .right a span {
 }
 
 .pg-button {
-  background-color: var(--button-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  min-width: 160px;
+  padding: 0 20px;
+  background: linear-gradient(135deg, var(--button-bg) 0%, color-mix(in srgb, var(--button-bg) 85%, transparent) 100%);
   color: var(--button-text);
-  height: 40px;
-  width: 175px;
-  padding: 8px;
-  border-radius: 5px;
-  text-shadow: none;
-  margin-top: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
   cursor: pointer;
-  text-shadow: none;
-  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.pg-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.pg-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-color: color-mix(in srgb, var(--border-color) 80%, transparent);
+}
+
+.pg-button:hover::before {
+  left: 100%;
 }
 
 .proj-gallery {
@@ -652,12 +756,16 @@ nav .right a span {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 20px;
+  gap: 16px;
+  margin: 40px 0;
 }
 
 .proj-gallery i {
-  margin-left: 10px;
-  margin-top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.pg-button:hover i {
+  transform: translateX(2px);
 }
 
 
@@ -734,6 +842,9 @@ nav .right a span {
   .pg-text {
     margin-left: 41vh;
   }
+
+  /* FAB sizing for small screens */
+  .theme-toggle { height: 44px; width: 44px; right: 16px; bottom: 18px; }
 }
 
 @media (max-width: 600px) {
@@ -759,10 +870,12 @@ nav .right a span {
 
   .proj-gallery {
     flex-direction: column;
+    gap: 12px;
   }
 
   .pg-button {
-    margin-top: 10px;
+    width: 100%;
+    max-width: 200px;
   }
 }
 
@@ -788,6 +901,17 @@ nav .right a span {
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -944,4 +1068,60 @@ nav .right a span {
   gap: 10px;
   flex-wrap: wrap;
   /* margin-bottom: 100px; */
+}
+
+.clicker{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: auto;
+}
+
+
+#count{
+  padding: 20px;
+  font-size: 25px;
+}
+
+/* Floating hero clicker inside hero area */
+.hero .hero-clicker {
+  position: absolute;
+  right: 50px;
+  top: 120px;
+  transform: translateY(-50%);
+}
+
+.hero-clicker #clickBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.hero-clicker .clicker-count {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .hero .hero-clicker { right: 24px; top: 100px; }
+}
+
+@media (max-width: 768px) {
+  .hero { position: relative; }
+  .hero .hero-clicker { right: 20px; top: 90px; }
+  .hero-clicker #clickBtn { height: 34px; width: 34px; }
+  .hero-clicker .clicker-count { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .hero .hero-clicker { right: 16px; top: 80px; }
+  .hero-clicker #clickBtn { height: 32px; width: 32px; }
 }
