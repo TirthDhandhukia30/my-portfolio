@@ -73,24 +73,12 @@
             <i class="fa-solid fa-envelope theme-icon"></i>
             <span>Contact</span>
           </a>
-          <a href="TirthDhandhukia.pdf" target="_blank">
+          <a href="portfolio.pdf" target="_blank">
             <i class="fa-solid fa-download theme-icon"></i>
             <span>Resume</span>
           </a>
         
-          <div class="theme-wrapper">
-            <div class="theme-selector" id="themeSelector">
-              <i class="fa-solid fa-palette theme-icon"></i>
-              <span id="selectedTheme">Select Theme</span>
-            </div>
-            <div class="theme-options" id="themeOptions">
-              <div class="theme-option" data-theme="light">Light</div>
-              <div class="theme-option" data-theme="dark">Dark</div>
-              <div class="theme-option"data-theme="midnight">Midnight</div>
-              <div class="theme-option"data-theme="cyberdusk">Cyber</div>
-              
-            </div>
-          </div>
+          
         
       </div>
      
@@ -103,65 +91,66 @@
       
       <h2> My work</h2>
       <div class="group">
-        <a href="https://weatherbytirth.netlify.app" target="_blank">
-        <div class="project-1">
-          
+        <div class="project-1 project-card" >
           <h3><i class="fa-solid fa-cloud theme-icon"></i> Weather App</h3>
-          <div class="projectContent"pan>Simple, minimal weather application
-            Built using HTML, CSS, JavaScript, and Vite.
-            Fetches real-time weather data from the OpenWeatherMap API
-            Displays:
-            Temperature
-            Humidity
-            Wind speed
+          <div class="project-subtitle">Real-time weather dashboard</div>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Vite</span>
           </div>
-          <div class="paper-button-wrapper">
+          <div class="projectContent">A minimal weather dashboard powered by OpenWeatherMap with debounced search, loading/error states, and units toggle. Clean data parsing and resilient network handling.
+          </div>
+          <div class="paper-button-wrapper project-actions">
             <div class="paper-links">
-              
-                <a href="https://weatherbytirth.netlify.app" target="_blank">
-                  <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
-                </a>
+              <a href="https://weatherbytirth.netlify.app" target="_blank">
+                <button class="projectLink"><i class="fa-solid fa-arrow-up-right-from-square theme-icon" style="color: var(--bg-color);"></i></button>
               </a>
             </div>
           </div>
         </div>
-        <a href="https://nikeclonebytirth.netlify.app" target="_blank">
-        <div class="project-2">
-          <h3><i class="fa-solid fa-store theme-icon"></i> Nike Clone </h3> 
-          <div class="projectContent">
-            This is a front-end MVP clone of the Nike website, built using HTML, CSS, and JavaScript. 
-            It includes essential UI components like navigation, product listings, cart functionality, and a static login page, 
-            perfect for showcasing UI skills or kickstarting an e-commerce front-end.
+
+        <div class="project-2 project-card">
+          <h3><i class="fa-solid fa-store theme-icon"></i> Nike Clone </h3>
+          <div class="project-subtitle">Responsive e-commerce UI prototype</div>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
           </div>
-          <div class="paper-button-wrapper">
+          <div class="projectContent">UI prototype of Nike with responsive navigation, product listing grid, micro-interactions, and cart preview UX. Emphasis on layout systems and accessibility.
+          </div>
+          <div class="paper-button-wrapper project-actions">
             <div class="paper-links">
-              
               <a href="https://nikeclonebytirth.netlify.app" target="_blank">
-                <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
+                <button class="projectLink"><i class="fa-solid fa-arrow-up-right-from-square theme-icon"style="color: var(--bg-color);"></i></button>
               </a>
-            </a>
             </div>
           </div>
         </div>
-        <a href="Deep Learning-Based Beamforming Optimization for 5G.pdf" target="_blank">
-        <div class="project-3">
-          <h3><i class="fa-solid fa-microscope theme-icon"></i> Academic Research </h3>
-          <div class="projectContent">
-            Deep Learning-Based Beamforming Optimization for 5G
-            Developed a Feedforward Neural Network (FFNN) model using simulated CSI data from MATLAB’s 5G Toolbox to
-            optimize beam-user mapping. Achieved a 25% increase in spectral efficiency, 2.3 dB SNR gain per user, and
-            reduced misclassification to 7.1%.
+
+        <div class="project-3 project-card">
+          <h3><i class="fa-solid fa-microscope theme-icon"></i> Academic Research</h3>
+          <div class="project-subtitle">Deep learning for 5G beamforming</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">DL</span>
+            <span class="tag">5G</span>
           </div>
-          <div class="paper-button-wrapper">
+          <div class="projectContent">FFNN trained on simulated CSI (MATLAB 5G Toolbox) to optimize beam-user mapping. Achieves +25% spectral efficiency, +2.3 dB SNR/user with 7.1% misclassification.
+          </div>
+          <div class="paper-button-wrapper project-actions">
             <div class="paper-links">
               <a href="Deep Learning-Based Beamforming Optimization for 5G.pdf" target="_blank">
-                <button class="projectLink"><i class="fa-solid fa-desktop"></i></button>
+                <button class="projectLink"><i class="fa-solid fa-arrow-up-right-from-square theme-icon"style="color: var(--bg-color);"></i></button>
               </a>
-            </a>
             </div>
           </div>
         </div>
-        
+      </div>
+     
     </section>
     
     <div class="proj-gallery">
@@ -188,45 +177,45 @@
       <!-- Row 1 -->
       <li class="skill-card">
         <img src="images/HTML5.svg" alt="HTML" />
-        <span>HTML</span>
+        <!-- <span>HTML</span> -->
       </li>
       <li class="skill-card">
         <img src="images/CSS3.svg" alt="CSS" />
-        <span>CSS</span>
+        <!-- <span>CSS</span> -->
       </li>
       <li class="skill-card">
         <img src="images/cpp.svg" alt="cpp" />
-        <span>C++</span>
+        <!-- <span>C++</span> -->
       </li>
       <li class="skill-card">
         <img src="images/JavaScript.svg" alt="JavaScript" />
-        <span>JAVASCRIPT</span>
+        <!-- <span>JAVASCRIPT</span> -->
       </li>
       <li class="skill-card">
         <img src="images/React.svg" alt="React JS" />
-        <span>REACT JS</span>
+        <!-- <span>REACT JS</span> -->
       </li>
 
       <!-- Row 2 -->
       <li class="skill-card">
         <img src="images/Git.svg" alt="GitHub" />
-        <span>GIT</span>
+        <!-- <span>GIT</span> -->
       </li>
       <li class="skill-card">
         <img src="images/Node.js.svg" alt="Node JS" />
-        <span>NODE JS</span>
+        <!-- <span>NODE JS</span> -->
       </li>
       <li class="skill-card">
         <img src="images/Python.svg" alt="Python" />
-        <span>Python</span>
+        <!-- <span>Python</span> -->
       </li>
       <li class="skill-card">
         <img src="images/MongoDB.svg" alt="MongoDB" />
-        <span>MONGODB</span>
+        <!-- <span>MONGODB</span> -->
       </li>
       <li class="skill-card">
         <img src="images/Docker.svg" alt="Docker" />
-        <span>DOCKER</span>
+        <!-- <span>DOCKER</span> -->
       </li>
     </ul>
   </div>
@@ -261,46 +250,24 @@
         <i class="fa-solid fa-arrow-up theme-icon"></i>
       </a>
     </div>
+
+    <div class="clicker hero-clicker">      
+<a id="clickBtn" aria-label="Appreciate"><i class="fa-solid fa-hands-clapping"></i></a>
+<span class="clicker-count" id="count">0</span>
+    </div>
+    
     </section>
-   
-
-
     <div>
-    <!-- <footer>Made with love ~ Tirth Dhandhukia</footer> -->
   </div>
 
 
     
 
   </main>
-
-<script>
-  const themeSelector = document.getElementById("themeSelector");
-  const themeOptions = document.getElementById("themeOptions");
-  const selectedTheme = document.getElementById("selectedTheme");
-
-  // Toggle dropdown visibility
-  themeSelector.addEventListener("click", () => {
-    themeOptions.classList.toggle("show");
-  });
-
-  // Handle theme change
-  themeOptions.addEventListener("click", (e) => {
-    if (e.target.dataset.theme) {
-      const theme = e.target.dataset.theme;
-      document.documentElement.setAttribute("data-theme", theme);
-      selectedTheme.textContent = e.target.textContent;
-      themeOptions.classList.remove("show");
-    }
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!themeSelector.contains(e.target) && !themeOptions.contains(e.target)) {
-      themeOptions.classList.remove("show");
-    }
-  });
-</script>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <i class="fa-solid fa-moon theme-icon"></i>
+  </button>
+<script type="module" src="./script.js"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 
