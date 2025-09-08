@@ -466,7 +466,7 @@ nav .right a span {
   background-color: transparent;
   align-items: center;
   width: 350px;
-  height: 500px;
+  height: 420px;
   padding: 10px 20px;
   border: 1.5px solid var(--border-color);
   border-radius: 5px;
@@ -478,12 +478,12 @@ nav .right a span {
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
-/* Modern project card (shared with projects page) */
+
 .project-card {
   display: flex;
   flex-direction: column;
   width: 340px;
-  min-height: 360px;
+  min-height: 260px;
   padding: 16px;
   margin: 12px;
   border: 1px solid var(--border-color);
@@ -512,7 +512,7 @@ nav .right a span {
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
   border-color: color-mix(in srgb, var(--border-color) 80%, transparent);
 }
 
@@ -536,6 +536,7 @@ nav .right a span {
   flex: 1 1 auto;
   color: var(--hero-text);
   line-height: 1.5;
+  margin-top: 20px;
 }
 
 .project-card .paper-button-wrapper {
