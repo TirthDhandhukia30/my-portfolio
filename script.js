@@ -92,8 +92,8 @@ async function fetchSpotifyData() {
   const spotifyContent = document.getElementById('spotifyContent');
   
   try {
-    // Fetch from Vercel serverless function
-    const response = await fetch('/api/spotify');
+    // Fetch from Vercel serverless function (API hosted separately)
+    const response = await fetch('https://portfolio-88sew2ap2-tirthdhandhukia30s-projects.vercel.app/api/spotify');
     
     if (!response.ok) {
       throw new Error('Failed to fetch Spotify data');
