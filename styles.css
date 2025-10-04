@@ -25,28 +25,6 @@
   color: #F5F5F5;
 }
 
-
-
-
-
-.project-card:hover {
-  border-color: #FFFFFF;
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
-}
-
-.hero-clicker #clickBtn:hover {
-  border-color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
-  background: #FFFFFF;
-  color: #000000;
-}
-
-
-
-
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -172,7 +150,7 @@ nav .right a span {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 24px;
+  padding: 40px 24px 20px;
   min-height: 60vh;
 }
 
@@ -368,40 +346,70 @@ nav .right a span {
   font-weight: 400;
 }
 
+/* CLI Command Section - Minimal */
+.cli-section {
+  padding: 30px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.cli-top {
+  padding: 20px 50px 10px;
+}
 
+.cli-minimal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+}
 
+.cli-minimal:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
 
+.cli-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
 
-/* == tweet  embed == */
-.tweet-container {
+.cli-code {
+  font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+  font-size: 14px;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.cli-copy-mini {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
-/* section 2: skills */
-
-.skillButtons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.cli-copy-mini:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
 }
 
-.skillButtons button {
-  height: 30px;
-  width: 100px;
-  padding: 5px;
-  /* background-color: var(--button-bg); */
-  border-radius: 5px;
-  box-shadow: none;
-  color: var(--hero-text);
-  background-color: transparent;
-  border-color: none;
-
+.cli-copy-mini i {
+  font-size: 14px;
 }
 
 /* Skills Section - Pill-Shaped Layout */
@@ -540,13 +548,33 @@ nav .right a span {
     padding: 100px 32px;
   }
 
-  .projects h2 {
+  .projects-title {
     font-size: 2.25rem;
+    margin-bottom: 3rem;
   }
 
-  .projects .group {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
+  .project-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0;
+    gap: 16px;
+  }
+
+  .project-name {
+    font-size: 1.375rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+  }
+
+  .project-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .project-stack {
+    font-size: 0.8rem;
   }
 
   /* Skills Section */
@@ -579,14 +607,6 @@ nav .right a span {
 
   .contact-title {
     font-size: 2.25rem;
-  }
-
-  /* Buttons */
-  .pg-button {
-    height: 46px;
-    min-width: 170px;
-    padding: 0 24px;
-    font-size: 14px;
   }
 }
 
@@ -627,7 +647,7 @@ nav .right a span {
 
   /* Hero Section */
   .hero {
-    padding: 80px 20px;
+    padding: 60px 20px;
     min-height: 50vh;
   }
 
@@ -675,13 +695,32 @@ nav .right a span {
     max-width: 100%;
   }
 
+  /* CLI Section */
+  .cli-section {
+    padding: 25px 20px;
+  }
+
+  .cli-minimal {
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  .cli-label {
+    font-size: 12px;
+  }
+
+  .cli-code {
+    font-size: 13px;
+    padding: 3px 8px;
+  }
+
   /* Projects Section */
   .projects {
-    padding: 80px 20px;
+    padding: 60px 20px;
   }
 
   .projects h2 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 2rem;
   }
 
@@ -725,13 +764,39 @@ nav .right a span {
     font-size: 14px;
   }
 
+  /* Spotify Section */
+  .spotify-section {
+    padding: 0 10px 10px;
+  }
+
+  .spotify-track {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .spotify-icon {
+    font-size: 16px;
+  }
+
+  .spotify-track-name {
+    font-size: 12px;
+  }
+
+  .spotify-artist {
+    font-size: 10px;
+  }
+
+  .spotify-link-icon {
+    font-size: 11px;
+  }
+
   /* Skills Section */
   .skills-section {
-    padding: 80px 20px;
+    padding: 60px 20px;
   }
 
   .skills-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .skills-subtitle {
@@ -759,12 +824,12 @@ nav .right a span {
 
   /* Contact Section */
   .contact {
-    padding: 80px 20px 60px;
+    padding: 60px 20px 60px;
     gap: 32px;
   }
 
   .contact-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .contact-text {
@@ -775,12 +840,6 @@ nav .right a span {
 
   .contact-text-highlight {
     font-size: 1rem;
-  }
-
-  .contact-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
   }
 
   .contact-button {
@@ -800,9 +859,18 @@ nav .right a span {
 
   /* To Top Button */
   .to-top a {
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
+    padding: 8px 14px;
+    gap: 4px;
+  }
+
+  .to-top-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+
+  .to-top-label {
+    font-size: 9px;
   }
 }
 
@@ -840,7 +908,7 @@ nav .right a span {
 
   /* Hero Section */
   .hero {
-    padding: 60px 16px;
+    padding: 10px 16px;
   }
 
   .terminal-card {
@@ -900,38 +968,60 @@ nav .right a span {
     font-size: 12px;
   }
 
+  /* CLI Section */
+  .cli-section {
+    padding: 20px 16px;
+  }
+
+  .cli-minimal {
+    gap: 8px;
+    padding: 6px 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cli-label {
+    font-size: 11px;
+  }
+
+  .cli-code {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+
+  .cli-copy-mini i {
+    font-size: 12px;
+  }
+
   /* Projects Section */
   .projects {
     padding: 60px 16px;
   }
 
-  .projects h2 {
+  .projects-title {
     font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  .projects .group {
-    gap: 20px;
+  .project-item {
+    padding: 20px 0;
   }
 
-  .project-card {
-    padding: 20px;
-    border-radius: 16px;
+  .project-item:hover {
+    padding-left: 8px;
   }
 
-  .project-card h3 {
+  .project-name {
     font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 6px;
   }
 
-  .project-subtitle {
-    font-size: 0.7rem;
-    margin-bottom: 1rem;
+  .project-desc {
+    font-size: 0.875rem;
   }
 
-  .project-card .projectContent {
-    font-size: 0.85rem;
-    margin-top: 1rem;
+  .project-stack {
+    font-size: 0.75rem;
   }
 
   .project-tags {
@@ -953,7 +1043,7 @@ nav .right a span {
   .proj-gallery {
     flex-direction: column;
     gap: 10px;
-    margin: 24px 0;
+    margin: 30px 0;
   }
 
   .pg-button {
@@ -966,11 +1056,11 @@ nav .right a span {
 
   /* Skills Section */
   .skills-section {
-    padding: 60px 16px;
+    padding: 50px 16px;
   }
 
   .skills-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
@@ -1000,12 +1090,12 @@ nav .right a span {
 
   /* Contact Section */
   .contact {
-    padding: 60px 16px 50px;
+    padding: 50px 16px 50px;
     gap: 28px;
   }
 
   .contact-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .contact-text {
@@ -1042,9 +1132,18 @@ nav .right a span {
   }
 
   .to-top a {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    padding: 10px 16px;
+    gap: 5px;
+  }
+
+  .to-top-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .to-top-label {
+    font-size: 10px;
   }
 
   /* Clicker */
@@ -1099,7 +1198,7 @@ nav .right a span {
   }
 
   .hero {
-    padding: 50px 12px;
+    padding: 40px 12px;
   }
 
   .terminal-card {
@@ -1111,11 +1210,11 @@ nav .right a span {
   }
 
   .projects {
-    padding: 50px 12px;
+    padding: 40px 12px;
   }
 
   .projects h2 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   .project-card {
@@ -1127,12 +1226,16 @@ nav .right a span {
     font-size: 12px;
   }
 
+  .proj-gallery {
+    margin: 25px 0;
+  }
+
   .skills-section {
-    padding: 50px 12px;
+    padding: 40px 12px;
   }
 
   .skills-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   .skill-card {
@@ -1150,15 +1253,15 @@ nav .right a span {
   }
 
   .contact {
-    padding: 50px 12px 40px;
+    padding: 40px 12px 40px;
   }
 
   .contact-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   .contact-quote {
-    margin-top: 28px;
+    margin-top: 25px;
   }
 
   .contact-quote p {
@@ -1167,202 +1270,131 @@ nav .right a span {
 }
 
 
+/* Projects Section - Minimal List Design */
 .projects {
   padding: 120px 24px;
-  background: var(--bg-color);
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.projects .group {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.projects h2 {
+.projects-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 3rem;
+  margin: 0 0 4rem 0;
   letter-spacing: -0.02em;
   color: #FFFFFF;
 }
 
-.project-card {
+.projects-list {
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 32px;
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 600ms ease forwards;
+  gap: 0;
 }
 
-/* Border effect on hover */
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  border: 1px solid #FFFFFF;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-/* Subtle glow effect */
-.project-card::after {
-  content: "";
-  position: absolute;
-  inset: -100px;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(255, 255, 255, 0.05),
-      transparent 50%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-.project-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 25px 50px rgba(255, 255, 255, 0.1),
-    0 10px 20px rgba(255, 255, 255, 0.05);
-  background: #000000;
-}
-
-.project-card:hover::before {
-  opacity: 0.3;
-}
-
-.project-card:hover::after {
-  opacity: 1;
-}
-
-.project-card h3 {
-  font-size: 1.625rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: #FFFFFF;
-  position: relative;
-  z-index: 1;
-  letter-spacing: -0.01em;
-}
-
-.project-subtitle {
-  font-size: 0.875rem;
-  color: var(--text-color);
-  opacity: 0.5;
-  margin-bottom: 1.5rem;
-  font-weight: 400;
-  position: relative;
-  z-index: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.75rem;
-}
-
-.project-card .projectContent {
-  flex: 1 1 auto;
-  color: var(--text-color);
-  line-height: 1.8;
-  margin-top: 1.25rem;
-  opacity: 0.8;
-  font-size: 0.95rem;
-  position: relative;
-  z-index: 1;
-  font-weight: 400;
-}
-
-.project-card .paper-button-wrapper {
-  margin-top: auto;
-  padding-top: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-/* Enhanced tag chips */
-.project-tags {
+/* Individual Project Item */
+.project-item {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.tag {
-  display: inline-flex;
   align-items: center;
-  padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-color);
-  background: rgba(255, 255, 255, 0.05);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  justify-content: space-between;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 24px;
+  cursor: pointer;
   position: relative;
-  overflow: hidden;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.02) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
 }
 
-.tag::before {
-  content: "";
+.project-item::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.1);
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #FFFFFF;
+  border-radius: 50%;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.tag span {
-  position: relative;
-  z-index: 1;
+.project-item:hover {
+  padding-left: 12px;
+  background-position: 0% 0;
 }
 
-.project-card:hover .tag {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
+.project-item:hover::before {
+  opacity: 0.6;
 }
 
-.project-card:hover .tag::before {
+.project-item:hover .project-name {
+  color: #FFFFFF;
+}
+
+.project-item:hover .project-arrow {
   opacity: 1;
+  transform: translate(4px, -4px);
 }
 
-/* Stagger animation */
-.projects .group>.project-card:nth-child(1) {
-  animation-delay: 0ms;
+.project-item:hover .project-stack {
+  opacity: 0.9;
 }
 
-.projects .group>.project-card:nth-child(2) {
-  animation-delay: 150ms;
+/* Project Info (Left Side) */
+.project-info {
+  flex: 1;
+  min-width: 0;
 }
 
-.projects .group>.project-card:nth-child(3) {
-  animation-delay: 300ms;
+.project-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
 }
 
-/* Project actions */
-.project-actions {
-  margin-top: auto;
+.project-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Project Meta (Right Side) */
+.project-meta {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
-.project-actions .paper-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.project-stack {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.project-arrow {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0.5;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .github-logo-projects {
@@ -1389,35 +1421,179 @@ nav .right a span {
   margin: 10px 0;
   height: 250px;
   margin-left: 17px;
-
 }
 
+/* Spotify Section - Ultra Minimal */
+.spotify-section {
+  padding: 0 24px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spotify-card {
+  width: 100%;
+  max-width: 700px;
+  background: transparent;
+  padding: 0;
+}
+
+.spotify-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotify-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spotify-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.spotify-track:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.spotify-icon {
+  font-size: 18px;
+  color: #1DB954;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.spotify-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.spotify-track-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spotify-artist {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spotify-link-icon {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.spotify-track:hover .spotify-link-icon {
+  color: rgba(255, 255, 255, 0.6);
+  transform: translate(2px, -2px);
+}
+
+/* Contact Footer - Back to Top & Clicker */
+.contact-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* Back to Top Button - Minimal & Appealing */
 .to-top {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
 }
 
 .to-top a {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border: 1px solid #FFFFFF;
-  border-radius: 50%;
+  gap: 6px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
   color: #FFFFFF;
-  font-size: 1.25rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .to-top a:hover {
-  background: #FFFFFF;
-  color: #000000;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.to-top-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.to-top a:hover .to-top-icon {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.to-top-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
 .theme-icon {
@@ -1623,82 +1799,7 @@ nav .right a span {
   margin-left: 17px;
 }
 
-.pg-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 48px;
-  min-width: 180px;
-  padding: 0 28px;
-  background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 30px;
-  font-weight: 500;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  letter-spacing: 0.01em;
-}
 
-.pg-button:hover {
-  border-color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-  color: #FFFFFF;
-}
-
-.proj-gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 16px;
-  margin: 40px 0;
-}
-
-.proj-gallery i {
-  transition: transform 0.2s ease;
-}
-
-.pg-button:hover i {
-  transform: translateX(2px);
-}
-
-
-
-.projectLink {
-  padding: 10px 14px;
-  min-width: 48px;
-  font-size: 16px;
-}
-
-.resume {
-  font-size: 20px;
-  font-weight: 600;
-  height: 40px;
-  width: 130px;
-}
-
-.mail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.mail h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--hero-text);
-}
-
-.mail i {
-  margin-right: 8px;
-}
 
 
 
@@ -1897,81 +1998,145 @@ nav .right a span {
   /* margin-bottom: 100px; */
 }
 
+/* Clicker Component - Matching To-Top Style */
 .clicker {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.clicker:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.clicker-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 8px;
-  height: auto;
+  justify-content: center;
 }
-
 
 #count {
-  padding: 20px;
-  font-size: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 20px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Floating hero clicker inside hero area */
-.hero .hero-clicker {
-  position: absolute;
-  right: 50px;
-  top: 120px;
-  transform: translateY(-50%);
-}
-
+/* Clicker button styling */
 .hero-clicker #clickBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
-  width: 38px;
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
-  border: 2px solid var(--border-color);
-  background: var(--bg-color);
-  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.clicker:hover #clickBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-clicker #clickBtn:active {
+  transform: scale(0.95);
 }
 
 .hero-clicker .clicker-count {
   font-weight: 600;
-  color: var(--text-color);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 14px;
 }
 
+.clicker-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
 @media (max-width: 1024px) {
-  .hero .hero-clicker {
-    right: 24px;
-    top: 100px;
+  .contact-footer {
+    gap: 14px;
+    margin-top: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    position: relative;
+  .contact-footer {
+    gap: 12px;
+    margin-top: 28px;
   }
 
-  .hero .hero-clicker {
-    right: 20px;
-    top: 90px;
+  .clicker {
+    padding: 10px 16px;
+    gap: 5px;
+  }
+
+  .clicker-wrapper {
+    gap: 6px;
   }
 
   .hero-clicker #clickBtn {
-    height: 34px;
-    width: 34px;
+    height: 30px;
+    width: 30px;
+    font-size: 14px;
   }
 
-  .hero-clicker .clicker-count {
+  #count {
     font-size: 13px;
+  }
+
+  .clicker-label {
+    font-size: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero .hero-clicker {
-    right: 16px;
-    top: 80px;
+  .contact-footer {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .clicker {
+    padding: 8px 14px;
+    gap: 4px;
+  }
+
+  .clicker-wrapper {
+    gap: 6px;
   }
 
   .hero-clicker #clickBtn {
-    height: 32px;
-    width: 32px;
+    height: 28px;
+    width: 28px;
+    font-size: 13px;
+  }
+
+  #count {
+    font-size: 12px;
+  }
+
+  .clicker-label {
+    font-size: 9px;
   }
 }

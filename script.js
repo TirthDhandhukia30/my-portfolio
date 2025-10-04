@@ -86,3 +86,75 @@ onValue(countRef, (snapshot) => {
 btn.addEventListener("click", () => {
   runTransaction(countRef, (current) => (current || 0) + 1);
 });
+
+// Spotify API Integration
+async function fetchSpotifyData() {
+  const spotifyContent = document.getElementById('spotifyContent');
+  
+  try {
+    // Fetch from Vercel serverless function
+    const response = await fetch('/api/spotify');
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch Spotify data');
+    }
+    
+    const data = await response.json();
+    
+    if (data.isPlaying) {
+      // Currently playing
+      displaySpotifyTrack({
+        title: data.title,
+        artist: data.artist,
+        songUrl: data.songUrl,
+      }, true);
+    } else if (data.recentTrack) {
+      // Recently played
+      displaySpotifyTrack({
+        title: data.recentTrack.title,
+        artist: data.recentTrack.artist,
+        songUrl: data.recentTrack.songUrl,
+      }, false);
+    } else {
+      showSpotifyPlaceholder();
+    }
+  } catch (error) {
+    console.error('Spotify fetch error:', error);
+    showSpotifyPlaceholder();
+  }
+}
+
+function displaySpotifyTrack(track, isPlaying) {
+  const spotifyContent = document.getElementById('spotifyContent');
+  
+  spotifyContent.innerHTML = `
+    <a href="${track.songUrl}" target="_blank" rel="noopener noreferrer" class="spotify-track">
+      <i class="fa-brands fa-spotify spotify-icon"></i>
+      <div class="spotify-info">
+        <div class="spotify-track-name">${track.title}</div>
+        <div class="spotify-artist">${track.artist}</div>
+      </div>
+      <i class="fa-solid fa-arrow-up-right spotify-link-icon"></i>
+    </a>
+  `;
+}
+
+function showSpotifyPlaceholder() {
+  const spotifyContent = document.getElementById('spotifyContent');
+  
+  spotifyContent.innerHTML = `
+    <div class="spotify-track" style="cursor: default;">
+      <i class="fa-brands fa-spotify spotify-icon"></i>
+      <div class="spotify-info">
+        <div class="spotify-track-name">Not playing right now</div>
+        <div class="spotify-artist">Check back later</div>
+      </div>
+    </div>
+  `;
+}
+
+// Load Spotify data on page load
+fetchSpotifyData();
+
+// Optional: Refresh every 30 seconds to update current playing status
+setInterval(fetchSpotifyData, 30000);

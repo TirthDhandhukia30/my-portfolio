@@ -1,0 +1,22 @@
+# Vercel
+.vercel
+
+# Environment variables (local testing only)
+.env
+.env.local
+.env*.local
+
+# Node modules
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.log
+*.tmp
