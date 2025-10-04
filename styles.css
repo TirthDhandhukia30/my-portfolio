@@ -638,15 +638,52 @@ nav .right a span {
   align-items: center;
   gap: 12px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
   border-radius: 8px;
   padding: 10px 16px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  background-clip: padding-box;
 }
 
-.cli-minimal::before,
+/* Animated border using pseudo-element */
+.cli-minimal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1));
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: borderSweep 5s linear infinite;
+}
+
+@keyframes borderSweep {
+  0% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 300% 0;
+  }
+}
+
+/* Shooting star effect */
 .cli-minimal::after {
   content: '';
   position: absolute;
@@ -656,18 +693,10 @@ nav .right a span {
   border-radius: 50%;
   box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.2);
   pointer-events: none;
-}
-
-.cli-minimal::before {
-  top: 20%;
+  top: 50%;
   left: -30px;
   animation: shootingStar1 10s ease-in-out infinite;
-}
-
-.cli-minimal::after {
-  top: 70%;
-  left: -30px;
-  animation: shootingStar2 15s ease-in-out infinite 6s;
+  z-index: 1;
 }
 
 @keyframes shootingStar1 {
@@ -690,29 +719,16 @@ nav .right a span {
   }
 }
 
-@keyframes shootingStar2 {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 0;
-  }
-
-  100% {
-    transform: translate(220px, -80px);
-    opacity: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
+  .cli-minimal::before {
+    animation: none;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1));
+    background-size: 100% 100%;
+  }
 
-  .cli-minimal::before,
   .cli-minimal::after {
     animation: none;
     opacity: 0;
@@ -728,6 +744,8 @@ nav .right a span {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.6);
   font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
 .cli-code {
@@ -738,6 +756,8 @@ nav .right a span {
   padding: 4px 10px;
   border-radius: 4px;
   letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
 }
 
 .cli-copy-mini {
@@ -751,6 +771,8 @@ nav .right a span {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .cli-copy-mini:hover {
@@ -2203,7 +2225,7 @@ nav .right a span {
   padding: 12px 24px;
   background: #000000;
   color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  border: 1px solid transparent;
   border-radius: 8px;
   font-size: 15px;
   font-weight: 500;
@@ -2211,15 +2233,46 @@ nav .right a span {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  background-clip: padding-box;
 }
 
+/* Animated border - same as CLI button */
 .contact-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1));
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: borderSweep 5s linear infinite;
+  z-index: 0;
+}
+
+/* Hover background effect */
+.contact-button::after {
   content: "";
   position: absolute;
   inset: 0;
   background: #FFFFFF;
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 8px;
+  z-index: 0;
 }
 
 .contact-button i {
@@ -2234,13 +2287,12 @@ nav .right a span {
 }
 
 .contact-button:hover {
-  background: #FFFFFF;
   color: #000000;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
-.contact-button:hover::before {
+.contact-button:hover::after {
   opacity: 1;
 }
 
