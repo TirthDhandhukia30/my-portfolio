@@ -89,44 +89,52 @@ btn.addEventListener("click", () => {
 
 // Spotify API Integration
 async function fetchSpotifyData() {
-  const spotifyContent = document.getElementById('spotifyContent');
-  
+  const spotifyContent = document.getElementById("spotifyContent");
+
   try {
     // Fetch from Vercel serverless function (API hosted separately)
-    const response = await fetch('https://portfolio-88sew2ap2-tirthdhandhukia30s-projects.vercel.app/api/spotify');
-    
+    const response = await fetch(
+      "https://portfolio-88sew2ap2-tirthdhandhukia30s-projects.vercel.app/api/spotify"
+    );
+
     if (!response.ok) {
-      throw new Error('Failed to fetch Spotify data');
+      throw new Error("Failed to fetch Spotify data");
     }
-    
+
     const data = await response.json();
-    
+
     if (data.isPlaying) {
       // Currently playing
-      displaySpotifyTrack({
-        title: data.title,
-        artist: data.artist,
-        songUrl: data.songUrl,
-      }, true);
+      displaySpotifyTrack(
+        {
+          title: data.title,
+          artist: data.artist,
+          songUrl: data.songUrl,
+        },
+        true
+      );
     } else if (data.recentTrack) {
       // Recently played
-      displaySpotifyTrack({
-        title: data.recentTrack.title,
-        artist: data.recentTrack.artist,
-        songUrl: data.recentTrack.songUrl,
-      }, false);
+      displaySpotifyTrack(
+        {
+          title: data.recentTrack.title,
+          artist: data.recentTrack.artist,
+          songUrl: data.recentTrack.songUrl,
+        },
+        false
+      );
     } else {
       showSpotifyPlaceholder();
     }
   } catch (error) {
-    console.error('Spotify fetch error:', error);
+    console.error("Spotify fetch error:", error);
     showSpotifyPlaceholder();
   }
 }
 
 function displaySpotifyTrack(track, isPlaying) {
-  const spotifyContent = document.getElementById('spotifyContent');
-  
+  const spotifyContent = document.getElementById("spotifyContent");
+
   spotifyContent.innerHTML = `
     <a href="${track.songUrl}" target="_blank" rel="noopener noreferrer" class="spotify-track">
       <i class="fa-brands fa-spotify spotify-icon"></i>
@@ -140,8 +148,8 @@ function displaySpotifyTrack(track, isPlaying) {
 }
 
 function showSpotifyPlaceholder() {
-  const spotifyContent = document.getElementById('spotifyContent');
-  
+  const spotifyContent = document.getElementById("spotifyContent");
+
   spotifyContent.innerHTML = `
     <div class="spotify-track" style="cursor: default;">
       <i class="fa-brands fa-spotify spotify-icon"></i>
