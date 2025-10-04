@@ -150,8 +150,8 @@ nav .right a span {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 24px 20px;
-  min-height: 60vh;
+  padding: 40px;
+  min-height: 70vh;
 }
 
 /* Terminal Card Container */
@@ -1100,9 +1100,21 @@ nav .right a span {
     font-size: 0.9rem;
   }
 
+  /* Contact Footer - Mobile Alignment */
+  .contact-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 0 16px;
+    width: 100%;
+  }
+
   /* To Top Button */
   .to-top {
-    margin-top: 32px;
+    margin-top: 0;
   }
 
   .to-top a {
@@ -1240,6 +1252,51 @@ nav .right a span {
 
   .contact-quote p {
     font-size: 0.85rem;
+  }
+
+  /* Contact Footer - Extra Small Mobile */
+  .contact-footer {
+    gap: 8px;
+    margin-top: 24px;
+    padding: 0 12px;
+  }
+
+  .to-top a {
+    padding: 8px 14px;
+    gap: 4px;
+  }
+
+  .to-top-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+
+  .to-top-label {
+    font-size: 9px;
+  }
+
+  .clicker {
+    padding: 8px 14px;
+    gap: 4px;
+  }
+
+  .clicker-wrapper {
+    gap: 5px;
+  }
+
+  .hero-clicker #clickBtn {
+    height: 28px;
+    width: 28px;
+    font-size: 13px;
+  }
+
+  #count {
+    font-size: 12px;
+  }
+
+  .clicker-label {
+    font-size: 9px;
   }
 }
 
@@ -1952,6 +2009,15 @@ nav .right a span {
   .contact-footer {
     gap: 12px;
     margin-top: 28px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .to-top,
+  .clicker {
+    flex: 0 0 auto;
   }
 
   .clicker {
