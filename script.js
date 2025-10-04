@@ -90,29 +90,32 @@ btn.addEventListener("click", () => {
 // GitHub Activity Integration
 async function fetchGitHubActivity() {
   const githubContent = document.getElementById("githubActivity");
-  
+
   try {
-    const response = await fetch('https://api.github.com/users/TirthDhandhukia30/events/public');
-    
+    const response = await fetch(
+      "https://api.github.com/users/TirthDhandhukia30/events/public"
+    );
+
     if (!response.ok) {
-      throw new Error('Failed to fetch GitHub activity');
+      throw new Error("Failed to fetch GitHub activity");
     }
-    
+
     const events = await response.json();
-    
+
     // Find the most recent push event
-    const pushEvent = events.find(event => event.type === 'PushEvent');
-    
+    const pushEvent = events.find((event) => event.type === "PushEvent");
+
     if (pushEvent) {
       const repoName = pushEvent.repo.name;
       const timeAgo = getTimeAgo(new Date(pushEvent.created_at));
-      const commitMessage = pushEvent.payload.commits?.[0]?.message || 'Recent commit';
+      const commitMessage =
+        pushEvent.payload.commits?.[0]?.message || "Recent commit";
       const repoUrl = `https://github.com/${repoName}`;
-      
+
       displayGitHubActivity({
-        action: `Pushed to ${repoName.split('/')[1]}`,
+        action: `Pushed to ${repoName.split("/")[1]}`,
         time: timeAgo,
-        url: repoUrl
+        url: repoUrl,
       });
     } else {
       // Try other event types
@@ -122,59 +125,59 @@ async function fetchGitHubActivity() {
         const timeAgo = getTimeAgo(new Date(recentEvent.created_at));
         const action = getEventAction(recentEvent.type);
         const repoUrl = `https://github.com/${repoName}`;
-        
+
         displayGitHubActivity({
-          action: `${action} ${repoName.split('/')[1]}`,
+          action: `${action} ${repoName.split("/")[1]}`,
           time: timeAgo,
-          url: repoUrl
+          url: repoUrl,
         });
       } else {
         showGitHubPlaceholder();
       }
     }
   } catch (error) {
-    console.error('GitHub API error:', error);
+    console.error("GitHub API error:", error);
     showGitHubPlaceholder();
   }
 }
 
 function getEventAction(eventType) {
   const actions = {
-    'PushEvent': 'Pushed to',
-    'CreateEvent': 'Created',
-    'PullRequestEvent': 'Pull request on',
-    'IssuesEvent': 'Issue on',
-    'WatchEvent': 'Starred',
-    'ForkEvent': 'Forked'
+    PushEvent: "Pushed to",
+    CreateEvent: "Created",
+    PullRequestEvent: "Pull request on",
+    IssuesEvent: "Issue on",
+    WatchEvent: "Starred",
+    ForkEvent: "Forked",
   };
-  return actions[eventType] || 'Activity on';
+  return actions[eventType] || "Activity on";
 }
 
 function getTimeAgo(date) {
   const seconds = Math.floor((new Date() - date) / 1000);
-  
+
   const intervals = {
     year: 31536000,
     month: 2592000,
     week: 604800,
     day: 86400,
     hour: 3600,
-    minute: 60
+    minute: 60,
   };
-  
+
   for (const [unit, secondsInUnit] of Object.entries(intervals)) {
     const interval = Math.floor(seconds / secondsInUnit);
     if (interval >= 1) {
-      return `${interval} ${unit}${interval === 1 ? '' : 's'} ago`;
+      return `${interval} ${unit}${interval === 1 ? "" : "s"} ago`;
     }
   }
-  
-  return 'just now';
+
+  return "just now";
 }
 
 function displayGitHubActivity(activity) {
   const githubContent = document.getElementById("githubActivity");
-  
+
   githubContent.innerHTML = `
     <a href="${activity.url}" target="_blank" rel="noopener noreferrer" class="github-activity">
       <i class="fa-brands fa-github github-icon"></i>
@@ -189,7 +192,7 @@ function displayGitHubActivity(activity) {
 
 function showGitHubPlaceholder() {
   const githubContent = document.getElementById("githubActivity");
-  
+
   githubContent.innerHTML = `
     <div class="github-activity" style="cursor: default;">
       <i class="fa-brands fa-github github-icon"></i>
@@ -206,3 +209,121 @@ fetchGitHubActivity();
 
 // Refresh every 5 minutes
 setInterval(fetchGitHubActivity, 300000);
+
+// Typewriter Animation
+const typewriterElement = document.getElementById("typewriter");
+const roles = ["DSA Enthusiast", "Web Developer", "AI Explorer"];
+
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100; // milliseconds per character
+
+function typeWriter() {
+  const currentRole = roles[roleIndex];
+
+  if (isDeleting) {
+    // Remove characters
+    typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+    typingSpeed = 50; // Faster deletion
+  } else {
+    // Add characters
+    typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+    charIndex++;
+    typingSpeed = 100; // Normal typing speed
+  }
+
+  // Check if word is complete
+  if (!isDeleting && charIndex === currentRole.length) {
+    // Pause at end of word
+    typingSpeed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    // Move to next role
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    typingSpeed = 500; // Pause before starting new word
+  }
+
+  setTimeout(typeWriter, typingSpeed);
+}
+
+// Start the typewriter animation when page loads
+document.addEventListener("DOMContentLoaded", typeWriter);
+
+// BTC Price Fetcher
+async function fetchBTCPrice() {
+  const btcValueElement = document.querySelector(".btc-value");
+
+  try {
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch BTC price");
+    }
+
+    const data = await response.json();
+    const price = data.bitcoin.usd;
+
+    // Format price with commas
+    const formattedPrice = price.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+
+    btcValueElement.textContent = formattedPrice;
+  } catch (error) {
+    console.error("BTC price fetch error:", error);
+    btcValueElement.textContent = "Unavailable";
+  }
+}
+
+// Fetch BTC price on load
+fetchBTCPrice();
+
+// Update every 60 seconds
+setInterval(fetchBTCPrice, 60000);
+
+// Spotify via Firebase - Real-time Updates
+const spotifyRef = ref(db, "spotify");
+
+// Wait for DOM to be ready
+function initSpotify() {
+  const spotifyActivity = document.getElementById("spotifyActivity");
+  const spotifySong = document.getElementById("spotifySong");
+  const spotifyArtist = document.getElementById("spotifyArtist");
+
+  if (!spotifyActivity || !spotifySong || !spotifyArtist) {
+    console.error("Spotify elements not found!");
+    return;
+  }
+
+  onValue(spotifyRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log("Spotify data from Firebase:", data);
+
+    if (data && data.isPlaying && data.song) {
+      // Show what's playing
+      spotifySong.textContent = data.song;
+      spotifyArtist.textContent = data.artist;
+      spotifyActivity.style.display = "inline-flex";
+      console.log("✅ Showing Spotify pill:", data.song, "-", data.artist);
+    } else {
+      // Hide the pill when not playing
+      spotifyActivity.style.display = "none";
+      console.log("⏸️ Hiding Spotify pill");
+    }
+  });
+}
+
+// Initialize Spotify after DOM is loaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSpotify);
+} else {
+  initSpotify();
+}

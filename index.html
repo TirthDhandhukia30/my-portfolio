@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Tirth Dhandhukia</title>
-    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="icon" href="images/pfp.jpg" type="image/jpeg" />
     <link rel="stylesheet" href="styles.css" />
     <meta
       name="viewport"
@@ -86,7 +86,7 @@
           <div class="corner-highlight corner-bl"></div>
           <div class="corner-highlight corner-br"></div>
 
-          <!-- Top Bar with Clock and Icons -->
+          <!-- Top Bar with BTC Price and Icons -->
           <div class="terminal-header">
             <div class="terminal-icons">
               <a
@@ -106,7 +106,10 @@
                 <i class="fa-brands fa-x-twitter"></i>
               </a>
             </div>
-            <div class="terminal-clock" id="terminalClock">17:14:14</div>
+            <div class="btc-price" id="btcPrice">
+              <i class="fa-brands fa-bitcoin btc-icon"></i>
+              <span class="btc-value">Loading...</span>
+            </div>
           </div>
 
           <!-- Main Content Area -->
@@ -129,7 +132,10 @@
                   Available
                 </span>
               </div>
-              <p class="profile-title">Software Engineer</p>
+              <p class="profile-title">
+                <span id="typewriter"></span>
+                <span class="cursor">|</span>
+              </p>
               <div class="profile-email">
                 <i class="fa-solid fa-envelope"></i>
                 <span>tirth30.info@gmail.com</span>
@@ -147,9 +153,23 @@
 
       <!-- GitHub Activity - Between Hero and Projects -->
       <section class="github-activity-section">
-        <div id="githubActivity">
-          <div class="github-loading">
-            <div class="loading-spinner"></div>
+        <div class="activity-pills-container">
+          <div id="githubActivity">
+            <div class="github-loading">
+              <div class="loading-spinner"></div>
+            </div>
+          </div>
+          <div
+            class="spotify-activity"
+            id="spotifyActivity"
+            style="display: none"
+          >
+            <i class="fa-brands fa-spotify spotify-activity-icon"></i>
+            <div class="spotify-info">
+              <p class="spotify-song" id="spotifySong">Song Name</p>
+              <p class="spotify-artist" id="spotifyArtist">Artist Name</p>
+            </div>
+            <i class="fa-solid fa-arrow-up-right spotify-link-icon"></i>
           </div>
         </div>
       </section>
