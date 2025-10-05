@@ -327,3 +327,105 @@ if (document.readyState === "loading") {
 } else {
   initSpotify();
 }
+
+// Custom Audio Player - Ultra Minimal
+document.addEventListener("DOMContentLoaded", function () {
+  const spotifyPill = document.getElementById("spotifyPill");
+  const spotifyPopup = document.getElementById("spotifyPopup");
+  const closeSpotify = document.getElementById("closeSpotify");
+  const audioPlayer = document.getElementById("audioPlayer");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+
+  let isPlaying = false;
+
+  // Set initial volume
+  if (audioPlayer) {
+    audioPlayer.volume = 0.7;
+
+    // When song ends
+    audioPlayer.addEventListener("ended", function () {
+      isPlaying = false;
+      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      audioPlayer.currentTime = 0;
+    });
+  }
+
+  // Play/Pause button
+  if (playPauseBtn && audioPlayer) {
+    playPauseBtn.addEventListener("click", function () {
+      if (isPlaying) {
+        audioPlayer.pause();
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      } else {
+        audioPlayer.play();
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      }
+      isPlaying = !isPlaying;
+    });
+  }
+
+  // Popup controls with auto-play
+  if (spotifyPill && spotifyPopup && closeSpotify) {
+    // Open popup and auto-play when pill is clicked
+    spotifyPill.addEventListener("click", function () {
+      spotifyPopup.classList.add("active");
+      document.body.style.overflow = "hidden";
+
+      // Auto-play the song
+      if (audioPlayer) {
+        audioPlayer
+          .play()
+          .then(() => {
+            isPlaying = true;
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+          })
+          .catch((error) => {
+            console.log("Auto-play prevented:", error);
+          });
+      }
+    });
+
+    // Close popup and pause audio
+    function closePopup() {
+      spotifyPopup.classList.remove("active");
+      document.body.style.overflow = "";
+      if (audioPlayer && isPlaying) {
+        audioPlayer.pause();
+        isPlaying = false;
+        playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      }
+    }
+
+    closeSpotify.addEventListener("click", closePopup);
+
+    // Close popup when clicking outside
+    spotifyPopup.addEventListener("click", function (e) {
+      if (e.target === spotifyPopup) {
+        closePopup();
+      }
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener("keydown", function (e) {
+      // Close popup with Escape key
+      if (e.key === "Escape" && spotifyPopup.classList.contains("active")) {
+        closePopup();
+      }
+
+      // Play/Pause with Spacebar (only when popup is open)
+      if (e.code === "Space" && spotifyPopup.classList.contains("active")) {
+        e.preventDefault(); // Prevent page scroll
+        if (audioPlayer && playPauseBtn) {
+          if (isPlaying) {
+            audioPlayer.pause();
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+          } else {
+            audioPlayer.play();
+            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+          }
+          isPlaying = !isPlaying;
+        }
+      }
+    });
+  }
+});

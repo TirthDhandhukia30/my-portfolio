@@ -154,22 +154,68 @@
       <!-- GitHub Activity - Between Hero and Projects -->
       <section class="github-activity-section">
         <div class="activity-pills-container">
-          <div id="githubActivity">
-            <div class="github-loading">
-              <div class="loading-spinner"></div>
+          <div class="building-activity">
+            <i class="fa-brands fa-github"></i>
+            <div class="building-info">
+              <p class="building-label">Currently Building</p>
+              <p class="building-project">TrainerHub</p>
             </div>
           </div>
-          <div
-            class="spotify-activity"
-            id="spotifyActivity"
-            style="display: none"
-          >
+          <div class="spotify-activity" id="spotifyPill">
             <i class="fa-brands fa-spotify spotify-activity-icon"></i>
             <div class="spotify-info">
-              <p class="spotify-song" id="spotifySong">Song Name</p>
-              <p class="spotify-artist" id="spotifyArtist">Artist Name</p>
+              <p class="spotify-song">Gyalchester</p>
+              <p class="spotify-artist">Drake</p>
             </div>
-            <i class="fa-solid fa-arrow-up-right spotify-link-icon"></i>
+            <i class="fa-solid fa-play spotify-play-icon"></i>
+          </div>
+        </div>
+
+        <!-- Spotify Player Popup -->
+        <div class="spotify-player-popup" id="spotifyPopup">
+          <div class="spotify-player-container">
+            <!-- Custom Audio Player -->
+            <div class="custom-audio-player">
+              <audio id="audioPlayer" preload="metadata">
+                <source src="audio/song.mp3" type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+
+              <!-- Close Button -->
+              <button class="player-close-btn" id="closeSpotify">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+
+              <!-- Song Header -->
+              <div class="player-header">
+                <div class="song-meta">
+                  <h3 class="player-song-title">Gyalchester</h3>
+                  <p class="player-artist-name">Drake</p>
+                </div>
+              </div>
+
+              <!-- Album Art -->
+              <div class="album-art-section">
+                <img
+                  src="images/gyalchester.jpeg"
+                  alt="More Life Album Cover"
+                  class="album-cover"
+                />
+              </div>
+
+              <!-- Controls -->
+              <div class="player-controls-section">
+                <button class="control-button play-btn" id="playPauseBtn">
+                  <i class="fa-solid fa-pause"></i>
+                </button>
+              </div>
+
+              <!-- Keyboard Hint -->
+              <div class="keyboard-hint">
+                <span class="hint-key">SPACE</span>
+                <span class="hint-text">to play/pause</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

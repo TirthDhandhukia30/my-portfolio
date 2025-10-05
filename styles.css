@@ -809,7 +809,7 @@ nav .right a span {
 
 .skills-subtitle {
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #FFFFFF;
   opacity: 0.6;
@@ -862,7 +862,7 @@ nav .right a span {
 }
 
 .skill-card span {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: #FFFFFF;
   letter-spacing: 0.01em;
@@ -1448,16 +1448,32 @@ nav .right a span {
 
   /* Projects Section */
   .projects {
-    padding: 60px 16px;
+    padding: 80px 16px;
+  }
+
+  .accomplishments-pills {
+    gap: 12px;
+    margin: 0 auto 40px;
+    padding: 0 16px;
+  }
+
+  .accomplishment-pill {
+    font-size: 12px;
+    padding: 8px 16px;
+    gap: 8px;
+  }
+
+  .accomplishment-pill i {
+    font-size: 14px;
   }
 
   .projects-title {
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 3rem;
   }
 
   .project-item {
-    padding: 20px 0;
+    padding: 24px 0;
   }
 
   .project-item:hover {
@@ -1470,11 +1486,11 @@ nav .right a span {
   }
 
   .project-desc {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
 
   .project-stack {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 
   .project-tags {
@@ -1509,55 +1525,55 @@ nav .right a span {
 
   /* Skills Section */
   .skills-section {
-    padding: 50px 16px;
+    padding: 80px 16px;
   }
 
   .skills-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
   }
 
   .skills-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
+    font-size: 0.9375rem;
+    margin-bottom: 2.5rem;
   }
 
   .skills-grid {
-    gap: 10px;
+    gap: 12px;
   }
 
   .skill-card {
-    padding: 8px 14px;
-    gap: 8px;
+    padding: 10px 16px;
+    gap: 10px;
     border-radius: 8px;
   }
 
   .skill-card img {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 
   .skill-card span {
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
   }
 
   /* Contact Section */
   .contact {
-    padding: 50px 16px 50px;
+    padding: 80px 16px 50px;
     gap: 28px;
   }
 
   .contact-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .contact-text {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
     margin-bottom: 1rem;
   }
 
   .contact-text-highlight {
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-top: 1.5rem;
   }
 
@@ -1576,7 +1592,7 @@ nav .right a span {
   }
 
   .contact-quote p {
-    font-size: 0.9rem;
+    font-size: 0.9375rem;
   }
 
   /* Contact Footer - Mobile Alignment */
@@ -1675,11 +1691,48 @@ nav .right a span {
   }
 
   .projects {
-    padding: 40px 12px;
+    padding: 60px 12px;
+  }
+
+  .accomplishments-pills {
+    gap: 10px;
+    margin: 0 auto 36px;
+    padding: 0 12px;
+  }
+
+  .accomplishment-pill {
+    font-size: 11px;
+    padding: 7px 14px;
+    gap: 7px;
+  }
+
+  .accomplishment-pill i {
+    font-size: 12px;
+  }
+
+  .projects-title {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
   }
 
   .projects h2 {
-    font-size: 1.35rem;
+    font-size: 1.75rem;
+  }
+
+  .project-item {
+    padding: 18px 0;
+  }
+
+  .project-name {
+    font-size: 1.125rem;
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+  }
+
+  .project-stack {
+    font-size: 0.75rem;
   }
 
   .project-card {
@@ -1696,21 +1749,25 @@ nav .right a span {
   }
 
   .skills-section {
-    padding: 40px 12px;
+    padding: 60px 12px;
   }
 
   .skills-title {
-    font-size: 1.35rem;
+    font-size: 1.75rem;
+  }
+
+  .skills-subtitle {
+    font-size: 0.875rem;
   }
 
   .skill-card {
-    padding: 7px 12px;
-    gap: 7px;
+    padding: 8px 14px;
+    gap: 8px;
   }
 
   .skill-card img {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
 
   .skill-card span {
@@ -1718,11 +1775,15 @@ nav .right a span {
   }
 
   .contact {
-    padding: 40px 12px 40px;
+    padding: 60px 12px 40px;
   }
 
   .contact-title {
-    font-size: 1.35rem;
+    font-size: 1.75rem;
+  }
+
+  .contact-text {
+    font-size: 0.875rem;
   }
 
   .contact-quote {
@@ -1730,7 +1791,7 @@ nav .right a span {
   }
 
   .contact-quote p {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 
   /* Contact Footer - Extra Small Mobile */
@@ -1785,6 +1846,49 @@ nav .right a span {
   padding: 120px 24px;
   background: #000000;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Accomplishments Pills */
+.accomplishments-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 48px;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+.accomplishment-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.accomplishment-pill:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+.accomplishment-pill i {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.accomplishment-pill span {
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 .projects-title {
@@ -1877,7 +1981,7 @@ nav .right a span {
 }
 
 .project-desc {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   line-height: 1.6;
@@ -1893,7 +1997,7 @@ nav .right a span {
 }
 
 .project-stack {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 400;
   white-space: nowrap;
@@ -1964,6 +2068,51 @@ nav .right a span {
   justify-content: center;
 }
 
+/* Building Activity Pill */
+.building-activity {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+
+.building-activity:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.building-activity i {
+  font-size: 16px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.building-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.building-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.building-project {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
 .github-activity {
   display: inline-flex;
   align-items: center;
@@ -1994,13 +2143,14 @@ nav .right a span {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   color: inherit;
-  cursor: default;
+  cursor: pointer;
   max-width: 280px;
 }
 
 .spotify-activity:hover {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .spotify-activity-icon {
@@ -2037,16 +2187,251 @@ nav .right a span {
   white-space: nowrap;
 }
 
-.spotify-link-icon {
+.spotify-play-icon {
   flex-shrink: 0;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
 
-.spotify-activity:hover .spotify-link-icon {
+.spotify-activity:hover .spotify-play-icon {
+  color: #1DB954;
+  transform: scale(1.2);
+}
+
+/* Spotify Player Popup */
+.spotify-player-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+.spotify-player-popup.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.spotify-player-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Custom Audio Player - iOS Style */
+.custom-audio-player {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px;
+  width: 360px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+}
+
+.player-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.player-close-btn:active {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.song-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-song-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 0 0 3px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
+}
+
+.player-artist-name {
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.5);
-  transform: translate(2px, -2px);
+  margin: 0;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.album-art-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.album-cover {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.album-placeholder {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 52px;
+}
+
+.player-controls-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.control-button {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #000000;
+  font-size: 20px;
+  transition: all 0.2s ease;
+}
+
+.control-button:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.keyboard-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+}
+
+.hint-key {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  font-family: 'Courier New', monospace;
+}
+
+.hint-text {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+}
+
+/* Responsive Audio Player */
+@media (max-width: 480px) {
+  .custom-audio-player {
+    width: 320px;
+    max-width: 90vw;
+    padding: 20px;
+  }
+
+  .album-cover,
+  .album-placeholder {
+    width: 160px;
+    height: 160px;
+    font-size: 42px;
+  }
+
+  .control-button {
+    width: 52px;
+    height: 52px;
+    font-size: 19px;
+  }
+
+  .hint-key {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .hint-text {
+    font-size: 10px;
+  }
 }
 
 .github-icon {
