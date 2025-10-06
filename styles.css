@@ -2335,19 +2335,6 @@ nav .right a span {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.album-placeholder {
-  width: 200px;
-  height: 200px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.15);
-  font-size: 52px;
-}
-
 .player-controls-section {
   display: flex;
   justify-content: center;
@@ -2411,11 +2398,9 @@ nav .right a span {
     padding: 20px;
   }
 
-  .album-cover,
-  .album-placeholder {
+  .album-cover {
     width: 160px;
     height: 160px;
-    font-size: 42px;
   }
 
   .control-button {
