@@ -868,6 +868,21 @@ nav .right a span {
   letter-spacing: 0.01em;
 }
 
+/* Supabase Skill Card with Green Accent */
+.skill-card-supabase {
+  border-color: rgba(62, 207, 142, 0.3);
+  background: rgba(62, 207, 142, 0.05);
+}
+
+.skill-card-supabase:hover {
+  border-color: rgba(62, 207, 142, 0.5);
+  background: rgba(62, 207, 142, 0.1);
+}
+
+.skill-card-supabase span {
+  color: #3ECF8E;
+}
+
 /* ========== TABLET RESPONSIVE (1024px and below) ========== */
 @media (max-width: 1024px) {
 
@@ -930,28 +945,31 @@ nav .right a span {
     margin-bottom: 3rem;
   }
 
-  .project-item {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 0;
-    gap: 16px;
+  .projects-list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .project-card {
+    border-radius: 14px;
+  }
+
+  .project-content {
+    padding: 20px;
+    gap: 10px;
   }
 
   .project-name {
-    font-size: 1.375rem;
+    font-size: 1.15rem;
   }
 
   .project-desc {
-    font-size: 0.9rem;
+    font-size: 0.8125rem;
   }
 
-  .project-meta {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .project-stack {
-    font-size: 0.8rem;
+  .project-tag {
+    font-size: 0.6875rem;
+    padding: 4px 10px;
   }
 
   /* Skills Section */
@@ -1176,49 +1194,36 @@ nav .right a span {
     padding: 60px 20px;
   }
 
-  .projects h2 {
+  .projects-title {
     font-size: 1.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
-  .projects .group {
+  .projects-list {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
   .project-card {
-    padding: 24px;
+    border-radius: 14px;
   }
 
-  .project-card h3 {
-    font-size: 1.4rem;
+  .project-content {
+    padding: 18px;
+    gap: 10px;
   }
 
-  .project-card .projectContent {
-    font-size: 0.9rem;
-    line-height: 1.7;
+  .project-name {
+    font-size: 1.1rem;
   }
 
-  .project-tags {
-    gap: 8px;
+  .project-desc {
+    font-size: 0.8125rem;
   }
 
-  .tag {
-    padding: 6px 12px;
-    font-size: 0.7rem;
-  }
-
-  /* Project Gallery Buttons */
-  .proj-gallery {
-    gap: 12px;
-    margin: 32px 0;
-  }
-
-  .pg-button {
-    height: 44px;
-    min-width: 160px;
-    padding: 0 20px;
-    font-size: 14px;
+  .project-tag {
+    font-size: 0.6875rem;
+    padding: 4px 9px;
   }
 
   /* Skills Section */
@@ -1469,58 +1474,42 @@ nav .right a span {
 
   .projects-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
-  .project-item {
-    padding: 24px 0;
+  .projects-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .project-item:hover {
-    padding-left: 8px;
+  .project-card {
+    border-radius: 12px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .project-content {
+    padding: 16px;
+    gap: 8px;
   }
 
   .project-name {
-    font-size: 1.25rem;
-    margin-bottom: 6px;
+    font-size: 1.05rem;
   }
 
   .project-desc {
-    font-size: 0.9375rem;
-  }
-
-  .project-stack {
     font-size: 0.8125rem;
   }
 
-  .project-tags {
-    gap: 6px;
-    margin-bottom: 1rem;
+  .project-tag {
+    font-size: 0.625rem;
+    padding: 3px 8px;
   }
 
-  .tag {
-    padding: 5px 10px;
-    font-size: 0.65rem;
-  }
-
-  .projectLink {
-    padding: 8px 12px;
+  .project-arrow {
     font-size: 14px;
-  }
-
-  /* Project Gallery Buttons */
-  .proj-gallery {
-    flex-direction: column;
-    gap: 10px;
-    margin: 30px 0;
-  }
-
-  .pg-button {
-    width: 100%;
-    max-width: 280px;
-    height: 42px;
-    font-size: 13px;
-    padding: 0 20px;
   }
 
   /* Skills Section */
@@ -1901,114 +1890,141 @@ nav .right a span {
 }
 
 .projects-list {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
 }
 
-/* Individual Project Item */
-.project-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Project Card - Sleek & Minimal Design */
+.project-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
   text-decoration: none;
   color: inherit;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  gap: 24px;
   cursor: pointer;
   position: relative;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.02) 50%,
-      rgba(255, 255, 255, 0) 100%);
-  background-size: 200% 100%;
-  background-position: 100% 0;
 }
 
-.project-item::before {
-  content: '';
-  position: absolute;
-  left: -24px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-.project-item:hover {
-  padding-left: 12px;
-  background-position: 0% 0;
-}
-
-.project-item:hover::before {
-  opacity: 0.6;
-}
-
-.project-item:hover .project-name {
-  color: #FFFFFF;
-}
-
-.project-item:hover .project-arrow {
+.project-card:hover .project-arrow {
+  transform: translate(2px, -2px);
   opacity: 1;
-  transform: translate(4px, -4px);
 }
 
-.project-item:hover .project-stack {
-  opacity: 0.9;
+
+
+/* Project Content */
+.project-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Project Info (Left Side) */
-.project-info {
-  flex: 1;
-  min-width: 0;
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .project-name {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin: 0 0 8px 0;
-  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  color: #FFFFFF;
   letter-spacing: -0.01em;
-  transition: color 0.3s ease;
+  line-height: 1.2;
+}
+
+.project-status {
+  font-size: 0.6875rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.project-status.improving {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: rgba(59, 130, 246, 0.9);
 }
 
 .project-desc {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-/* Project Meta (Right Side) */
-.project-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-.project-stack {
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.5;
   font-weight: 400;
-  white-space: nowrap;
-  transition: opacity 0.3s ease;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
 }
 
 .project-arrow {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.3);
   opacity: 0.5;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Project Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.project-tag {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.project-card:hover .project-tag {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Supabase Tag with Green Color */
+.project-tag-supabase {
+  background: rgba(62, 207, 142, 0.08);
+  border-color: rgba(62, 207, 142, 0.3);
+  color: #3ECF8E;
+}
+
+.project-card:hover .project-tag-supabase {
+  background: rgba(62, 207, 142, 0.12);
+  border-color: rgba(62, 207, 142, 0.5);
+  color: #3ECF8E;
 }
 
 .github-logo-projects {
