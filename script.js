@@ -435,6 +435,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const categoryButtons = document.querySelectorAll(".category-btn");
   const skillCards = document.querySelectorAll(".skill-card");
 
+  // Initially show only proficient skills on page load
+  skillCards.forEach((card) => {
+    const cardCategories = card.getAttribute("data-category").split(" ");
+    if (!cardCategories.includes("proficient")) {
+      card.classList.add("hidden");
+    }
+  });
+
   categoryButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const category = this.getAttribute("data-category");
@@ -445,9 +453,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Filter skills
       skillCards.forEach((card) => {
-        const cardCategory = card.getAttribute("data-category");
+        const cardCategories = card.getAttribute("data-category").split(" ");
 
-        if (category === "all" || cardCategory === category) {
+        if (cardCategories.includes(category)) {
           card.classList.remove("hidden");
         } else {
           card.classList.add("hidden");
