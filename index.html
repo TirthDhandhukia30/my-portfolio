@@ -325,78 +325,175 @@
       <section id="skills" class="skills-section">
         <div class="skills-wrap">
           <h2 class="skills-title">Technical Skills</h2>
-          <p class="skills-subtitle">
-            Check out my résumé for a detailed stack
-          </p>
 
+          <!-- Category Filters -->
+          <div class="skills-categories">
+            <button class="category-btn active" data-category="all">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>All Skills</span>
+            </button>
+            <button class="category-btn" data-category="languages">
+              <i class="fa-solid fa-code"></i>
+              <span>Languages</span>
+            </button>
+            <button class="category-btn" data-category="frontend">
+              <i class="fa-solid fa-palette"></i>
+              <span>Frontend</span>
+            </button>
+            <button class="category-btn" data-category="backend">
+              <i class="fa-solid fa-server"></i>
+              <span>Backend</span>
+            </button>
+            <button class="category-btn" data-category="database">
+              <i class="fa-solid fa-database"></i>
+              <span>Database</span>
+            </button>
+            <button class="category-btn" data-category="cloud">
+              <i class="fa-solid fa-cloud"></i>
+              <span>Cloud</span>
+            </button>
+            <button class="category-btn" data-category="tools">
+              <i class="fa-solid fa-wrench"></i>
+              <span>Tools</span>
+            </button>
+          </div>
+
+          <!-- Skills Grid -->
           <ul class="skills-grid">
-            <li class="skill-card">
+            <!-- Languages -->
+            <li class="skill-card" data-category="languages">
               <img src="images/JavaScript.svg" alt="JavaScript" />
               <span>JavaScript</span>
             </li>
-            <li class="skill-card">
+            <li class="skill-card" data-category="languages">
               <img src="images/TypeScript.svg" alt="TypeScript" />
               <span>TypeScript</span>
             </li>
-            <li class="skill-card">
-              <img src="images/React.svg" alt="React JS" />
-              <span>React</span>
+            <li class="skill-card" data-category="languages">
+              <img src="images/Python.png" alt="Python" />
+              <span>Python</span>
             </li>
-            <li class="skill-card">
-              <img src="images/Node.js.svg" alt="Node.js" />
-              <span>Node.js</span>
+            <li class="skill-card" data-category="languages">
+              <img src="images/cpp.png" alt="C++" />
+              <span>C++</span>
             </li>
-            <li class="skill-card">
-              <img src="images/Bootstrap.svg" alt="Bootstrap" />
-              <span>Bootstrap</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/Tailwind CSS.svg" alt="Tailwind CSS" />
-              <span>Tailwind CSS</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/ShadCN.svg" alt="ShadCN UI" />
-              <span>ShadCN UI</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/Vite.js.svg" alt="Vite" />
-              <span>Vite</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/Vercel.svg" alt="Vercel" />
-              <span>Vercel</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/Git.svg" alt="Git" />
-              <span>Git</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/GitHub.svg" alt="GitHub" />
-              <span>GitHub</span>
-            </li>
-            <li class="skill-card">
-              <img src="images/MongoDB.svg" alt="MongoDB" />
-              <span>MongoDB</span>
-            </li>
-            <li class="skill-card">
+            <li class="skill-card" data-category="languages">
               <img src="images/SQL.svg" alt="SQL" />
               <span>SQL</span>
             </li>
-            <li class="skill-card">
+
+            <!-- Frontend -->
+            <li class="skill-card" data-category="frontend">
+              <img src="images/React.svg" alt="React JS" />
+              <span>React</span>
+            </li>
+            <li class="skill-card" data-category="frontend">
+              <img src="images/Vite.js.svg" alt="Vite" />
+              <span>Vite</span>
+            </li>
+            <li class="skill-card" data-category="frontend">
+              <img src="images/Bootstrap.svg" alt="Bootstrap" />
+              <span>Bootstrap</span>
+            </li>
+            <li class="skill-card" data-category="frontend">
+              <img src="images/Tailwind CSS.svg" alt="Tailwind CSS" />
+              <span>Tailwind CSS</span>
+            </li>
+            <li class="skill-card" data-category="frontend">
+              <img src="images/ShadCN.svg" alt="ShadCN UI" />
+              <span>ShadCN UI</span>
+            </li>
+            <li class="skill-card" data-category="frontend">
+              <img src="images/aceternity.png" alt="Aceternity UI" />
+              <span>Aceternity UI</span>
+            </li>
+
+            <!-- Backend -->
+            <li class="skill-card" data-category="backend">
+              <img src="images/Node.js.svg" alt="Node.js" />
+              <span>Node.js</span>
+            </li>
+            <li class="skill-card" data-category="backend">
+              <img src="images/Express.svg" alt="Express" />
+              <span>Express</span>
+            </li>
+            <li class="skill-card" data-category="backend">
+              <img src="images/Firebase.png" alt="Firebase" />
+              <span>Firebase</span>
+            </li>
+            <li class="skill-card" data-category="backend">
               <img src="images/Supabase.svg" alt="Supabase" />
               <span>Supabase</span>
             </li>
-            <li class="skill-card">
+
+            <!-- Database -->
+            <li class="skill-card" data-category="database">
+              <img src="images/MongoDB.svg" alt="MongoDB" />
+              <span>MongoDB</span>
+            </li>
+            <li class="skill-card" data-category="database">
+              <img src="images/PostgresSQL.png" alt="PostgreSQL" />
+              <span>PostgreSQL</span>
+            </li>
+
+            <!-- Cloud -->
+            <li class="skill-card" data-category="cloud">
+              <img src="images/AWS.png" alt="AWS" />
+              <span>AWS</span>
+            </li>
+            <li class="skill-card" data-category="cloud">
+              <img src="images/Azure.png" alt="Azure" />
+              <span>Azure</span>
+            </li>
+            <li class="skill-card" data-category="cloud">
+              <img src="images/Oracle.png" alt="Oracle OCI" />
+              <span>Oracle OCI</span>
+            </li>
+            <li class="skill-card" data-category="cloud">
+              <img src="images/Cloudflare.png" alt="Cloudflare" />
+              <span>Cloudflare</span>
+            </li>
+            <li class="skill-card" data-category="cloud">
+              <img src="images/Kubernetes.png" alt="Kubernetes" />
+              <span>Kubernetes</span>
+            </li>
+
+            <!-- Tools -->
+            <li class="skill-card" data-category="tools">
+              <img src="images/Git.svg" alt="Git" />
+              <span>Git</span>
+            </li>
+            <li class="skill-card" data-category="tools">
+              <img src="images/GitHub.svg" alt="GitHub" />
+              <span>GitHub</span>
+            </li>
+            <li class="skill-card" data-category="tools">
               <img src="images/Docker.svg" alt="Docker" />
               <span>Docker</span>
             </li>
-            <li class="skill-card">
-              <img src="images/CLI.svg" alt="CLI" />
-              <span>CLI</span>
+            <li class="skill-card" data-category="tools">
+              <img src="images/Vercel.svg" alt="Vercel" />
+              <span>Vercel</span>
             </li>
-            <li class="skill-card">
+            <li class="skill-card" data-category="tools">
+              <img src="images/Netlify.svg" alt="Netlify" />
+              <span>Netlify</span>
+            </li>
+            <li class="skill-card" data-category="tools">
+              <img src="images/Postman.png" alt="Postman" />
+              <span>Postman</span>
+            </li>
+            <li class="skill-card" data-category="tools">
               <img src="images/Figma.svg" alt="Figma" />
               <span>Figma</span>
+            </li>
+            <li class="skill-card" data-category="tools">
+              <img src="images/canva.png" alt="Canva" />
+              <span>Canva</span>
+            </li>
+            <li class="skill-card" data-category="tools">
+              <img src="images/CLI.svg" alt="CLI" />
+              <span>CLI</span>
             </li>
           </ul>
         </div>

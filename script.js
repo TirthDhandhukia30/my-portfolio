@@ -429,3 +429,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Skills Category Filter
+document.addEventListener("DOMContentLoaded", function () {
+  const categoryButtons = document.querySelectorAll(".category-btn");
+  const skillCards = document.querySelectorAll(".skill-card");
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const category = this.getAttribute("data-category");
+
+      // Update active button
+      categoryButtons.forEach((btn) => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      // Filter skills
+      skillCards.forEach((card) => {
+        const cardCategory = card.getAttribute("data-category");
+
+        if (category === "all" || cardCategory === category) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  });
+});
