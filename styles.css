@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  max-width: 1400px;
+  max-width: 1200px;
   font-family: "Instrument Sans", sans-serif;
   background-color: var(--bg-color);
   margin: 0 auto;
@@ -45,7 +45,30 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: var(--text-color);
+  position: relative;
+}
 
+/* Side Dashed Lines */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  width: 1px;
+  height: 100vh;
+  border-right: 1px dashed rgba(255, 255, 255, 0.15);
+  z-index: 1;
+  pointer-events: none;
+}
+
+body::before {
+  left: calc(50vw - 600px);
+}
+
+body::after {
+  right: calc(50vw - 600px);
+  border-right: none;
+  border-left: 1px dashed rgba(255, 255, 255, 0.15);
 }
 
 a {
@@ -790,7 +813,7 @@ nav .right a span {
   background: #000000;
   color: #FFFFFF;
   padding: 120px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
 .skills-wrap {
@@ -931,6 +954,15 @@ nav .right a span {
 /* ========== TABLET RESPONSIVE (1024px and below) ========== */
 @media (max-width: 1024px) {
 
+  /* Side Dashed Lines - Tablet */
+  body::before {
+    left: calc(50vw - 500px);
+  }
+
+  body::after {
+    right: calc(50vw - 500px);
+  }
+
   /* Navigation */
   nav {
     padding: 0 32px;
@@ -992,20 +1024,19 @@ nav .right a span {
 
   .projects-list {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 12px;
     padding: 0 20px;
   }
 
   .project-card {
     width: 100%;
-    max-width: 320px;
     height: auto;
-    min-height: 360px;
+    min-height: 400px;
   }
 
   .card-image-container {
-    width: calc(100% - 40px);
-    max-width: 280px;
+    width: 100%;
+    height: 140px;
   }
 
   .card-label {
@@ -1058,6 +1089,15 @@ nav .right a span {
 
 /* ========== MOBILE LANDSCAPE & SMALL TABLET (768px and below) ========== */
 @media (max-width: 768px) {
+
+  /* Side Dashed Lines - Mobile */
+  body::before {
+    left: calc(50vw - 400px);
+  }
+
+  body::after {
+    right: calc(50vw - 400px);
+  }
 
   /* Navigation */
   nav {
@@ -1204,30 +1244,29 @@ nav .right a span {
     gap: 10px;
   }
 
-  .github-activity,
+  .building-activity,
   .spotify-activity {
     padding: 7px 12px;
     gap: 8px;
     max-width: 100%;
   }
 
-  .github-icon,
+  .building-activity i,
   .spotify-activity-icon {
     font-size: 14px;
   }
 
-  .github-action,
+  .building-label,
   .spotify-song {
     font-size: 11px;
   }
 
-  .github-repo,
+  .building-project,
   .spotify-artist {
     font-size: 9px;
   }
 
-  .github-link-icon,
-  .spotify-link-icon {
+  .spotify-play-icon {
     font-size: 10px;
   }
 
@@ -1252,29 +1291,11 @@ nav .right a span {
 
   .projects-list {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 8px;
   }
 
   .project-card {
     border-radius: 14px;
-  }
-
-  .project-content {
-    padding: 18px;
-    gap: 10px;
-  }
-
-  .project-name {
-    font-size: 1.1rem;
-  }
-
-  .project-desc {
-    font-size: 0.8125rem;
-  }
-
-  .project-tag {
-    font-size: 0.6875rem;
-    padding: 4px 9px;
   }
 
   /* Skills Section */
@@ -1381,6 +1402,15 @@ nav .right a span {
 
 /* ========== MOBILE PORTRAIT (480px and below) ========== */
 @media (max-width: 480px) {
+
+  /* Side Dashed Lines - Small Mobile */
+  body::before {
+    left: calc(50vw - 350px);
+  }
+
+  body::after {
+    right: calc(50vw - 350px);
+  }
 
   /* Navigation */
   nav {
@@ -1503,42 +1533,26 @@ nav .right a span {
     padding: 12px 16px;
   }
 
-  .github-activity {
+  .building-activity {
     padding: 6px 10px;
     gap: 7px;
   }
 
-  .github-icon {
+  .building-activity i {
     font-size: 13px;
   }
 
-  .github-action {
+  .building-label {
     font-size: 10px;
   }
 
-  .github-repo {
+  .building-project {
     font-size: 8px;
   }
 
   /* Projects Section */
   .projects {
     padding: 80px 16px;
-  }
-
-  .accomplishments-pills {
-    gap: 12px;
-    margin: 0 auto 40px;
-    padding: 0 16px;
-  }
-
-  .accomplishment-pill {
-    font-size: 12px;
-    padding: 8px 16px;
-    gap: 8px;
-  }
-
-  .accomplishment-pill i {
-    font-size: 14px;
   }
 
   .projects-title {
@@ -1548,7 +1562,7 @@ nav .right a span {
 
   .projects-list {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 10px;
     padding: 0 16px;
   }
 
@@ -1563,38 +1577,37 @@ nav .right a span {
 
   .project-card {
     width: 100%;
-    max-width: 320px;
     height: auto;
-    min-height: 340px;
+    min-height: 380px;
   }
 
   .card-image-container {
-    width: calc(100% - 40px);
-    max-width: 260px;
-    height: 130px;
+    width: 100%;
+    height: 120px;
   }
 
   .card-content {
-    padding: 0 18px;
+    padding: 16px;
   }
 
   .card-label {
-    font-size: 11px;
-    margin-top: 16px;
+    font-size: 10px;
+    margin: 0 0 6px 0;
   }
 
   .card-title {
-    font-size: 17px;
-    line-height: 1.1;
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 0 0 10px 0;
   }
 
   .card-tags {
-    margin-bottom: 22px;
+    margin: 0 0 12px 0;
   }
 
   .card-tag {
-    font-size: 10px;
-    padding: 3px 8px;
+    font-size: 9px;
+    padding: 2px 6px;
   }
 
   .placeholder-icon {
@@ -1750,6 +1763,16 @@ nav .right a span {
 
 /* ========== EXTRA SMALL MOBILE (360px and below) ========== */
 @media (max-width: 360px) {
+
+  /* Side Dashed Lines - Extra Small Mobile */
+  body::before {
+    left: calc(50vw - 300px);
+  }
+
+  body::after {
+    right: calc(50vw - 300px);
+  }
+
   nav {
     padding: 0 12px;
   }
@@ -1793,58 +1816,9 @@ nav .right a span {
     padding: 60px 12px;
   }
 
-  .accomplishments-pills {
-    gap: 10px;
-    margin: 0 auto 36px;
-    padding: 0 12px;
-  }
-
-  .accomplishment-pill {
-    font-size: 11px;
-    padding: 7px 14px;
-    gap: 7px;
-  }
-
-  .accomplishment-pill i {
-    font-size: 12px;
-  }
-
   .projects-title {
     font-size: 1.75rem;
     margin-bottom: 2.5rem;
-  }
-
-  .projects h2 {
-    font-size: 1.75rem;
-  }
-
-  .project-item {
-    padding: 18px 0;
-  }
-
-  .project-name {
-    font-size: 1.125rem;
-  }
-
-  .project-desc {
-    font-size: 0.875rem;
-  }
-
-  .project-stack {
-    font-size: 0.75rem;
-  }
-
-  .project-card {
-    padding: 18px;
-  }
-
-  .pg-button {
-    max-width: 100%;
-    font-size: 12px;
-  }
-
-  .proj-gallery {
-    margin: 25px 0;
   }
 
   .skills-section {
@@ -1965,50 +1939,7 @@ nav .right a span {
 .projects {
   padding: 120px 24px;
   background: #000000;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Accomplishments Pills */
-.accomplishments-pills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 0 auto 48px;
-  max-width: 900px;
-  flex-wrap: wrap;
-}
-
-.accomplishment-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.accomplishment-pill:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.9);
-  transform: translateY(-2px);
-}
-
-.accomplishment-pill i {
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-.accomplishment-pill span {
-  font-weight: 500;
-  letter-spacing: 0.2px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
 .projects-title {
@@ -2024,24 +1955,24 @@ nav .right a span {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  padding: 0 20px;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 0 10px;
 }
 
-/* Project Card - Dark Theme */
+/* Project Card - Modern Featured Style */
 .project-card {
-  width: 320px;
-  height: 360px;
-  background: rgba(255, 255, 255, 0.03);
+  width: 100%;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 22px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-link {
@@ -2059,19 +1990,23 @@ nav .right a span {
 
 .project-card:hover {
   border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
 }
 
-/* Card Image Container */
+/* Card Image Container - Gradient Header */
 .card-image-container {
-  width: 280px;
-  height: 140px;
-  margin: 18px auto 0;
-  border-radius: 14px;
+  width: 100%;
+  height: 160px;
+  margin: 0;
+  border-radius: 16px 16px 0 0;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-image {
@@ -2079,6 +2014,7 @@ nav .right a span {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 16px 16px 0 0;
 }
 
 /* Placeholder for projects without images */
@@ -2086,42 +2022,47 @@ nav .right a span {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  border-radius: 16px 16px 0 0;
 }
 
 .placeholder-icon {
   font-size: 48px;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Card Content */
 .card-content {
-  padding: 0 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /* Card Label */
 .card-label {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin: 18px 0 0 0;
+  margin: 0 0 8px 0;
 }
 
 /* Card Title */
 .card-title {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 20px;
-  line-height: 1.05;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 600;
-  margin: 6px 0 0 0;
+  font-size: 18px;
+  line-height: 1.3;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin: 0 0 12px 0;
   hyphens: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .card-title strong {
@@ -2129,31 +2070,111 @@ nav .right a span {
   color: #FFFFFF;
 }
 
+/* Card Description */
+.card-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 16px 0;
+  flex: 1;
+}
+
 /* Card Tags */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
-  margin-bottom: 26px;
+  gap: 6px;
+  margin: 0 0 16px 0;
+}
+
+/* Technologies Label */
+.technologies-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 8px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .card-tag {
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.55);
-  font-weight: 500;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .card-link:hover .card-tag {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Status and Action Section */
+.card-status-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  flex-shrink: 0;
+}
+
+.status-indicator.building {
+  background: #EF4444;
+}
+
+.status-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.card-action {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-action:hover {
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateX(2px);
+}
+
+.card-action::after {
+  content: "→";
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.card-action:hover::after {
+  transform: translateX(2px);
 }
 
 /* Projects Footer Text */
@@ -2185,174 +2206,6 @@ nav .right a span {
 .projects-footer-text a:hover {
   color: rgba(255, 255, 255, 0.95);
   border-bottom-color: rgba(255, 255, 255, 0.5);
-}
-
-.github-logo-projects {
-  font-size: 35px;
-  color: var(--text-color);
-  text-decoration: none;
-  margin-top: 50px;
-}
-
-.paper-button-wrapper {
-  margin-top: 12px;
-}
-
-.paper-button-wrapper .paper-links {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.project-image {
-  width: 90%;
-  max-width: 500px;
-  border-radius: 12px;
-  margin: 10px 0;
-  height: 250px;
-  margin-left: 17px;
-}
-
-/* GitHub Contributions Section */
-.github-contributions-section {
-  padding: 60px 24px;
-  background: #000000;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.contributions-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.contributions-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.contributions-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-.contributions-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.contributions-link:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
-.contributions-link i {
-  font-size: 12px;
-  transition: transform 0.3s ease;
-}
-
-.contributions-link:hover i {
-  transform: translate(2px, -2px);
-}
-
-.contributions-graph {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 24px;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.github-chart {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-  filter: brightness(0.95) contrast(1.1);
-}
-
-/* Responsive GitHub Contributions */
-@media (max-width: 1024px) {
-  .github-contributions-section {
-    padding: 50px 32px;
-  }
-
-  .contributions-title {
-    font-size: 1.5rem;
-  }
-
-  .contributions-graph {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .github-contributions-section {
-    padding: 40px 20px;
-  }
-
-  .contributions-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .contributions-title {
-    font-size: 1.375rem;
-  }
-
-  .contributions-link {
-    font-size: 13px;
-    padding: 7px 14px;
-  }
-
-  .contributions-graph {
-    padding: 16px;
-    border-radius: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .github-contributions-section {
-    padding: 32px 16px;
-  }
-
-  .contributions-title {
-    font-size: 1.25rem;
-  }
-
-  .contributions-link {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .contributions-graph {
-    padding: 12px;
-    border-radius: 8px;
-  }
-
-  .github-chart {
-    min-width: 600px;
-  }
 }
 
 /* GitHub Activity - Between Hero and Projects */
@@ -2429,24 +2282,6 @@ nav .right a span {
   font-size: 10px;
   color: rgba(255, 255, 255, 0.4);
   margin: 0;
-}
-
-.github-activity {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none;
-  color: inherit;
-}
-
-.github-activity:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Spotify Activity Pill - Matches GitHub Activity */
@@ -2864,7 +2699,7 @@ nav .right a span {
   align-items: center;
   gap: 48px;
   background: #000000;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
 .contact-title {
@@ -3436,13 +3271,13 @@ nav .right a span {
 /* Footer */
 .site-footer {
   background: #000000;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
   padding: 40px 24px;
   margin-top: 60px;
 }
 
 .footer-content {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
