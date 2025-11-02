@@ -32,7 +32,7 @@
   --button-text: #FFFFFF;
   --accent-color: #2d2d2d;
   --link-color: #2d2d2d;
-  --hover-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  /* --hover-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
   --hover-bg-color: #FFFFFF;
   --progress-fill: #2d2d2d;
   --progress-tooltip-bg: #2d2d2d;
@@ -47,66 +47,86 @@
   transition: color 0.3s ease;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Slider */
 .theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 8px 16px;
-  background: transparent;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
-  opacity: 0.8;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
 }
 
-.theme-toggle:hover {
-  opacity: 1;
-  background: rgba(128, 128, 128, 0.08);
-  transform: translateY(-1px);
+.theme-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
 }
 
-.toggle-icon-wrapper {
-  position: relative;
-  width: 20px;
-  height: 20px;
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  border-radius: 34px;
+  transition: all 0.4s ease-in-out;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding: 0 4px;
 }
 
-.sun-icon,
-.moon-icon {
+.slider:hover {
+  opacity: 0.9;
+}
+
+.slider::before {
+  content: "";
   position: absolute;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  color: var(--text-color);
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-checkbox:checked+.slider {
+  background-color: var(--text-color);
+}
+
+.theme-checkbox:checked+.slider::before {
+  transform: translateX(24px);
+}
+
+.slider-icon {
+  position: absolute;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
 }
 
 .sun-icon {
+  left: 6px;
+  color: var(--text-color);
   opacity: 0;
-  transform: rotate(-90deg) scale(0);
 }
 
 .moon-icon {
+  right: 6px;
+  color: var(--bg-color);
   opacity: 1;
-  transform: rotate(0deg) scale(1);
 }
 
-.light-theme .sun-icon {
+.theme-checkbox:checked+.slider .sun-icon {
   opacity: 1;
-  transform: rotate(0deg) scale(1);
+  color: var(--bg-color);
 }
 
-.light-theme .moon-icon {
+.theme-checkbox:checked+.slider .moon-icon {
   opacity: 0;
-  transform: rotate(90deg) scale(0);
 }
 
 * {
@@ -153,11 +173,11 @@ body::after {
   border-right: 1px dashed rgba(255, 255, 255, 0.14);
   z-index: 9999;
   pointer-events: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, border-style 0.3s ease;
 }
 
-.light-theme body::before,
-.light-theme body::after {
+body.light-theme::before,
+body.light-theme::after {
   border-right: 1px dashed rgba(0, 0, 0, 0.35);
 }
 
@@ -171,8 +191,9 @@ body::after {
   border-left: 1px dashed rgba(255, 255, 255, 0.14);
 }
 
-.light-theme body::after {
+body.light-theme::after {
   border-left: 1px dashed rgba(0, 0, 0, 0.35);
+  border-right: none;
 }
 
 a {
@@ -2922,6 +2943,7 @@ nav .right a span {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
   margin-top: 40px;
 }
@@ -3515,6 +3537,87 @@ nav .right a span {
   text-transform: lowercase;
   letter-spacing: 0.05em;
   font-weight: 500;
+}
+
+.contact-footer .to-top a,
+.contact-footer .clicker {
+  width: 128px;
+  min-height: 76px;
+  justify-content: center;
+}
+
+/* Light theme - darker pills */
+.light-theme .to-top a {
+  background: rgba(0, 0, 0, 0.012) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light-theme .to-top a:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .to-top-icon {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light-theme .to-top a:hover .to-top-icon {
+  background: rgba(0, 0, 0, 0.012) !important;
+}
+
+.light-theme .clicker {
+  background: rgba(0, 0, 0, 0) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light-theme .to-top a,
+.light-theme .clicker {
+  opacity: 0.85 !important;
+}
+
+.light-theme .to-top-label,
+.light-theme .clicker-label {
+  opacity: 0.7;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.light-theme .clicker:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .clicker-wrapper #count {
+  opacity: 1;
+}
+
+.light-theme .hero-clicker #clickBtn {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light-theme .clicker:hover #clickBtn {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Light theme - GitHub and Spotify activity pills */
+.light-theme .building-activity,
+.light-theme .spotify-activity {
+  background: rgba(0, 0, 0, 0) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.light-theme .building-activity:hover,
+.light-theme .spotify-activity:hover {
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+.light-theme .building-activity i {
+  opacity: 1;
+}
+
+.light-theme .building-label {
+  opacity: 1;
+}
+
+.light-theme .building-project {
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {

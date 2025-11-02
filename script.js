@@ -16,16 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "light-theme") {
     body.classList.add("light-theme");
+    themeToggle.checked = true;
   }
 
-  // Toggle theme on button click
-  themeToggle.addEventListener("click", () => {
-    if (body.classList.contains("light-theme")) {
-      body.classList.remove("light-theme");
-      localStorage.removeItem("theme");
-    } else {
+  // Toggle theme on checkbox change
+  themeToggle.addEventListener("change", () => {
+    if (themeToggle.checked) {
       body.classList.add("light-theme");
       localStorage.setItem("theme", "light-theme");
+    } else {
+      body.classList.remove("light-theme");
+      localStorage.removeItem("theme");
     }
   });
 });
