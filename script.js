@@ -6,9 +6,29 @@ import {
   onValue,
   runTransaction,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-// Dark mode only - no theme toggle needed
-// Remove any saved theme preference
-localStorage.removeItem("theme");
+
+// Theme Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const themeToggle = document.getElementById("themeToggle");
+  const body = document.body;
+
+  // Check for saved theme in localStorage
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light-theme") {
+    body.classList.add("light-theme");
+  }
+
+  // Toggle theme on button click
+  themeToggle.addEventListener("click", () => {
+    if (body.classList.contains("light-theme")) {
+      body.classList.remove("light-theme");
+      localStorage.removeItem("theme");
+    } else {
+      body.classList.add("light-theme");
+      localStorage.setItem("theme", "light-theme");
+    }
+  });
+});
 
 // Navbar Clock - Real Time with AM/PM and GMT+5:30
 function updateNavbarClock() {

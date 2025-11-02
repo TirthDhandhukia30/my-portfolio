@@ -51,14 +51,46 @@
           <i class="fa-brands fa-linkedin theme-icon"></i>
           <span>Linkedin</span></a
         >
-        <a
-          href="mailto:contact@tirthdhandhukia.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-solid fa-envelope theme-icon"></i>
-          <span>Mail</span></a
-        >
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <div class="toggle-icon-wrapper">
+            <svg
+              class="sun-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </div>
+        </button>
       </div>
     </nav>
     <main>
@@ -86,9 +118,9 @@
           <div class="corner-highlight corner-bl"></div>
           <div class="corner-highlight corner-br"></div>
 
-          <!-- Top Bar with BTC Price and Icons -->
+          <!-- Top Bar with Icons -->
           <div class="terminal-header">
-            <div class="terminal-icons">
+            <div class="terminal-icons terminal-icons-right">
               <!-- <a
                 href="https://github.com/TirthDhandhukia30"
                 target="_blank"
@@ -122,10 +154,6 @@
                 <i class="fa-solid fa-code"></i>
               </a>
             </div>
-            <div class="btc-price" id="btcPrice">
-              <i class="fa-brands fa-bitcoin btc-icon"></i>
-              <span class="btc-value">Loading...</span>
-            </div>
           </div>
 
           <!-- Main Content Area -->
@@ -143,10 +171,6 @@
             <div class="profile-info">
               <div class="name-row">
                 <h1 class="profile-name">Tirth Dhandhukia</h1>
-                <span class="status-badge">
-                  <span class="status-dot"></span>
-                  Available
-                </span>
               </div>
               <p class="profile-title">
                 <span id="typewriter"></span>
@@ -335,7 +359,8 @@
                 <p class="card-label">Featured Project</p>
                 <h3 class="card-title">Landing Pages</h3>
                 <p class="card-description">
-                  Collection of modern, responsive landing pages showcasing creative designs and UI/UX skills.
+                  Collection of modern, responsive landing pages showcasing
+                  creative designs and UI/UX skills.
                 </p>
                 <!-- <p class="technologies-label">Technologies</p> -->
                 <!-- <div class="card-tags">

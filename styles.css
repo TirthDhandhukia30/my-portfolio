@@ -2,7 +2,7 @@
   /* Monochrome Terminal Theme - Black & White Only */
   --card-bg: #000000;
   --text-color: #FFFFFF;
-  --border-color: #FFFFFF;
+  --border-color: rgba(255, 255, 255, 0.15);
   --bg-color: #000000;
   --progress-tooltip-bg: #FFFFFF;
   --hero-text: #FFFFFF;
@@ -21,8 +21,92 @@
   --options-text-color: #FFFFFF;
 }
 
+/* Light Theme - Low Contrast */
+.light-theme {
+  --card-bg: #fafafa;
+  --text-color: #2d2d2d;
+  --border-color: #e5e5e5;
+  --bg-color: #f4f4f4;
+  --hero-text: #2d2d2d;
+  --button-bg: #2d2d2d;
+  --button-text: #FFFFFF;
+  --accent-color: #2d2d2d;
+  --link-color: #2d2d2d;
+  --hover-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  --hover-bg-color: #FFFFFF;
+  --progress-fill: #2d2d2d;
+  --progress-tooltip-bg: #2d2d2d;
+  --progress-tooltip-text: #FFFFFF;
+  --hover-color: #2d2d2d;
+  --awesomecolor: #2d2d2d;
+  --options-text-color: #2d2d2d;
+}
+
 .theme-icon {
-  color: #F5F5F5;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+  background: rgba(128, 128, 128, 0.08);
+  transform: translateY(-1px);
+}
+
+.toggle-icon-wrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-color);
+}
+
+.sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}
+
+.moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.light-theme .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.light-theme .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
 }
 
 * {
@@ -46,6 +130,16 @@ body {
   background-attachment: fixed;
   color: var(--text-color);
   position: relative;
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth and soft theme transition */
+body * {
+  transition: background-color 1s ease-in-out,
+    color 1s ease-in-out,
+    border-color 1s ease-in-out,
+    opacity 1s ease-in-out;
 }
 
 /* Side Dashed Lines */
@@ -56,9 +150,15 @@ body::after {
   top: 0;
   width: 1px;
   height: 100vh;
-  border-right: 1px dashed #ffffff23;
-  z-index: 1;
+  border-right: 1px dashed rgba(255, 255, 255, 0.14);
+  z-index: 9999;
   pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.light-theme body::before,
+.light-theme body::after {
+  border-right: 1px dashed rgba(0, 0, 0, 0.35);
 }
 
 body::before {
@@ -68,7 +168,11 @@ body::before {
 body::after {
   right: calc(50vw - 600px);
   border-right: none;
-  border-left: 1px dashed #ffffff23;
+  border-left: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+.light-theme body::after {
+  border-left: 1px dashed rgba(0, 0, 0, 0.35);
 }
 
 a {
@@ -84,7 +188,8 @@ nav {
   padding: 0 50px;
   height: 80px;
   position: relative;
-  background: #000000;
+  background: var(--bg-color);
+  transition: background-color 0.3s ease;
 }
 
 nav::after {
@@ -94,10 +199,15 @@ nav::after {
   bottom: 0;
   transform: translateX(-50%);
   width: 100vw;
-  border-bottom: 1px dashed #ffffff23;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.14);
   height: 0;
   pointer-events: none;
   z-index: 0;
+  transition: border-color 0.3s ease;
+}
+
+.light-theme nav::after {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.35);
 }
 
 nav .left {
@@ -117,7 +227,7 @@ nav .left {
 .clock-time {
   font-size: 18px;
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--text-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
   letter-spacing: 0.5px;
 }
@@ -125,7 +235,7 @@ nav .left {
 .clock-location {
   font-size: 11px;
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--text-color);
   opacity: 0.6;
   letter-spacing: 0.3px;
 }
@@ -144,8 +254,9 @@ nav .right a {
   gap: 10px;
   padding: 8px 16px;
   background: transparent;
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
   border-radius: 12px;
   font-size: 14px;
   font-weight: 500;
@@ -156,8 +267,8 @@ nav .right a {
 
 nav .right a:hover,
 nav .right a:focus {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+  background: rgba(128, 128, 128, 0.08);
   outline: none;
   transform: translateY(-1px);
 }
@@ -168,7 +279,6 @@ nav .right a:focus-visible {
 }
 
 nav .right a i {
-  color: #FFFFFF;
   font-size: 16px;
   flex-shrink: 0;
 }
@@ -196,12 +306,16 @@ nav .right a span {
 .hero::after {
   content: '';
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.7);
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.3);
   pointer-events: none;
+}
+
+.light-theme .hero::before,
+.light-theme .hero::after {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .hero::before {
@@ -325,12 +439,14 @@ nav .right a span {
   position: relative;
   width: 100%;
   max-width: 700px;
-  background: #000000;
-  border: 1px solid #ffffff23;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  opacity: 0.95;
   border-radius: 5px;
   padding: 32px;
-  box-shadow: 0 20px 60px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 60px rgba(128, 128, 128, 0.1);
   overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Additional Shooting Stars for Terminal Card */
@@ -338,13 +454,17 @@ nav .right a span {
 .terminal-card::after {
   content: '';
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.6);
-  /* border-radius: 50%; */
-  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.25);
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
   pointer-events: none;
   z-index: 1;
+}
+
+.light-theme .terminal-card::before,
+.light-theme .terminal-card::after {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .terminal-card::before {
@@ -413,7 +533,8 @@ nav .right a span {
   position: absolute;
   width: 12px;
   height: 12px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
 }
 
 .corner-tl {
@@ -451,7 +572,7 @@ nav .right a span {
 /* Terminal Header */
 .terminal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 32px;
 }
@@ -461,29 +582,33 @@ nav .right a span {
   gap: 8px;
 }
 
+.terminal-icons-right {
+  margin-left: auto;
+}
+
 .icon-button {
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
-  color: #ffffff;
+  color: var(--text-color);
   background: transparent;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .icon-button:hover {
-  background: #ffffff;
-  color: #000000;
+  background: var(--text-color);
+  color: var(--bg-color);
 }
 
 .terminal-clock {
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-color);
   font-family: 'Courier New', monospace;
   letter-spacing: 0.5px;
 }
@@ -495,10 +620,10 @@ nav .right a span {
   gap: 6px;
   height: 32px;
   padding: 0 12px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
   border-radius: 2px;
   background: transparent;
-  color: #ffffff;
+  color: var(--text-color);
   font-family: 'Courier New', monospace;
   font-size: 12px;
   font-weight: 500;
@@ -511,8 +636,8 @@ nav .right a span {
 }
 
 .spotify-pill:hover {
-  background: #ffffff;
-  color: #000000;
+  background: var(--text-color);
+  color: var(--bg-color);
 }
 
 .spotify-pill:hover .spotify-icon {
@@ -521,7 +646,7 @@ nav .right a span {
 
 .spotify-icon {
   font-size: 14px;
-  color: #ffffff;
+  color: var(--text-color);
   flex-shrink: 0;
   transition: color 0.3s ease;
 }
@@ -547,15 +672,20 @@ nav .right a span {
   padding: 6px 12px;
   font-size: 13px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-color);
   font-family: 'Courier New', monospace;
   letter-spacing: 0.3px;
   transition: all 0.3s ease;
 }
 
+.light-theme .btc-price {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
 .btc-price:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(128, 128, 128, 0.08);
+  border-color: var(--border-color);
 }
 
 .btc-icon {
@@ -567,7 +697,7 @@ nav .right a span {
 .btc-value {
   font-size: 13px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-color);
   opacity: 0.95;
 }
 
@@ -586,10 +716,11 @@ nav .right a span {
 .profile-image {
   width: 120px;
   height: 120px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   object-fit: cover;
-  background: #000000;
+  background: var(--bg-color);
+  transition: border-color 0.3s ease;
 }
 
 /* Profile Info */
@@ -610,7 +741,7 @@ nav .right a span {
 .profile-name {
   font-size: 36px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-color);
   margin: 0;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -621,26 +752,27 @@ nav .right a span {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   font-size: 12px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--text-color);
   background: transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--text-color);
   display: inline-block;
 }
 
 .profile-title {
   font-size: 14px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--text-color);
   margin: 4px 0 0 0;
   opacity: 0.6;
   min-height: 20px;
@@ -680,7 +812,7 @@ nav .right a span {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #ffffff;
+  color: var(--text-color);
   margin-top: 4px;
   opacity: 0.9;
 }
@@ -694,8 +826,8 @@ nav .right a span {
   text-align: center;
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  opacity: 0.85;
+  color: var(--text-color);
+  opacity: 0.7;
   max-width: 90%;
   margin: 0 auto;
   font-weight: 400;
@@ -707,8 +839,9 @@ nav .right a span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000000;
+  background: var(--bg-color);
   margin-bottom: 30px;
+  transition: background-color 0.3s ease;
 }
 
 /* CLI Command Section - Minimal */
@@ -763,6 +896,17 @@ nav .right a span {
   animation: borderSweep 5s linear infinite;
 }
 
+.light-theme .cli-minimal::before {
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1));
+  background-size: 300% 100%;
+  animation: borderSweep 5s linear infinite;
+}
+
 @keyframes borderSweep {
   0% {
     background-position: 0% 0;
@@ -777,16 +921,19 @@ nav .right a span {
 .cli-minimal::after {
   content: '';
   position: absolute;
-  width: 1.5px;
-  height: 1.5px;
-  background: rgba(255, 255, 255, 0.6);
+  width: 2.5px;
+  height: 2.5px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.2);
   pointer-events: none;
   top: 50%;
   left: -30px;
   animation: shootingStar1 10s ease-in-out infinite;
   z-index: 1;
+}
+
+.light-theme .cli-minimal::after {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 @keyframes shootingStar1 {
@@ -826,13 +973,14 @@ nav .right a span {
 }
 
 .cli-minimal:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(128, 128, 128, 0.05);
+  border-color: var(--border-color);
 }
 
 .cli-label {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-color);
+  opacity: 0.6;
   font-weight: 500;
   position: relative;
   z-index: 1;
@@ -841,8 +989,8 @@ nav .right a span {
 .cli-code {
   font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
   font-size: 14px;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  background: rgba(128, 128, 128, 0.1);
   padding: 4px 10px;
   border-radius: 4px;
   letter-spacing: 0.3px;
@@ -853,7 +1001,8 @@ nav .right a span {
 .cli-copy-mini {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
+  opacity: 0.7;
   cursor: pointer;
   padding: 4px 6px;
   border-radius: 4px;
@@ -866,8 +1015,8 @@ nav .right a span {
 }
 
 .cli-copy-mini:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
 }
 
 .cli-copy-mini i {
@@ -877,9 +1026,10 @@ nav .right a span {
 /* Skills Section - Pill-Shaped Layout */
 .skills-section {
   position: relative;
-  background: #000000;
-  color: #FFFFFF;
+  background: var(--bg-color);
+  color: var(--text-color);
   padding: 120px 24px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .skills-section::before,
@@ -892,10 +1042,18 @@ nav .right a span {
   top: 0;
   transform: translateX(-50%);
   width: 100vw;
-  border-top: 1px dashed #ffffff23;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
   height: 0;
   pointer-events: none;
   z-index: 0;
+  transition: border-color 0.3s ease;
+}
+
+.light-theme .skills-section::before,
+.light-theme .projects::before,
+.light-theme .contact::before,
+.light-theme .site-footer::before {
+  border-top: 1px dashed rgba(0, 0, 0, 0.35);
 }
 
 .skills-wrap {
@@ -909,14 +1067,14 @@ nav .right a span {
   font-weight: 700;
   margin: 0 0 2rem 0;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: var(--text-color);
 }
 
 .skills-subtitle {
   text-align: center;
   font-size: 1rem;
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--text-color);
   opacity: 0.6;
   margin: 0 0 3rem 0;
   font-style: italic;
@@ -930,12 +1088,14 @@ nav .right a span {
   justify-content: center;
   margin-bottom: 2.5rem;
   padding: 6px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(128, 128, 128, 0.05);
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
+  opacity: 0.6;
   max-width: fit-content;
   margin-left: auto;
   margin-right: auto;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
 }
 
 .category-btn {
@@ -946,7 +1106,8 @@ nav .right a span {
   background: transparent;
   border: none;
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-color);
+  opacity: 0.5;
   font-family: "Instrument Sans", sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
@@ -956,15 +1117,14 @@ nav .right a span {
 }
 
 .category-btn:hover {
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(255, 255, 255, 0.05);
+  opacity: 0.8;
+  background: rgba(128, 128, 128, 0.08);
 }
 
 .category-btn.active {
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(128, 128, 128, 0.15);
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(128, 128, 128, 0.2);
 }
 
 .category-btn i {
@@ -998,8 +1158,9 @@ nav .right a span {
   align-items: center;
   gap: 10px;
   padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
   border-radius: 12px;
   transition: all 0.25s ease;
   white-space: nowrap;
@@ -1007,10 +1168,10 @@ nav .right a span {
 }
 
 .skill-card:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.04);
+  opacity: 1;
+  background: rgba(128, 128, 128, 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(128, 128, 128, 0.2);
 }
 
 .skill-card img {
@@ -1019,7 +1180,11 @@ nav .right a span {
   object-fit: contain;
   display: block;
   flex-shrink: 0;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, filter 0.3s ease;
+}
+
+.light-theme .skill-card img {
+  filter: invert(0) grayscale(0) brightness(1);
 }
 
 .skill-card:hover img {
@@ -1029,7 +1194,7 @@ nav .right a span {
 .skill-card span {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--text-color);
   letter-spacing: 0.01em;
 }
 
@@ -2020,8 +2185,9 @@ nav .right a span {
 /* Projects Section - Minimal List Design */
 .projects {
   padding: 120px 24px;
-  background: #000000;
+  background: var(--bg-color);
   position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .projects-title {
@@ -2030,7 +2196,7 @@ nav .right a span {
   font-weight: 700;
   margin: 0 0 4rem 0;
   letter-spacing: -0.02em;
-  color: #FFFFFF;
+  color: var(--text-color);
 }
 
 .projects-list {
@@ -2046,10 +2212,11 @@ nav .right a span {
 .project-card {
   width: 100%;
   height: 400px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  opacity: 0.9;
   border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(128, 128, 128, 0.15);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2071,9 +2238,8 @@ nav .right a span {
 }
 
 .project-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  box-shadow: 0 16px 48px rgba(128, 128, 128, 0.25);
   transform: translateY(-4px);
 }
 
@@ -2143,7 +2309,8 @@ nav .right a span {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--card-bg);
+  transition: background-color 0.3s ease;
 }
 
 /* Card Label */
@@ -2151,7 +2318,8 @@ nav .right a span {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-color);
+  opacity: 0.5;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin: 0 0 8px 0;
@@ -2162,7 +2330,7 @@ nav .right a span {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
   line-height: 1.3;
-  color: #FFFFFF;
+  color: var(--text-color);
   font-weight: 700;
   margin: 0 0 12px 0;
   hyphens: none;
@@ -2173,14 +2341,15 @@ nav .right a span {
 
 .card-title strong {
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--text-color);
 }
 
 /* Card Description */
 .card-description {
   font-size: 14px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
+  opacity: 0.7;
   margin: 0 0 16px 0;
   flex: 1;
 }
@@ -2196,7 +2365,8 @@ nav .right a span {
 /* Technologies Label */
 .technologies-label {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-color);
+  opacity: 0.5;
   margin: 0 0 8px 0;
   font-weight: 500;
   text-transform: uppercase;
@@ -2205,11 +2375,12 @@ nav .right a span {
 
 .card-tag {
   padding: 3px 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(128, 128, 128, 0.1);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
   border-radius: 6px;
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-color);
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   transition: all 0.2s ease;
@@ -2218,9 +2389,7 @@ nav .right a span {
 }
 
 .card-link:hover .card-tag {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.9);
+  opacity: 1;
 }
 
 /* Status and Action Section */
@@ -2230,7 +2399,9 @@ nav .right a span {
   justify-content: space-between;
   margin-top: auto;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
+  opacity: 0.7;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
 }
 
 .card-status {
@@ -2253,12 +2424,12 @@ nav .right a span {
 
 .status-text {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-color);
   font-weight: 500;
 }
 
 .card-action {
-  color: #FFFFFF;
+  color: var(--text-color);
   font-size: 12px;
   font-weight: 600;
   text-decoration: none;
@@ -2269,7 +2440,7 @@ nav .right a span {
 }
 
 .card-action:hover {
-  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.7;
   transform: translateX(2px);
 }
 
@@ -2294,7 +2465,8 @@ nav .right a span {
 
 .projects-footer-text p {
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-color);
+  opacity: 0.45;
   margin: 0;
   text-align: center;
   line-height: 1.6;
@@ -2302,16 +2474,17 @@ nav .right a span {
 }
 
 .projects-footer-text a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
+  opacity: 0.7;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .projects-footer-text a:hover {
-  color: rgba(255, 255, 255, 0.95);
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  opacity: 0.95;
+  border-bottom-color: var(--border-color);
 }
 
 /* GitHub Activity - Between Hero and Projects */
@@ -2351,21 +2524,22 @@ nav .right a span {
   align-items: center;
   gap: 10px;
   padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid var(--border-color);
+  opacity: 0.7;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
 }
 
 .building-activity:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
 }
 
 .building-activity i {
   font-size: 16px;
-  color: #FFFFFF;
+  color: var(--text-color);
   flex-shrink: 0;
   opacity: 0.7;
 }
@@ -2380,13 +2554,15 @@ nav .right a span {
 .building-label {
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-color);
+  opacity: 0.85;
   margin: 0;
 }
 
 .building-project {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-color);
+  opacity: 0.4;
   margin: 0;
 }
 
@@ -2396,8 +2572,9 @@ nav .right a span {
   align-items: center;
   gap: 10px;
   padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid var(--border-color);
+  opacity: 0.7;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
@@ -2407,8 +2584,8 @@ nav .right a span {
 }
 
 .spotify-activity:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
   transform: translateY(-2px);
 }
 
@@ -2430,7 +2607,8 @@ nav .right a span {
 .spotify-song {
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-color);
+  opacity: 0.85;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2439,7 +2617,8 @@ nav .right a span {
 
 .spotify-artist {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-color);
+  opacity: 0.4;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2449,7 +2628,8 @@ nav .right a span {
 .spotify-play-icon {
   flex-shrink: 0;
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-color);
+  opacity: 0.3;
   transition: all 0.3s ease;
 }
 
@@ -2465,13 +2645,17 @@ nav .right a span {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.85);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   backdrop-filter: blur(8px);
   animation: fadeIn 0.3s ease;
+}
+
+.light-theme .spotify-player-popup {
+  background: rgba(244, 244, 244, 0.85);
 }
 
 .spotify-player-popup.active {
@@ -2510,8 +2694,9 @@ nav .right a span {
 
 /* Custom Audio Player - iOS Style */
 .custom-audio-player {
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  opacity: 0.95;
   border-radius: 20px;
   padding: 24px;
   width: 360px;
@@ -2520,13 +2705,14 @@ nav .right a span {
   flex-direction: column;
   gap: 18px;
   position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .player-close-btn {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(128, 128, 128, 0.1);
   border: none;
   width: 28px;
   height: 28px;
@@ -2535,15 +2721,16 @@ nav .right a span {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-color);
+  opacity: 0.6;
   font-size: 14px;
   transition: all 0.2s ease;
   z-index: 10;
 }
 
 .player-close-btn:active {
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(128, 128, 128, 0.2);
+  opacity: 0.8;
 }
 
 .player-header {
@@ -2561,7 +2748,7 @@ nav .right a span {
 .player-song-title {
   font-size: 15px;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--text-color);
   margin: 0 0 3px 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2571,7 +2758,8 @@ nav .right a span {
 
 .player-artist-name {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-color);
+  opacity: 0.5;
   margin: 0;
   font-weight: 400;
   overflow: hidden;
@@ -2591,7 +2779,9 @@ nav .right a span {
   height: 200px;
   border-radius: 16px;
   object-fit: cover;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
+  transition: border-color 0.3s ease;
 }
 
 .player-controls-section {
@@ -2603,7 +2793,7 @@ nav .right a span {
 }
 
 .control-button {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--text-color);
   border: none;
   width: 56px;
   height: 56px;
@@ -2612,14 +2802,14 @@ nav .right a span {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #000000;
+  color: var(--bg-color);
   font-size: 20px;
   transition: all 0.2s ease;
 }
 
 .control-button:active {
   transform: scale(0.92);
-  background: rgba(255, 255, 255, 0.85);
+  opacity: 0.85;
 }
 
 .keyboard-hint {
@@ -2632,8 +2822,9 @@ nav .right a span {
 }
 
 .hint-key {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(128, 128, 128, 0.1);
+  border: 1px solid var(--border-color);
+  opacity: 0.6;
   border-radius: 6px;
   padding: 4px 10px;
   font-size: 11px;
@@ -2641,11 +2832,13 @@ nav .right a span {
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1px;
   font-family: 'Courier New', monospace;
+  color: var(--text-color);
 }
 
 .hint-text {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-color);
+  opacity: 0.3;
   font-weight: 400;
 }
 
@@ -2746,20 +2939,21 @@ nav .right a span {
   align-items: center;
   gap: 6px;
   padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid var(--border-color);
+  opacity: 0.7;
   border-radius: 24px;
-  color: #FFFFFF;
+  color: var(--text-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   cursor: pointer;
 }
 
 .to-top a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(128, 128, 128, 0.2);
 }
 
 .to-top-icon {
@@ -2769,22 +2963,24 @@ nav .right a span {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
   background: transparent;
-  color: #FFFFFF;
+  color: var(--text-color);
   font-size: 15px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .to-top a:hover .to-top-icon {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
   transform: translateY(-2px);
 }
 
 .to-top-label {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-color);
+  opacity: 0.4;
   text-transform: lowercase;
   letter-spacing: 0.05em;
   font-weight: 500;
@@ -2804,15 +3000,16 @@ nav .right a span {
   flex-direction: column;
   align-items: center;
   gap: 48px;
-  background: #000000;
+  background: var(--bg-color);
   position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .contact-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--text-color);
   margin: 0;
   letter-spacing: -0.02em;
 }
@@ -2823,7 +3020,7 @@ nav .right a span {
 }
 
 .contact-text {
-  color: #FFFFFF;
+  color: var(--text-color);
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -2831,7 +3028,7 @@ nav .right a span {
 }
 
 .contact-text-highlight {
-  color: #FFFFFF;
+  color: var(--text-color);
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 2rem;
@@ -2852,8 +3049,8 @@ nav .right a span {
   justify-content: center;
   gap: 10px;
   padding: 12px 24px;
-  background: #000000;
-  color: #FFFFFF;
+  background: var(--bg-color);
+  color: var(--text-color);
   border: 1px solid transparent;
   border-radius: 8px;
   font-size: 15px;
@@ -2892,12 +3089,23 @@ nav .right a span {
   z-index: 0;
 }
 
+.light-theme .contact-button::before {
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.1));
+  background-size: 300% 100%;
+  animation: borderSweep 5s linear infinite;
+}
+
 /* Hover background effect */
 .contact-button::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: #FFFFFF;
+  background: var(--text-color);
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 8px;
@@ -2916,9 +3124,9 @@ nav .right a span {
 }
 
 .contact-button:hover {
-  color: #000000;
+  color: var(--bg-color);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(128, 128, 128, 0.3);
 }
 
 .contact-button:hover::after {
@@ -2935,7 +3143,7 @@ nav .right a span {
 .contact-quote p {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #FFFFFF;
+  color: var(--text-color);
   opacity: 0.5;
   font-style: italic;
   font-weight: 400;
@@ -2957,6 +3165,12 @@ nav .right a span {
   justify-content: center;
   position: relative;
   overflow: hidden;
+}
+
+.light-theme .projectLink,
+.light-theme .resume {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .projectLink::before,
@@ -3229,18 +3443,19 @@ nav .right a span {
   align-items: center;
   gap: 6px;
   padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid var(--border-color);
+  opacity: 0.7;
   border-radius: 24px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .clicker:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(128, 128, 128, 0.2);
 }
 
 .clicker-wrapper {
@@ -3253,7 +3468,8 @@ nav .right a span {
 #count {
   font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-color);
+  opacity: 0.9;
   min-width: 20px;
   text-align: center;
   font-variant-numeric: tabular-nums;
@@ -3267,17 +3483,18 @@ nav .right a span {
   height: 32px;
   width: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
+  opacity: 0.8;
   background: transparent;
-  color: #FFFFFF;
+  color: var(--text-color);
   font-size: 15px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .clicker:hover #clickBtn {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(128, 128, 128, 0.1);
+  opacity: 1;
 }
 
 .hero-clicker #clickBtn:active {
@@ -3286,13 +3503,15 @@ nav .right a span {
 
 .hero-clicker .clicker-count {
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-color);
+  opacity: 0.9;
   font-size: 14px;
 }
 
 .clicker-label {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-color);
+  opacity: 0.4;
   text-transform: lowercase;
   letter-spacing: 0.05em;
   font-weight: 500;
@@ -3376,10 +3595,11 @@ nav .right a span {
 
 /* Footer */
 .site-footer {
-  background: #000000;
+  background: var(--bg-color);
   padding: 40px 24px;
   margin-top: 60px;
   position: relative;
+  transition: background-color 0.3s ease;
 }
 
 .footer-content {
@@ -3403,7 +3623,8 @@ nav .right a span {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-color);
+  opacity: 0.7;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -3412,31 +3633,34 @@ nav .right a span {
 }
 
 .footer-link:hover {
-  color: #FFFFFF;
+  opacity: 1;
   transform: translateY(-2px);
 }
 
 .footer-link i {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.3s ease;
+  color: var(--text-color);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
 .footer-link:hover i {
-  color: #FFFFFF;
+  opacity: 1;
 }
 
 .footer-copyright {
   text-align: center;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
+  opacity: 0.3;
   width: 100%;
   max-width: 600px;
 }
 
 .footer-copyright p {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-color);
+  opacity: 0.6;
   margin: 0;
   font-weight: 400;
 }
