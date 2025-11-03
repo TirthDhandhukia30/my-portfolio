@@ -11,6 +11,19 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
   const body = document.body;
+  if (!themeToggle) {
+    return;
+  }
+
+  let themeTransitionTimeout;
+
+  const startThemeTransition = () => {
+    body.classList.add("theme-transition");
+    clearTimeout(themeTransitionTimeout);
+    themeTransitionTimeout = setTimeout(() => {
+      body.classList.remove("theme-transition");
+    }, 850);
+  };
 
   // Check for saved theme in localStorage
   const savedTheme = localStorage.getItem("theme");
@@ -21,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Toggle theme on checkbox change
   themeToggle.addEventListener("change", () => {
+    startThemeTransition();
     if (themeToggle.checked) {
       body.classList.add("light-theme");
       localStorage.setItem("theme", "light-theme");

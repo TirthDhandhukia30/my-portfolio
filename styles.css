@@ -155,11 +155,20 @@ body {
 }
 
 /* Smooth and soft theme transition */
-body * {
-  transition: background-color 1s ease-in-out,
-    color 1s ease-in-out,
-    border-color 1s ease-in-out,
-    opacity 1s ease-in-out;
+body.theme-transition,
+body.theme-transition * {
+  transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.theme-transition,
+  body.theme-transition * {
+    transition: none !important;
+  }
 }
 
 /* Side Dashed Lines */
@@ -3541,8 +3550,8 @@ nav .right a span {
 
 .contact-footer .to-top a,
 .contact-footer .clicker {
-  width: 128px;
-  min-height: 76px;
+  width: 140px;
+  min-height: 84px;
   justify-content: center;
 }
 
