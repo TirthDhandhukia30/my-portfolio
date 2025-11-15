@@ -16,33 +16,62 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let themeTransitionTimeout;
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
 
   const startThemeTransition = () => {
     body.classList.add("theme-transition");
     clearTimeout(themeTransitionTimeout);
     themeTransitionTimeout = setTimeout(() => {
       body.classList.remove("theme-transition");
-    }, 850);
+    }, 900);
   };
 
-  // Check for saved theme in localStorage
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light-theme") {
-    body.classList.add("light-theme");
-    themeToggle.checked = true;
-  }
-
-  // Toggle theme on checkbox change
-  themeToggle.addEventListener("change", () => {
-    startThemeTransition();
-    if (themeToggle.checked) {
-      body.classList.add("light-theme");
-      localStorage.setItem("theme", "light-theme");
-    } else {
-      body.classList.remove("light-theme");
-      localStorage.removeItem("theme");
+  const applyTheme = (mode, { animate = false, persist = false } = {}) => {
+    const shouldUseLight = mode === "light";
+    if (animate) {
+      startThemeTransition();
     }
+    body.classList.toggle("light-theme", shouldUseLight);
+    themeToggle.checked = shouldUseLight;
+
+    if (persist) {
+      if (shouldUseLight) {
+        localStorage.setItem("theme", "light-theme");
+      } else {
+        localStorage.setItem("theme", "dark-theme");
+      }
+    }
+  };
+
+  const resolveInitialTheme = () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light-theme") {
+      applyTheme("light");
+      return true;
+    }
+    if (savedTheme === "dark-theme") {
+      applyTheme("dark");
+      return true;
+    }
+
+    applyTheme(prefersLight.matches ? "light" : "dark");
+    return false;
+  };
+
+  const hasStoredPreference = resolveInitialTheme();
+
+  themeToggle.addEventListener("change", () => {
+    const mode = themeToggle.checked ? "light" : "dark";
+    applyTheme(mode, { animate: true, persist: true });
   });
+
+  if (!hasStoredPreference) {
+    prefersLight.addEventListener("change", (event) => {
+      if (!localStorage.getItem("theme")) {
+        applyTheme(event.matches ? "light" : "dark", { animate: true });
+      }
+    });
+  }
 });
 
 // Navbar Clock - Real Time with AM/PM and GMT+5:30
@@ -104,47 +133,43 @@ btn.addEventListener("click", () => {
   runTransaction(countRef, (current) => (current || 0) + 1);
 });
 
-// Typewriter Animation
-const typewriterElement = document.getElementById("typewriter");
+// Hero Role Animation - subtle blur + pop
+const roleTextElement = document.getElementById("roleText");
 const roles = ["DSA Enthusiast", "Web Developer", "AI Explorer"];
-
+const ROLE_EXIT_DURATION = 350;
+const ROLE_CYCLE_DURATION = 4200;
 let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 100; // milliseconds per character
+let roleAnimationLocked = false;
 
-function typeWriter() {
-  const currentRole = roles[roleIndex];
-
-  if (isDeleting) {
-    // Remove characters
-    typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
-    charIndex--;
-    typingSpeed = 50; // Faster deletion
-  } else {
-    // Add characters
-    typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
-    charIndex++;
-    typingSpeed = 100; // Normal typing speed
+function cycleRoleText() {
+  if (!roleTextElement || roleAnimationLocked) {
+    return;
   }
 
-  // Check if word is complete
-  if (!isDeleting && charIndex === currentRole.length) {
-    // Pause at end of word
-    typingSpeed = 2000;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    // Move to next role
-    isDeleting = false;
+  roleAnimationLocked = true;
+  roleTextElement.classList.remove("role-enter");
+  roleTextElement.classList.add("role-exit");
+
+  setTimeout(() => {
     roleIndex = (roleIndex + 1) % roles.length;
-    typingSpeed = 500; // Pause before starting new word
-  }
-
-  setTimeout(typeWriter, typingSpeed);
+    roleTextElement.textContent = roles[roleIndex];
+    roleTextElement.classList.remove("role-exit");
+    // Force reflow to restart the blur-in animation
+    void roleTextElement.offsetWidth;
+    roleTextElement.classList.add("role-enter");
+    roleAnimationLocked = false;
+  }, ROLE_EXIT_DURATION);
 }
 
-// Start the typewriter animation when page loads
-document.addEventListener("DOMContentLoaded", typeWriter);
+document.addEventListener("DOMContentLoaded", () => {
+  if (!roleTextElement) {
+    return;
+  }
+
+  roleTextElement.textContent = roles[roleIndex];
+  roleTextElement.classList.add("role-enter");
+  setInterval(cycleRoleText, ROLE_CYCLE_DURATION);
+});
 
 // BTC Price Fetcher
 async function fetchBTCPrice() {

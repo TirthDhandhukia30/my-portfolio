@@ -174,8 +174,7 @@
                 <h1 class="profile-name">Tirth Dhandhukia</h1>
               </div>
               <p class="profile-title">
-                <span id="typewriter"></span>
-                <span class="cursor">|</span>
+                <span id="roleText" class="role-text" aria-live="polite"></span>
               </p>
               <div class="profile-email">
                 <i class="fa-solid fa-envelope"></i>
@@ -194,13 +193,18 @@
       <!-- GitHub Activity - Between Hero and Projects -->
       <section class="github-activity-section">
         <div class="activity-pills-container">
-          <div class="building-activity">
+          <a
+            class="building-activity"
+            href="https://github.com/TirthDhandhukia30/InvoiceGen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i class="fa-brands fa-github"></i>
             <div class="building-info">
               <p class="building-label">Currently Building</p>
               <p class="building-project">InvoiceGen</p>
             </div>
-          </div>
+          </a>
           <div class="spotify-activity" id="spotifyPill">
             <i class="fa-brands fa-spotify spotify-activity-icon"></i>
             <div class="spotify-info">
@@ -258,6 +262,24 @@
             </div>
           </div>
         </div>
+      </section>
+      <!-- Latest Blog Highlight -->
+      <section class="blog-spotlight" aria-label="Latest blog highlight">
+        <a
+          class="blog-spotlight__link"
+          href="https://blogs.tirthdhandhukia.com/blog/blackhole-theory"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="blog-spotlight__info">
+            <span class="blog-spotlight__pill">OCT 28, 2025 · 7 MIN READ</span>
+            <h3 class="blog-spotlight__title">My Take on Black Hole Theory</h3>
+            <p class="blog-spotlight__excerpt">
+              A rupture in spacetime — exploring black holes through the lens of
+              structural failure rather than just gravitational collapse.
+            </p>
+          </div>
+        </a>
       </section>
 
       <!--Section 3: Projects-->
@@ -581,24 +603,22 @@
 
         <div class="contact-content">
           <p class="contact-text">
-            Thanks for taking the time to explore my work. I really appreciate
-            it! If something caught your eye, you have a project in mind, or you
-            just want to chat about tech, design, or anything creative, I'd love
-            to hear from you.
-          </p>
-
-          <p class="contact-text">
-            I'm always open to exciting opportunities, collaborations, or even a
-            quick conversation to share ideas and learn from each other.
+            Appreciate you stopping by. If a project sparked something or you
+            just want to jam on builds, drop me a line.
           </p>
 
           <p class="contact-text-highlight">
-            Feel free to drop me a message anytime.
+            Always keen to collaborate, learn, and ship new ideas.
           </p>
         </div>
 
         <div class="contact-actions">
-          <a href="mailto:tirth30.info@gmail.com" class="contact-button">
+          <a
+            href="mailto:tirth30.info@gmail.com"
+            class="contact-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i class="fa-solid fa-envelope"></i>
             <span>Email Me</span>
           </a>
@@ -606,6 +626,7 @@
           <a
             href="/Portfolio_resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="contact-button"
           >
             <i class="fa-solid fa-file-pdf"></i>

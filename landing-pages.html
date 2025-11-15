@@ -21,6 +21,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="styles.css" />
     <style>
       * {
         margin: 0;
@@ -28,18 +29,26 @@
         box-sizing: border-box;
       }
 
-      body {
+      body.landing-page {
         font-family: "Instrument Sans", sans-serif;
-        background-color: #000000;
-        color: #ffffff;
+        background-color: var(--bg-color);
+        color: var(--text-color);
         min-height: 100vh;
         overflow-x: hidden;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      body.landing-page::before,
+      body.landing-page::after {
+        display: none;
       }
 
       /* Header */
       .header {
         padding: 40px 24px;
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+        border-bottom: 1px dashed var(--border-color);
       }
 
       .back-button {
@@ -66,7 +75,7 @@
 
       /* Main Container */
       .container {
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 80px 24px;
       }
@@ -94,7 +103,7 @@
         height: auto;
         border-radius: 12px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        border: 1px solid var(--border-color);
         margin-bottom: 16px;
         position: relative;
         background: linear-gradient(
@@ -121,6 +130,31 @@
         text-align: center;
         font-style: italic;
         margin-top: 8px;
+      }
+
+      .light-theme .back-button {
+        background: rgba(0, 0, 0, 0.03);
+        border-color: rgba(0, 0, 0, 0.12);
+        color: rgba(0, 0, 0, 0.7);
+      }
+
+      .light-theme .back-button:hover {
+        background: rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.18);
+        color: var(--text-color);
+      }
+
+      .light-theme .project-preview {
+        border-color: rgba(0, 0, 0, 0.1);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.05),
+          rgba(0, 0, 0, 0.02)
+        );
+      }
+
+      .light-theme .project-tech {
+        color: rgba(0, 0, 0, 0.6);
       }
 
       /* Responsive */
@@ -160,7 +194,7 @@
     </style>
   </head>
 
-  <body>
+  <body class="landing-page">
     <!-- Header -->
     <div class="header">
       <a href="index.html" class="back-button">
@@ -195,5 +229,34 @@
         </div>
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const body = document.body;
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+        const savedTheme = localStorage.getItem("theme");
+
+        const apply = (mode) => {
+          if (mode === "light") {
+            body.classList.add("light-theme");
+          } else {
+            body.classList.remove("light-theme");
+          }
+        };
+
+        if (savedTheme === "light-theme") {
+          apply("light");
+        } else if (savedTheme === "dark-theme") {
+          apply("dark");
+        } else {
+          apply(prefersLight.matches ? "light" : "dark");
+          prefersLight.addEventListener("change", (event) => {
+            if (!localStorage.getItem("theme")) {
+              apply(event.matches ? "light" : "dark");
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
