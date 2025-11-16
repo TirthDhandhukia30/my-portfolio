@@ -211,10 +211,8 @@ setInterval(fetchBTCPrice, 60000);
 // Custom Audio Player - Ultra Minimal
 document.addEventListener("DOMContentLoaded", function () {
   const spotifyPill = document.getElementById("spotifyPill");
-  const spotifyPopup = document.getElementById("spotifyPopup");
-  const closeSpotify = document.getElementById("closeSpotify");
   const audioPlayer = document.getElementById("audioPlayer");
-  const playPauseBtn = document.getElementById("playPauseBtn");
+  const playIcon = document.getElementById("spotifyPlayIcon");
 
   let isPlaying = false;
 
@@ -225,85 +223,29 @@ document.addEventListener("DOMContentLoaded", function () {
     // When song ends
     audioPlayer.addEventListener("ended", function () {
       isPlaying = false;
-      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
       audioPlayer.currentTime = 0;
+      if (playIcon) {
+        playIcon.className = "fa-solid fa-play spotify-play-icon";
+      }
     });
   }
 
-  // Play/Pause button
-  if (playPauseBtn && audioPlayer) {
-    playPauseBtn.addEventListener("click", function () {
+  // Pill click toggles play/pause
+  if (spotifyPill && audioPlayer) {
+    spotifyPill.addEventListener("click", function () {
       if (isPlaying) {
         audioPlayer.pause();
-        playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-      } else {
-        audioPlayer.play();
-        playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-      }
-      isPlaying = !isPlaying;
-    });
-  }
-
-  // Popup controls with auto-play
-  if (spotifyPill && spotifyPopup && closeSpotify) {
-    // Open popup and auto-play when pill is clicked
-    spotifyPill.addEventListener("click", function () {
-      spotifyPopup.classList.add("active");
-      document.body.style.overflow = "hidden";
-
-      // Auto-play the song
-      if (audioPlayer) {
-        audioPlayer
-          .play()
-          .then(() => {
-            isPlaying = true;
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-          })
-          .catch((error) => {
-            console.log("Auto-play prevented:", error);
-          });
-      }
-    });
-
-    // Close popup and pause audio
-    function closePopup() {
-      spotifyPopup.classList.remove("active");
-      document.body.style.overflow = "";
-      if (audioPlayer && isPlaying) {
-        audioPlayer.pause();
         isPlaying = false;
-        playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-      }
-    }
-
-    closeSpotify.addEventListener("click", closePopup);
-
-    // Close popup when clicking outside
-    spotifyPopup.addEventListener("click", function (e) {
-      if (e.target === spotifyPopup) {
-        closePopup();
-      }
-    });
-
-    // Keyboard shortcuts
-    document.addEventListener("keydown", function (e) {
-      // Close popup with Escape key
-      if (e.key === "Escape" && spotifyPopup.classList.contains("active")) {
-        closePopup();
-      }
-
-      // Play/Pause with Spacebar (only when popup is open)
-      if (e.code === "Space" && spotifyPopup.classList.contains("active")) {
-        e.preventDefault(); // Prevent page scroll
-        if (audioPlayer && playPauseBtn) {
-          if (isPlaying) {
-            audioPlayer.pause();
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
-          } else {
-            audioPlayer.play();
-            playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-          }
-          isPlaying = !isPlaying;
+        if (playIcon) {
+          playIcon.className = "fa-solid fa-play spotify-play-icon";
+        }
+      } else {
+        audioPlayer.play().catch((error) => {
+          console.log("Playback prevented:", error);
+        });
+        isPlaying = true;
+        if (playIcon) {
+          playIcon.className = "fa-solid fa-pause spotify-play-icon";
         }
       }
     });
@@ -343,4 +285,386 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+});
+
+// ==================== DINO GAME ====================
+
+class DinoGame {
+  constructor() {
+    this.canvas = document.getElementById("dinoCanvas");
+    this.ctx = this.canvas.getContext("2d");
+    this.isGameOver = false;
+    this.isPlaying = false;
+    this.score = 0;
+    this.hiScore = parseInt(localStorage.getItem("dinoHiScore")) || 0;
+
+    // Game constants
+    this.GRAVITY = 0.6;
+    this.JUMP_STRENGTH = -12;
+    this.BASE_SPEED = 6;
+    this.MAX_SPEED = 11.5;
+    this.SPEED_STEP = 0.5;
+    this.DIFFICULTY_INTERVAL = 50;
+    this.SPAWN_INTERVAL_MIN = 70;
+    this.SPAWN_INTERVAL_MAX = 120;
+    this.ENABLE_BIRD_SCORE = 80;
+
+    // Dino properties
+    this.dino = {
+      x: 50,
+      y: 150,
+      width: 40,
+      height: 45,
+      dy: 0,
+      jumping: false,
+    };
+
+    // Obstacles
+    this.obstacles = [];
+    this.currentSpeed = this.BASE_SPEED;
+    this.framesUntilNextSpawn = this.randomSpawnInterval();
+
+    this.adjustCanvasWidth = this.adjustCanvasWidth.bind(this);
+    this.setupEventListeners();
+    this.updateScoreDisplay();
+    this.adjustCanvasWidth();
+    window.addEventListener("resize", this.adjustCanvasWidth);
+  }
+
+  setupEventListeners() {
+    // Keyboard controls
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space" || e.code === "ArrowUp") {
+        e.preventDefault();
+        this.jump();
+      }
+    });
+
+    // Click/Tap to jump
+    this.canvas.addEventListener("click", () => {
+      this.jump();
+    });
+  }
+
+  jump() {
+    if (this.isGameOver) {
+      this.reset();
+      return;
+    }
+
+    if (!this.isPlaying) {
+      return;
+    }
+
+    if (!this.dino.jumping) {
+      this.dino.dy = this.JUMP_STRENGTH;
+      this.dino.jumping = true;
+    }
+  }
+
+  start() {
+    if (this.isPlaying) {
+      return;
+    }
+    this.isPlaying = true;
+    this.isGameOver = false;
+    this.gameLoop();
+  }
+
+  reset() {
+    this.obstacles = [];
+    this.score = 0;
+    this.isGameOver = false;
+    this.dino.y = 150;
+    this.dino.dy = 0;
+    this.dino.jumping = false;
+    this.currentSpeed = this.BASE_SPEED;
+    this.framesUntilNextSpawn = this.randomSpawnInterval();
+    this.start();
+  }
+
+  spawnObstacle() {
+    const allowBirds = this.getDisplayScore() >= this.ENABLE_BIRD_SCORE;
+    const types = allowBirds ? ["cactus", "bird"] : ["cactus"];
+    const type = types[Math.floor(Math.random() * types.length)];
+
+    const obstacle = {
+      x: this.canvas.width,
+      y: type === "cactus" ? 155 : 130,
+      width: 20,
+      height: type === "cactus" ? 40 : 30,
+      type: type,
+      speedOffset: type === "bird" ? 0.8 : 0,
+    };
+
+    this.obstacles.push(obstacle);
+  }
+
+  randomSpawnInterval() {
+    const scoreFactor = this.getDisplayScore();
+    const difficultyMultiplier = Math.min(1.8, 1 + scoreFactor / 120);
+    const minInterval = Math.max(
+      45,
+      Math.floor(this.SPAWN_INTERVAL_MIN / difficultyMultiplier)
+    );
+    const maxInterval = Math.max(
+      minInterval + 15,
+      Math.floor(this.SPAWN_INTERVAL_MAX / difficultyMultiplier)
+    );
+    return (
+      Math.floor(Math.random() * (maxInterval - minInterval + 1)) + minInterval
+    );
+  }
+
+  getDisplayScore() {
+    return Math.floor(this.score / 10);
+  }
+
+  updateDifficulty() {
+    const level = Math.floor(this.getDisplayScore() / this.DIFFICULTY_INTERVAL);
+    this.currentSpeed = Math.min(
+      this.BASE_SPEED + level * this.SPEED_STEP,
+      this.MAX_SPEED
+    );
+  }
+
+  adjustCanvasWidth() {
+    if (!this.canvas) {
+      return;
+    }
+    const containerWidth = this.canvas.parentElement
+      ? this.canvas.parentElement.clientWidth
+      : 600;
+    const horizontalPadding = 32;
+    const rawTargetWidth = containerWidth - horizontalPadding;
+    const targetWidth = Math.max(360, Math.min(600, rawTargetWidth));
+    if (this.canvas.width !== targetWidth) {
+      this.canvas.width = targetWidth;
+    }
+  }
+
+  updatePhysics() {
+    // Gravity
+    this.dino.dy += this.GRAVITY;
+    this.dino.y += this.dino.dy;
+
+    // Ground collision
+    if (this.dino.y >= 150) {
+      this.dino.y = 150;
+      this.dino.dy = 0;
+      this.dino.jumping = false;
+    }
+
+    // Move obstacles
+    this.obstacles.forEach((obstacle) => {
+      obstacle.x -= this.currentSpeed + (obstacle.speedOffset || 0);
+    });
+
+    // Remove off-screen obstacles
+    this.obstacles = this.obstacles.filter(
+      (obstacle) => obstacle.x + obstacle.width > 0
+    );
+
+    // Spawn new obstacles with adaptive gaps
+    this.framesUntilNextSpawn -= 1;
+    if (this.framesUntilNextSpawn <= 0) {
+      this.spawnObstacle();
+      this.framesUntilNextSpawn = this.randomSpawnInterval();
+    }
+
+    // Score
+    this.score++;
+    if (this.score > this.hiScore) {
+      this.hiScore = this.score;
+      localStorage.setItem("dinoHiScore", this.hiScore);
+    }
+    this.updateDifficulty();
+    this.updateScoreDisplay();
+  }
+
+  checkCollisions() {
+    for (let obstacle of this.obstacles) {
+      if (
+        this.dino.x < obstacle.x + obstacle.width - 10 &&
+        this.dino.x + this.dino.width - 10 > obstacle.x &&
+        this.dino.y < obstacle.y + obstacle.height - 10 &&
+        this.dino.y + this.dino.height - 10 > obstacle.y
+      ) {
+        this.isGameOver = true;
+        this.isPlaying = false;
+      }
+    }
+  }
+
+  draw() {
+    // Clear canvas
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // Draw ground
+    this.ctx.strokeStyle = getComputedStyle(document.body)
+      .getPropertyValue("--text-color")
+      .trim();
+    this.ctx.lineWidth = 2;
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, 195);
+    this.ctx.lineTo(this.canvas.width, 195);
+    this.ctx.stroke();
+
+    // Draw dino
+    this.ctx.fillStyle = getComputedStyle(document.body)
+      .getPropertyValue("--text-color")
+      .trim();
+    this.ctx.fillRect(
+      this.dino.x,
+      this.dino.y,
+      this.dino.width,
+      this.dino.height
+    );
+
+    // Draw eye
+    this.ctx.fillStyle = getComputedStyle(document.body)
+      .getPropertyValue("--bg-color")
+      .trim();
+    this.ctx.fillRect(this.dino.x + 28, this.dino.y + 8, 6, 6);
+
+    // Draw obstacles
+    this.obstacles.forEach((obstacle) => {
+      this.ctx.fillStyle = getComputedStyle(document.body)
+        .getPropertyValue("--text-color")
+        .trim();
+      if (obstacle.type === "cactus") {
+        this.ctx.fillRect(
+          obstacle.x,
+          obstacle.y,
+          obstacle.width,
+          obstacle.height
+        );
+      } else {
+        // Bird (flying)
+        this.ctx.fillRect(
+          obstacle.x,
+          obstacle.y,
+          obstacle.width,
+          obstacle.height
+        );
+      }
+    });
+
+    // Game over text
+    if (this.isGameOver) {
+      this.ctx.fillStyle = getComputedStyle(document.body)
+        .getPropertyValue("--text-color")
+        .trim();
+      this.ctx.font = "20px Courier New";
+      this.ctx.textAlign = "center";
+      this.ctx.fillText("GAME OVER", this.canvas.width / 2, 80);
+      this.ctx.font = "14px Courier New";
+      this.ctx.fillText(
+        "Click or Press SPACE to restart",
+        this.canvas.width / 2,
+        105
+      );
+    }
+
+    // Start message
+    if (!this.isPlaying && !this.isGameOver) {
+      this.ctx.fillStyle = getComputedStyle(document.body)
+        .getPropertyValue("--text-color")
+        .trim();
+      this.ctx.font = "16px Courier New";
+      this.ctx.textAlign = "center";
+      this.ctx.fillText(
+        "Click or Press SPACE to start",
+        this.canvas.width / 2,
+        90
+      );
+    }
+  }
+
+  updateScoreDisplay() {
+    const currentScoreEl = document.getElementById("currentScore");
+    const hiScoreEl = document.getElementById("hiScore");
+    const currentDisplayScore = this.getDisplayScore();
+
+    if (currentScoreEl) {
+      currentScoreEl.textContent = String(currentDisplayScore).padStart(5, "0");
+    }
+    if (hiScoreEl) {
+      hiScoreEl.textContent = String(Math.floor(this.hiScore / 10)).padStart(
+        5,
+        "0"
+      );
+    }
+  }
+
+  gameLoop() {
+    if (!this.isPlaying) return;
+
+    this.updatePhysics();
+    this.checkCollisions();
+    this.draw();
+
+    if (!this.isGameOver) {
+      requestAnimationFrame(() => this.gameLoop());
+    } else {
+      this.draw();
+    }
+  }
+}
+
+// Toggle between terminal and dino game
+document.addEventListener("DOMContentLoaded", () => {
+  const profileImageTrigger = document.getElementById("profileImageTrigger");
+  const terminalCard = document.getElementById("terminalCard");
+  const dinoGameCard = document.getElementById("dinoGameCard");
+  const closeDinoGame = document.getElementById("closeDinoGame");
+
+  let dinoGame = null;
+
+  if (profileImageTrigger && terminalCard && dinoGameCard) {
+    profileImageTrigger.addEventListener("click", () => {
+      // Fade out terminal card
+      terminalCard.classList.add("fade-out");
+
+      setTimeout(() => {
+        terminalCard.style.display = "none";
+        terminalCard.classList.remove("fade-out");
+        dinoGameCard.style.display = "block";
+
+        // Trigger fade in
+        setTimeout(() => {
+          dinoGameCard.classList.add("fade-in");
+        }, 10);
+
+        // Initialize or reset game and auto-start
+        if (!dinoGame) {
+          dinoGame = new DinoGame();
+          dinoGame.start();
+        } else {
+          dinoGame.reset();
+        }
+      }, 400);
+    });
+
+    closeDinoGame.addEventListener("click", () => {
+      // Fade out game card
+      dinoGameCard.classList.remove("fade-in");
+
+      setTimeout(() => {
+        dinoGameCard.style.display = "none";
+        terminalCard.style.display = "block";
+
+        // Trigger fade in for terminal
+        setTimeout(() => {
+          terminalCard.style.opacity = "0.95";
+        }, 10);
+
+        // Stop game
+        if (dinoGame) {
+          dinoGame.isPlaying = false;
+          dinoGame.isGameOver = true;
+        }
+      }, 400);
+    });
+  }
 });

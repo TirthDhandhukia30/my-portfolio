@@ -110,9 +110,15 @@
         </div>
       </section>
 
-      <section id="hero" class="hero">
+      <section id="hero" class="hero scroll-section">
+        <div class="hero-starfield" aria-hidden="true">
+          <span class="shooting-star star-1"></span>
+          <span class="shooting-star star-2"></span>
+          <span class="shooting-star star-3"></span>
+          <span class="shooting-star star-4"></span>
+        </div>
         <!--Section 1:Hero - Terminal Card-->
-        <div class="terminal-card">
+        <div class="terminal-card" id="terminalCard">
           <!-- Corner Highlights -->
           <div class="corner-highlight corner-tl"></div>
           <div class="corner-highlight corner-tr"></div>
@@ -160,12 +166,33 @@
           <!-- Main Content Area -->
           <div class="terminal-content">
             <!-- Profile Image -->
-            <div class="profile-image-wrapper">
+            <div
+              class="profile-image-wrapper"
+              id="profileImageTrigger"
+              style="cursor: pointer"
+            >
               <img
                 src="images/pfp.jpg"
                 alt="Tirth Dhandhukia"
                 class="profile-image"
               />
+              <div class="game-hint-label">
+                <svg
+                  class="hint-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+                click me
+              </div>
             </div>
 
             <!-- Profile Info -->
@@ -188,10 +215,47 @@
             I make things that work. Sometimes they matter. Now exploring Web3.
           </div>
         </div>
+
+        <!-- Dino Game Card (Hidden by default) -->
+        <div
+          class="terminal-card dino-game-card"
+          id="dinoGameCard"
+          style="display: none"
+        >
+          <!-- Corner Highlights -->
+          <div class="corner-highlight corner-tl"></div>
+          <div class="corner-highlight corner-tr"></div>
+          <div class="corner-highlight corner-bl"></div>
+          <div class="corner-highlight corner-br"></div>
+
+          <!-- Game Header -->
+          <div class="terminal-header">
+            <!-- <div class="dino-game-title">Dino Runner</div> -->
+            <button
+              class="icon-button"
+              id="closeDinoGame"
+              style="margin-left: auto"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- Game Canvas -->
+          <div class="dino-game-container">
+            <canvas id="dinoCanvas" width="600" height="200"></canvas>
+            <div class="dino-game-score">
+              <span>HI <span id="hiScore">00000</span></span>
+              <span id="currentScore">00000</span>
+            </div>
+            <div class="dino-game-instructions">
+              Press SPACE or click to jump
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- GitHub Activity - Between Hero and Projects -->
-      <section class="github-activity-section">
+      <section class="github-activity-section scroll-section">
         <div class="activity-pills-container">
           <a
             class="building-activity"
@@ -211,60 +275,24 @@
               <p class="spotify-song">Gyalchester</p>
               <p class="spotify-artist">Drake</p>
             </div>
-            <i class="fa-solid fa-play spotify-play-icon"></i>
+            <i
+              class="fa-solid fa-play spotify-play-icon"
+              id="spotifyPlayIcon"
+            ></i>
           </div>
         </div>
 
-        <!-- Spotify Player Popup -->
-        <div class="spotify-player-popup" id="spotifyPopup">
-          <div class="spotify-player-container">
-            <!-- Custom Audio Player -->
-            <div class="custom-audio-player">
-              <audio id="audioPlayer" preload="metadata">
-                <source src="audio/song.mp3" type="audio/mpeg" />
-                Your browser does not support the audio element.
-              </audio>
-
-              <!-- Close Button -->
-              <button class="player-close-btn" id="closeSpotify">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-
-              <!-- Song Header -->
-              <div class="player-header">
-                <div class="song-meta">
-                  <h3 class="player-song-title">Gyalchester</h3>
-                  <p class="player-artist-name">Drake</p>
-                </div>
-              </div>
-
-              <!-- Album Art -->
-              <div class="album-art-section">
-                <img
-                  src="images/gyalchester.jpeg"
-                  alt="More Life Album Cover"
-                  class="album-cover"
-                />
-              </div>
-
-              <!-- Controls -->
-              <div class="player-controls-section">
-                <button class="control-button play-btn" id="playPauseBtn">
-                  <i class="fa-solid fa-pause"></i>
-                </button>
-              </div>
-
-              <!-- Keyboard Hint -->
-              <div class="keyboard-hint">
-                <span class="hint-key">SPACE</span>
-                <span class="hint-text">to play/pause</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Hidden Audio Element -->
+        <audio id="audioPlayer" preload="metadata" style="display: none">
+          <source src="audio/song.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
       </section>
       <!-- Latest Blog Highlight -->
-      <section class="blog-spotlight" aria-label="Latest blog highlight">
+      <section
+        class="blog-spotlight scroll-section"
+        aria-label="Latest blog highlight"
+      >
         <a
           class="blog-spotlight__link"
           href="https://blogs.tirthdhandhukia.com/blog/blackhole-theory"
@@ -283,7 +311,7 @@
       </section>
 
       <!--Section 3: Projects-->
-      <section id="projects" class="projects">
+      <section id="projects" class="projects scroll-section">
         <h2 class="projects-title">Projects</h2>
 
         <div class="projects-list">
@@ -421,7 +449,7 @@
       </section>
 
       <!-- ===== Skills Section ===== -->
-      <section id="skills" class="skills-section">
+      <section id="skills" class="skills-section scroll-section">
         <div class="skills-wrap">
           <h2 class="skills-title">Technical Skills</h2>
 
@@ -598,7 +626,7 @@
         </div>
       </section>
       <!--Section 4: Contact-->
-      <section id="contact" class="contact">
+      <section id="contact" class="contact scroll-section">
         <h2 class="contact-title">Let's connect!</h2>
 
         <div class="contact-content">
