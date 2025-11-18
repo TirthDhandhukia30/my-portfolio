@@ -7,6 +7,91 @@ import {
   runTransaction,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
+// Hello Intro Animation
+function animateHelloIntro() {
+  const svgEl = document.getElementById("helloIntro");
+  const overlay = document.getElementById("introOverlay");
+  const speed = Number(svgEl.dataset.speed ?? 1);
+  const paths = Array.from(svgEl.querySelectorAll("path"));
+
+  if (!paths.length) return;
+
+  // Add intro-active class to body
+  document.body.classList.add("intro-active");
+
+  // Prepare each path
+  paths.forEach((p) => {
+    const len = p.getTotalLength();
+    p.style.strokeDasharray = len;
+    p.style.strokeDashoffset = len;
+    p.style.opacity = 0;
+    p.getBoundingClientRect();
+  });
+
+  let finishedCount = 0;
+  const totalToFinish = paths.length;
+
+  paths.forEach((p) => {
+    const duration = (parseFloat(p.dataset.duration) || 0.6) * 1000 * speed;
+    const delay = (parseFloat(p.dataset.delay) || 0) * 1000 * speed;
+    const opDur =
+      (parseFloat(p.dataset.opacityDuration) ||
+        Math.min(0.5, (parseFloat(p.dataset.duration) || 0.6) * 0.5)) *
+      1000 *
+      speed;
+    const opDelay =
+      (parseFloat(p.dataset.opacityDelay) || parseFloat(p.dataset.delay) || 0) *
+      1000 *
+      speed;
+    const len = p.getTotalLength();
+
+    // Stroke animation
+    const strokeAnim = p.animate(
+      [{ strokeDashoffset: String(len) }, { strokeDashoffset: "0" }],
+      {
+        duration,
+        delay,
+        easing: "cubic-bezier(.4,0,.2,1)",
+      }
+    );
+
+    // Opacity animation
+    const opacityAnim = p.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: opDur,
+      delay: opDelay,
+      easing: "linear",
+    });
+
+    strokeAnim.onfinish = () => {
+      p.style.strokeDashoffset = "0";
+    };
+
+    opacityAnim.onfinish = () => {
+      p.style.opacity = "1";
+      finishedCount += 1;
+
+      if (finishedCount === totalToFinish) {
+        // Animation complete - wait 1800ms then fade out
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          document.body.classList.remove("intro-active");
+        }, 1800);
+      }
+    };
+  });
+}
+
+// Run intro animation when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", animateHelloIntro);
+} else {
+  animateHelloIntro();
+}
+
+// Game jump sound (global scope)
+const gameSound = new Audio("audio/game.mp3");
+gameSound.volume = 0.4;
+
 // Theme Toggle
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
@@ -17,13 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let themeTransitionTimeout;
   const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+  const clickSound = new Audio("audio/click.mp3");
+  clickSound.volume = 0.3;
 
   const startThemeTransition = () => {
     body.classList.add("theme-transition");
     clearTimeout(themeTransitionTimeout);
     themeTransitionTimeout = setTimeout(() => {
       body.classList.remove("theme-transition");
-    }, 900);
+    }, 400);
   };
 
   const applyTheme = (mode, { animate = false, persist = false } = {}) => {
@@ -62,6 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   themeToggle.addEventListener("change", () => {
     const mode = themeToggle.checked ? "light" : "dark";
+    clickSound.currentTime = 0;
+    clickSound.play().catch(() => {});
     applyTheme(mode, { animate: true, persist: true });
   });
 
@@ -290,13 +379,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // ==================== DINO GAME ====================
 
 class DinoGame {
-  constructor() {
+  constructor(jumpSound = null) {
     this.canvas = document.getElementById("dinoCanvas");
     this.ctx = this.canvas.getContext("2d");
     this.isGameOver = false;
     this.isPlaying = false;
     this.score = 0;
     this.hiScore = parseInt(localStorage.getItem("dinoHiScore")) || 0;
+    this.jumpSound = jumpSound;
 
     // Game constants
     this.GRAVITY = 0.6;
@@ -359,6 +449,14 @@ class DinoGame {
     if (!this.dino.jumping) {
       this.dino.dy = this.JUMP_STRENGTH;
       this.dino.jumping = true;
+
+      // Play jump sound
+      if (this.jumpSound) {
+        this.jumpSound.currentTime = 0;
+        this.jumpSound
+          .play()
+          .catch((err) => console.log("Audio play failed:", err));
+      }
     }
   }
 
@@ -616,12 +714,12 @@ class DinoGame {
 document.addEventListener("DOMContentLoaded", () => {
   const profileImageTrigger = document.getElementById("profileImageTrigger");
   const terminalCard = document.getElementById("terminalCard");
-  const dinoGameCard = document.getElementById("dinoGameCard");
+  const dinoGameContainer = document.getElementById("dinoGameContainer");
   const closeDinoGame = document.getElementById("closeDinoGame");
 
   let dinoGame = null;
 
-  if (profileImageTrigger && terminalCard && dinoGameCard) {
+  if (profileImageTrigger && terminalCard && dinoGameContainer) {
     profileImageTrigger.addEventListener("click", () => {
       // Fade out terminal card
       terminalCard.classList.add("fade-out");
@@ -629,16 +727,16 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         terminalCard.style.display = "none";
         terminalCard.classList.remove("fade-out");
-        dinoGameCard.style.display = "block";
+        dinoGameContainer.style.display = "flex";
 
         // Trigger fade in
         setTimeout(() => {
-          dinoGameCard.classList.add("fade-in");
+          dinoGameContainer.classList.add("fade-in");
         }, 10);
 
         // Initialize or reset game and auto-start
         if (!dinoGame) {
-          dinoGame = new DinoGame();
+          dinoGame = new DinoGame(gameSound);
           dinoGame.start();
         } else {
           dinoGame.reset();
@@ -646,12 +744,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 400);
     });
 
-    closeDinoGame.addEventListener("click", () => {
-      // Fade out game card
-      dinoGameCard.classList.remove("fade-in");
+    const closeGame = () => {
+      // Fade out game
+      dinoGameContainer.classList.remove("fade-in");
 
       setTimeout(() => {
-        dinoGameCard.style.display = "none";
+        dinoGameContainer.style.display = "none";
         terminalCard.style.display = "block";
 
         // Trigger fade in for terminal
@@ -665,6 +763,15 @@ document.addEventListener("DOMContentLoaded", () => {
           dinoGame.isGameOver = true;
         }
       }, 400);
+    };
+
+    closeDinoGame.addEventListener("click", closeGame);
+
+    // ESC key to close game
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && dinoGameContainer.style.display === "flex") {
+        closeGame();
+      }
     });
   }
 });

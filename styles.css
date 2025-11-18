@@ -216,11 +216,11 @@ body::-webkit-scrollbar {
 /* Smooth and soft theme transition */
 body.theme-transition,
 body.theme-transition * {
-  transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -529,9 +529,9 @@ nav .right a span {
   position: relative;
   width: 100%;
   max-width: 700px;
-  background: var(--card-bg);
+  background: rgba(0, 0, 0, 0.75);
   border: 1px solid var(--border-color);
-  opacity: 0.95;
+  opacity: 1;
   border-radius: 5px;
   padding: 32px;
   overflow: hidden;
@@ -540,7 +540,7 @@ nav .right a span {
 }
 
 .light-theme .terminal-card {
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(250, 250, 250, 0.55);
   border-color: rgba(0, 0, 0, 0.06);
   /* box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08); */
   /* backdrop-filter: blur(18px);
@@ -843,6 +843,17 @@ nav .right a span {
   margin: 0;
   line-height: 1;
   letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verified-badge {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .status-badge {
@@ -960,110 +971,6 @@ nav .right a span {
   background: var(--bg-color);
   margin-bottom: 30px;
   transition: background-color 0.3s ease;
-}
-
-
-.blog-spotlight {
-  width: min(100%, 920px);
-  margin: 20px auto 70px;
-  padding: 26px 0;
-  position: relative;
-}
-
-.blog-spotlight::before,
-.blog-spotlight::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 60px);
-  border-top: 1px dashed rgba(255, 255, 255, 0.14);
-}
-
-.blog-spotlight::before {
-  top: 0;
-}
-
-.blog-spotlight::after {
-  bottom: 0;
-}
-
-.blog-spotlight__link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 18px 8px;
-  text-decoration: none;
-  color: var(--text-color);
-  opacity: 0.85;
-  transition: opacity 0.3s ease, color 0.3s ease;
-}
-
-.blog-spotlight__link:hover {
-  opacity: 1;
-}
-
-.blog-spotlight__info {
-  flex: 1 1 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.blog-spotlight__pill {
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.45;
-  font-weight: 500;
-}
-
-.blog-spotlight__title {
-  font-size: 1.65rem;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.blog-spotlight__excerpt {
-  font-size: 1rem;
-  opacity: 0.65;
-  line-height: 1.6;
-  max-width: 90%;
-}
-
-.blog-spotlight__details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  min-width: 180px;
-}
-
-.blog-spotlight__meta {
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  opacity: 0.5;
-}
-
-.blog-spotlight__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.light-theme .blog-spotlight::before,
-.light-theme .blog-spotlight::after {
-  border-top-color: rgba(0, 0, 0, 0.14);
-}
-
-.light-theme .blog-spotlight__link {
-  opacity: 0.75;
 }
 
 /* CLI Command Section - Minimal */
@@ -1479,20 +1386,6 @@ nav .right a span {
   /* GitHub Activity Section */
   .github-activity-section {
     padding: 18px 32px;
-  }
-
-  .blog-spotlight {
-    width: calc(100% - 64px);
-    padding: 24px 0 40px;
-  }
-
-  .blog-spotlight::before,
-  .blog-spotlight::after {
-    width: 100%;
-  }
-
-  .blog-spotlight__link {
-    gap: 20px;
   }
 
   /* Projects Section */
@@ -2784,25 +2677,28 @@ nav .right a span {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 14px;
-  background: rgba(128, 128, 128, 0.05);
-  border: 1px solid var(--border-color);
-  opacity: 0.7;
+  padding: 10px 16px;
+  background: rgba(128, 128, 128, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0.85;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .building-activity:hover {
-  background: rgba(128, 128, 128, 0.1);
+  background: rgba(128, 128, 128, 0.15);
   opacity: 1;
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .building-activity i {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--text-color);
   flex-shrink: 0;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .building-info {
@@ -2814,17 +2710,19 @@ nav .right a span {
 
 .building-label {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-color);
-  opacity: 0.85;
+  opacity: 0.95;
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
 .building-project {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text-color);
-  opacity: 0.4;
+  opacity: 0.6;
   margin: 0;
+  font-weight: 500;
 }
 
 /* Spotify Activity Pill - Matches GitHub Activity */
@@ -2832,10 +2730,10 @@ nav .right a span {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 14px;
-  background: rgba(128, 128, 128, 0.05);
-  border: 1px solid var(--border-color);
-  opacity: 0.7;
+  padding: 10px 16px;
+  background: rgba(128, 128, 128, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0.85;
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
@@ -2845,16 +2743,17 @@ nav .right a span {
 }
 
 .spotify-activity:hover {
-  background: rgba(128, 128, 128, 0.1);
+  background: rgba(128, 128, 128, 0.15);
   opacity: 1;
   transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .spotify-activity-icon {
-  font-size: 16px;
+  font-size: 18px;
   color: #1DB954;
   flex-shrink: 0;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .spotify-info {
@@ -2867,35 +2766,38 @@ nav .right a span {
 
 .spotify-song {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-color);
-  opacity: 0.85;
+  opacity: 0.95;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .spotify-artist {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text-color);
-  opacity: 0.4;
+  opacity: 0.6;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .spotify-play-icon {
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-color);
-  opacity: 0.3;
+  opacity: 0.5;
   transition: all 0.3s ease;
 }
 
 .spotify-activity:hover .spotify-play-icon {
   color: #1DB954;
+  opacity: 0.9;
   transform: scale(1.2);
 }
 
@@ -3831,65 +3733,85 @@ nav .right a span {
 }
 
 /* Dino Game Styles */
-.dino-game-card {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.dino-game-card.fade-in {
-  opacity: 0.95;
-}
-
-.terminal-card.fade-out {
-  opacity: 0;
-}
-
-.dino-game-title {
-  font-family: 'Courier New', monospace;
-  font-size: 1rem;
-  color: var(--text-primary);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
 .dino-game-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 0.75rem;
-  min-height: 260px;
-  max-width: 560px;
+  padding: 3rem 1.5rem;
+  width: 100%;
+  max-width: 650px;
   margin: 0 auto;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dino-game-container.fade-in {
+  opacity: 1;
+}
+
+.game-close-btn {
+  position: absolute;
+  top: 0.2rem;
+  right: 1rem;
+  background: rgba(128, 128, 128, 0.08);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.game-close-btn:hover {
+  background: rgba(128, 128, 128, 0.15);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.game-close-btn i {
+  font-size: 18px;
 }
 
 #dinoCanvas {
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   background: var(--bg-color);
   image-rendering: pixelated;
   max-width: 100%;
   height: auto;
+  box-shadow: 0 4px 16px rgba(128, 128, 128, 0.1);
 }
 
 .dino-game-score {
   position: absolute;
-  top: 2.5rem;
-  right: 2rem;
+  top: 3.5rem;
+  right: 4rem;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   color: var(--text-color);
   display: flex;
   gap: 1rem;
+  opacity: 0.8;
 }
 
 .dino-game-instructions {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem;
   color: var(--text-color);
-  opacity: 0.7;
+  opacity: 0.6;
+}
+
+.terminal-card.fade-out {
+  opacity: 0;
 }
 
 /* Profile image clickable cursor */
@@ -3964,5 +3886,63 @@ nav .right a span {
   .game-hint-label {
     animation: none;
     opacity: 0.6;
+  }
+}
+
+/* Intro Overlay */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.intro-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-overlay .hello-svg {
+  height: 100px;
+  width: auto;
+  color: var(--text-color);
+}
+
+.intro-overlay .hello-svg path {
+  fill: none;
+  stroke: var(--text-color);
+  stroke-width: 14.8883;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+/* Hide main content during intro */
+body.intro-active {
+  overflow: hidden;
+}
+
+body.intro-active main,
+body.intro-active nav {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .intro-overlay .hello-svg {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-overlay .hello-svg {
+    height: 50px;
   }
 }

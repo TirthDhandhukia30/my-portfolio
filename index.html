@@ -25,6 +25,37 @@
   </head>
 
   <body id="name">
+    <!-- Intro Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+      <svg
+        class="hello-svg"
+        id="helloIntro"
+        viewBox="0 0 638 200"
+        xmlns="http://www.w3.org/2000/svg"
+        data-speed="0.8"
+        aria-label="hello"
+        role="img"
+      >
+        <title>hello</title>
+
+        <!-- h1 -->
+        <path
+          data-duration="0.8"
+          data-delay="0"
+          d="M8.69214 166.553C36.2393 151.239 61.3409 131.548 89.8191 98.0295C109.203 75.1488 119.625 49.0228 120.122 31.0026C120.37 17.6036 113.836 7.43883 101.759 7.43883C88.3598 7.43883 79.9231 17.6036 74.7122 40.9363C69.005 66.5793 64.7866 96.0036 54.1166 190.356"
+        />
+
+        <!-- h2, ello -->
+        <path
+          data-duration="2.8"
+          data-delay="0.7"
+          data-opacity-duration="0.7"
+          data-opacity-delay="0.7"
+          d="M55.1624 181.135C60.6251 133.114 81.4118 98.0479 107.963 98.0479C123.844 98.0479 133.937 110.703 131.071 128.817C129.457 139.487 127.587 150.405 125.408 163.06C122.869 178.941 130.128 191.348 152.122 191.348C184.197 191.348 219.189 173.523 237.097 145.915C243.198 136.509 245.68 128.073 245.928 119.884C246.176 104.996 237.739 93.8296 222.851 93.8296C203.992 93.8296 189.6 115.17 189.6 142.465C189.6 171.745 205.481 192.341 239.208 192.341C285.066 192.341 335.86 137.292 359.199 75.8585C365.788 58.513 368.26 42.4065 368.26 31.1512C368.26 17.8057 364.042 7.55823 352.131 7.55823C340.469 7.55823 332.777 16.6141 325.829 30.9129C317.688 47.4967 311.667 71.4162 309.203 98.4549C303 166.301 316.896 191.348 349.936 191.348C390 191.348 434.542 135.534 457.286 75.6686C463.803 58.513 466.275 42.4065 466.275 31.1512C466.275 17.8057 462.057 7.55823 450.146 7.55823C438.484 7.55823 430.792 16.6141 423.844 30.9129C415.703 47.4967 409.682 71.4162 407.218 98.4549C401.015 166.301 414.911 191.348 444.416 191.348C473.874 191.348 489.877 165.67 499.471 138.402C508.955 111.447 520.618 94.8221 544.935 94.8221C565.035 94.8221 580.916 109.71 580.916 137.75C580.916 168.768 560.792 192.093 535.362 192.341C512.984 192.589 498.285 174.475 499.774 147.179C501.511 116.907 519.873 94.8221 543.943 94.8221C557.839 94.8221 569.51 100.999 578.682 107.725C603.549 125.866 622.709 114.656 630.047 96.7186"
+        />
+      </svg>
+    </div>
+
     <!--NAV-->
     <nav>
       <div class="left">
@@ -198,7 +229,19 @@
             <!-- Profile Info -->
             <div class="profile-info">
               <div class="name-row">
-                <h1 class="profile-name">Tirth Dhandhukia</h1>
+                <h1 class="profile-name">
+                  Tirth Dhandhukia
+                  <svg
+                    class="verified-badge"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1DA1F2"
+                  >
+                    <path
+                      d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5c-1.51 0-2.818.915-3.437 2.25-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.51 0 2.817-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"
+                    />
+                  </svg>
+                </h1>
               </div>
               <p class="profile-title">
                 <span id="roleText" class="role-text" aria-live="polite"></span>
@@ -216,41 +259,25 @@
           </div>
         </div>
 
-        <!-- Dino Game Card (Hidden by default) -->
+        <!-- Dino Game (Hidden by default) -->
         <div
-          class="terminal-card dino-game-card"
-          id="dinoGameCard"
+          class="dino-game-container"
+          id="dinoGameContainer"
           style="display: none"
         >
-          <!-- Corner Highlights -->
-          <div class="corner-highlight corner-tl"></div>
-          <div class="corner-highlight corner-tr"></div>
-          <div class="corner-highlight corner-bl"></div>
-          <div class="corner-highlight corner-br"></div>
-
-          <!-- Game Header -->
-          <div class="terminal-header">
-            <!-- <div class="dino-game-title">Dino Runner</div> -->
-            <button
-              class="icon-button"
-              id="closeDinoGame"
-              style="margin-left: auto"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+          <button
+            class="game-close-btn"
+            id="closeDinoGame"
+            aria-label="Close game"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <canvas id="dinoCanvas" width="600" height="200"></canvas>
+          <div class="dino-game-score">
+            <span>HI <span id="hiScore">00000</span></span>
+            <span id="currentScore">00000</span>
           </div>
-
-          <!-- Game Canvas -->
-          <div class="dino-game-container">
-            <canvas id="dinoCanvas" width="600" height="200"></canvas>
-            <div class="dino-game-score">
-              <span>HI <span id="hiScore">00000</span></span>
-              <span id="currentScore">00000</span>
-            </div>
-            <div class="dino-game-instructions">
-              Press SPACE or click to jump
-            </div>
-          </div>
+          <div class="dino-game-instructions">Press SPACE or click to jump</div>
         </div>
       </section>
 
@@ -267,6 +294,18 @@
             <div class="building-info">
               <p class="building-label">Currently Building</p>
               <p class="building-project">InvoiceGen</p>
+            </div>
+          </a>
+          <a
+            class="building-activity"
+            href="https://blogs.tirthdhandhukia.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-pen-nib"></i>
+            <div class="building-info">
+              <p class="building-label">Explore</p>
+              <p class="building-project">Blogs</p>
             </div>
           </a>
           <div class="spotify-activity" id="spotifyPill">
@@ -287,27 +326,6 @@
           <source src="audio/song.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
-      </section>
-      <!-- Latest Blog Highlight -->
-      <section
-        class="blog-spotlight scroll-section"
-        aria-label="Latest blog highlight"
-      >
-        <a
-          class="blog-spotlight__link"
-          href="https://blogs.tirthdhandhukia.com/blog/blackhole-theory"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <div class="blog-spotlight__info">
-            <span class="blog-spotlight__pill">OCT 28, 2025 · 7 MIN READ</span>
-            <h3 class="blog-spotlight__title">My Take on Black Hole Theory</h3>
-            <p class="blog-spotlight__excerpt">
-              A rupture in spacetime — exploring black holes through the lens of
-              structural failure rather than just gravitational collapse.
-            </p>
-          </div>
-        </a>
       </section>
 
       <!--Section 3: Projects-->
