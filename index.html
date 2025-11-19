@@ -22,6 +22,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="sparkles.js"></script>
+    <script src="tooltip.js"></script>
   </head>
 
   <body id="name">
@@ -57,7 +59,7 @@
     </div>
 
     <!--NAV-->
-    <nav>
+    <nav id="navbar">
       <div class="left">
         <div class="nav-clock">
           <div class="clock-time" id="navClockTime">12:00:00 PM</div>
@@ -111,6 +113,7 @@
           href="https://github.com/TirthDhandhukia30"
           target="_blank"
           rel="noopener noreferrer"
+          data-tooltip="@TirthDhandhukia30"
         >
           <i class="fa-brands fa-github theme-icon"></i>
           <span>Github</span></a
@@ -119,6 +122,7 @@
           href="https://www.linkedin.com/in/tirthdhandhukia/"
           target="_blank"
           rel="noopener noreferrer"
+          data-tooltip="@tirthdhandhukia"
         >
           <i class="fa-brands fa-linkedin theme-icon"></i>
           <span>Linkedin</span></a
@@ -141,7 +145,7 @@
         </div>
       </section>
 
-      <section id="hero" class="hero scroll-section">
+      <section id="hero" class="hero scroll-section sparkles-section">
         <div class="hero-starfield" aria-hidden="true">
           <span class="shooting-star star-1"></span>
           <span class="shooting-star star-2"></span>
@@ -282,7 +286,10 @@
       </section>
 
       <!-- GitHub Activity - Between Hero and Projects -->
-      <section class="github-activity-section scroll-section">
+      <section
+        class="github-activity-section scroll-section sparkles-section"
+        id="githubActivity"
+      >
         <div class="activity-pills-container">
           <a
             class="building-activity"
@@ -329,7 +336,7 @@
       </section>
 
       <!--Section 3: Projects-->
-      <section id="projects" class="projects scroll-section">
+      <section id="projects" class="projects scroll-section sparkles-section">
         <h2 class="projects-title">Projects</h2>
 
         <div class="projects-list">
@@ -379,7 +386,7 @@
                 <img
                   src="images/invoicegen.png"
                   alt="InvoiceGen Preview"
-                  class="card-image"
+                  class="card-image invoicegen-image"
                 />
               </div>
               <div class="card-content">
@@ -406,49 +413,6 @@
               </div>
             </a>
           </article>
-
-          <!-- Project 3 - Landing Pages -->
-          <article class="project-card">
-            <a href="landing-pages.html" class="card-link">
-              <div
-                class="card-image-container card-image-placeholder landing-split"
-              >
-                <img
-                  src="images/landingTwo.png"
-                  alt="Landing Page 1"
-                  class="card-image landing-image-1"
-                />
-                <img
-                  src="images/landingOne.png"
-                  alt="Landing Page 2"
-                  class="card-image landing-image-2"
-                />
-              </div>
-              <div class="card-content">
-                <p class="card-label">Featured Project</p>
-                <h3 class="card-title">Landing Pages</h3>
-                <p class="card-description">
-                  Collection of modern, responsive landing pages showcasing
-                  creative designs and UI/UX skills.
-                </p>
-                <!-- <p class="technologies-label">Technologies</p> -->
-                <!-- <div class="card-tags">
-                  <span class="card-tag">HTML</span>
-                  <span class="card-tag">CSS</span>
-                  <span class="card-tag">JavaScript</span>
-                  <span class="card-tag">ShadCN</span>
-                  <span class="card-tag">Aceternity UI</span>
-                </div> -->
-                <div class="card-status-section">
-                  <!-- <div class="card-status">
-                    <div class="status-indicator"></div>
-                    <span class="status-text">All Systems Operational</span>
-                  </div> -->
-                  <span class="card-action">View Details</span>
-                </div>
-              </div>
-            </a>
-          </article>
         </div>
 
         <!-- Projects Footer Text -->
@@ -467,7 +431,10 @@
       </section>
 
       <!-- ===== Skills Section ===== -->
-      <section id="skills" class="skills-section scroll-section">
+      <section
+        id="skills"
+        class="skills-section scroll-section sparkles-section"
+      >
         <div class="skills-wrap">
           <h2 class="skills-title">Technical Skills</h2>
 
@@ -644,7 +611,7 @@
         </div>
       </section>
       <!--Section 4: Contact-->
-      <section id="contact" class="contact scroll-section">
+      <section id="contact" class="contact scroll-section sparkles-section">
         <h2 class="contact-title">Let's connect!</h2>
 
         <div class="contact-content">
@@ -708,7 +675,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="site-footer sparkles-section" id="siteFooter">
       <div class="footer-content">
         <div class="footer-links">
           <a
@@ -716,6 +683,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer-link"
+            data-tooltip="tirth30.info@gmail.com"
           >
             <i class="fa-solid fa-envelope"></i>
             <span>Mail</span>
@@ -725,6 +693,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer-link"
+            data-tooltip="@TirthDhandhukia30"
           >
             <i class="fa-brands fa-github"></i>
             <span>Github</span>
@@ -734,6 +703,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer-link"
+            data-tooltip="@Tirthhh30"
           >
             <i class="fa-brands fa-x-twitter"></i>
             <span>Twitter</span>
@@ -743,6 +713,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer-link"
+            data-tooltip="@tirthdhandhukia"
           >
             <i class="fa-brands fa-linkedin"></i>
             <span>LinkedIn</span>
@@ -752,6 +723,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="footer-link"
+            data-tooltip="@TirthDhandhukia"
           >
             <i class="fa-solid fa-code"></i>
             <span>LeetCode</span>

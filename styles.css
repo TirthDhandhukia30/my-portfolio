@@ -137,6 +137,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -144,7 +145,6 @@ body {
   font-family: "Instrument Sans", sans-serif;
   background-color: var(--bg-color);
   margin: 0 auto;
-  overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-repeat: no-repeat;
@@ -179,37 +179,9 @@ body::-webkit-scrollbar {
   scroll-snap-stop: always;
 }
 
-@supports (animation-timeline: view()) {
-  .scroll-section {
-    animation-name: magneticReveal;
-    animation-duration: 1s;
-    animation-timeline: view();
-    animation-range: entry 20% cover 50%;
-    animation-fill-mode: both;
-  }
-}
-
-@keyframes magneticReveal {
-  from {
-    opacity: 0.75;
-    transform: translateY(36px) scale(0.99);
-    filter: blur(2px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   body {
     scroll-snap-type: none !important;
-  }
-
-  .scroll-section {
-    animation: none !important;
   }
 }
 
@@ -280,6 +252,7 @@ nav {
   position: relative;
   background: var(--bg-color);
   transition: background-color 0.3s ease;
+  overflow: hidden;
 }
 
 nav::after {
@@ -292,7 +265,7 @@ nav::after {
   border-bottom: 1px dashed rgba(255, 255, 255, 0.14);
   height: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   transition: border-color 0.3s ease;
 }
 
@@ -304,6 +277,8 @@ nav .left {
   display: flex;
   align-items: center;
   padding-left: 0;
+  position: relative;
+  z-index: 2;
 }
 
 /* Navbar Clock */
@@ -336,6 +311,8 @@ nav .right {
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 nav .right a {
@@ -377,6 +354,52 @@ nav .right a span {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.01em;
+}
+
+/* Sparkles Canvas Styling */
+.sparkles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sparkles-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkles-section>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tooltip Styles */
+.tooltip-container {
+  max-width: 300px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.tooltip-dark {
+  background: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-light {
+  background: rgba(255, 255, 255, 0.95);
+  color: rgba(45, 45, 45, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -1186,7 +1209,7 @@ nav .right a span {
 }
 
 .skills-wrap {
-  max-width: 1080px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -2353,11 +2376,28 @@ nav .right a span {
   color: var(--text-color);
 }
 
-.projects-list {
-  max-width: 1080px;
+/* Bento Grid Layout */
+.bento-grid {
+  max-width: 480px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 320px;
+  }
+}
+
+.projects-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 0 10px;
 }
@@ -2417,6 +2457,10 @@ nav .right a span {
   object-fit: cover;
   display: block;
   /* border-radius: 16px 16px 0 0; */
+}
+
+.invoicegen-image {
+  object-position: center 12%;
 }
 
 /* Placeholder for projects without images */
@@ -3612,15 +3656,18 @@ nav .right a span {
   margin-top: 60px;
   position: relative;
   transition: background-color 0.3s ease;
+  overflow: hidden;
 }
 
 .footer-content {
-  max-width: 1080px;
+  max-width: 760px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-links {

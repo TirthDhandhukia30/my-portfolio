@@ -88,6 +88,54 @@ if (document.readyState === "loading") {
   animateHelloIntro();
 }
 
+// Initialize Sparkles on all sections
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof Sparkles === "undefined") {
+    console.warn("Sparkles class not loaded");
+    return;
+  }
+
+  // Navbar sparkles
+  const navbar = document.getElementById("navbar");
+  if (navbar) {
+    new Sparkles(navbar, {
+      minSize: 0.4,
+      maxSize: 1,
+      particleDensity: 1500,
+      particleColor: "#FFFFFF",
+      opacity: 0.4,
+      className: "nav-sparkles",
+    });
+  }
+
+  // All section sparkles
+  const sections = document.querySelectorAll(".sparkles-section");
+  sections.forEach((section) => {
+    new Sparkles(section, {
+      minSize: 0.4,
+      maxSize: 1,
+      particleDensity: 1200,
+      particleColor: "#FFFFFF",
+      opacity: 0.5,
+      className: "section-sparkles",
+    });
+  });
+});
+
+// Initialize Tooltip
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof Tooltip !== "undefined") {
+    new Tooltip();
+  }
+});
+
+// Initialize Card Spotlight
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof initializeCardSpotlights !== "undefined") {
+    initializeCardSpotlights();
+  }
+});
+
 // Game jump sound (global scope)
 const gameSound = new Audio("audio/game.mp3");
 gameSound.volume = 0.4;
@@ -220,6 +268,24 @@ onValue(countRef, (snapshot) => {
 
 btn.addEventListener("click", () => {
   runTransaction(countRef, (current) => (current || 0) + 1);
+  // Play click sound
+  const clickSound = new Audio("audio/click.mp3");
+  clickSound.volume = 0.3;
+  clickSound.currentTime = 0;
+  clickSound.play().catch(() => {});
+});
+
+// Add click sound to "back to top" button
+document.addEventListener("DOMContentLoaded", () => {
+  const toTopLink = document.querySelector(".to-top a");
+  if (toTopLink) {
+    toTopLink.addEventListener("click", () => {
+      const clickSound = new Audio("audio/click.mp3");
+      clickSound.volume = 0.3;
+      clickSound.currentTime = 0;
+      clickSound.play().catch(() => {});
+    });
+  }
 });
 
 // Hero Role Animation - subtle blur + pop
