@@ -13,7 +13,14 @@
       name="description"
       content="I make things that work. Sometimes they matter"
     />
+    <meta name="author" content="Tirth Dhandhukia" />
+    <meta
+      name="keywords"
+      content="Tirth Dhandhukia, Full Stack Developer, Web Developer, React, Node.js, JavaScript, TypeScript, Portfolio"
+    />
+    <link rel="canonical" href="https://tirthdhandhukia.com" />
     <link rel="icon" href="images/pfp.jpg" type="image/jpeg" />
+    <meta name="theme-color" content="#000000" />
 
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content="https://tirthdhandhukia.com" />
@@ -59,6 +66,26 @@
     />
     <script src="sparkles.js"></script>
     <script src="tooltip.js"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tirth Dhandhukia",
+        "url": "https://tirthdhandhukia.com",
+        "image": "https://tirthdhandhukia.com/images/pfp.jpg",
+        "sameAs": [
+          "https://github.com/TirthDhandhukia30",
+          "https://twitter.com/Tirthhh30",
+          "https://www.linkedin.com/in/tirthdhandhukia/",
+          "https://leetcode.com/u/TirthDhandhukia/"
+        ],
+        "jobTitle": "Full Stack Developer",
+        "description": "I make things that work. Sometimes they matter. Now exploring Web3.",
+        "email": "tirth30.info@gmail.com"
+      }
+    </script>
   </head>
 
   <body id="name">
@@ -502,6 +529,17 @@
         </div>
       </section>
 
+      <!-- Work Experience Section -->
+      <section
+        id="experience"
+        class="experience-section scroll-section sparkles-section"
+      >
+        <div class="experience-wrap">
+          <h2 class="section-heading">Work experience</h2>
+          <div id="work-experience-container"></div>
+        </div>
+      </section>
+
       <!-- ===== Skills Section ===== -->
       <section
         id="skills"
@@ -655,20 +693,6 @@
               <img src="images/Postman.png" alt="Postman" />
             </a>
           </div>
-
-          <h2 class="section-heading">GitHub Contributions</h2>
-          <a
-            href="https://github.com/TirthDhandhukia30"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="github-chart-link"
-          >
-            <img
-              src="https://ghchart.rshah.org/TirthDhandhukia30"
-              alt="2,967 contributions in 2024 on GitHub"
-              class="github-chart"
-            />
-          </a>
         </div>
       </section>
       <!--Section 4: Contact-->
@@ -796,6 +820,7 @@
       </div>
     </footer>
 
+    <script src="./work-experience.js"></script>
     <script type="module" src="./script.js"></script>
   </body>
 </html>
