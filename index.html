@@ -303,18 +303,6 @@
               <p class="building-project">InvoiceGen</p>
             </div>
           </a>
-          <a
-            class="building-activity"
-            href="https://blogs.tirthdhandhukia.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-solid fa-pen-nib"></i>
-            <div class="building-info">
-              <p class="building-label">Explore</p>
-              <p class="building-project">Blogs</p>
-            </div>
-          </a>
           <div class="spotify-activity" id="spotifyPill">
             <i class="fa-brands fa-spotify spotify-activity-icon"></i>
             <div class="spotify-info">
@@ -337,96 +325,145 @@
 
       <!--Section 3: Projects-->
       <section id="projects" class="projects scroll-section sparkles-section">
-        <h2 class="projects-title">Projects</h2>
+        <div class="projects-wrap">
+          <h2 class="projects-title">Blogs</h2>
 
-        <div class="projects-list">
-          <!-- Project 1 - NOVA AI -->
-          <article class="project-card">
-            <a
-              href="https://novatirth.vercel.app"
-              target="_blank"
-              class="card-link"
-            >
-              <div class="card-image-container">
-                <img
-                  src="images/novai.png"
-                  alt="NOVA AI Preview"
-                  class="card-image"
-                />
-              </div>
-              <div class="card-content">
-                <p class="card-label">Featured Project</p>
-                <h3 class="card-title">NOVA AI</h3>
-                <p class="card-description">
-                  A custom AI chatbot showcasing API integration and real-time
-                  chat powered by Gemini.
-                </p>
-                <p class="technologies-label">Technologies</p>
-                <div class="card-tags">
-                  <span class="card-tag">React</span>
-                  <span class="card-tag">Vite</span>
-                  <span class="card-tag">Supabase</span>
-                  <span class="card-tag">Gemini API</span>
+          <!-- Blogs Section -->
+          <div class="blogs-grid">
+            <article class="blog-card">
+              <a
+                href="https://blogs.tirthdhandhukia.com/blog/blackhole-theory"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-link"
+              >
+                <div class="blog-image-container">
+                  <img
+                    src="images/blackhole.png"
+                    alt="Blackhole Theory"
+                    class="blog-image"
+                  />
                 </div>
-                <div class="card-status-section">
-                  <div class="card-status">
-                    <div class="status-indicator"></div>
-                    <span class="status-text">All Systems Operational</span>
+                <div class="blog-content">
+                  <h3 class="blog-title">The Blackhole Theory</h3>
+                  <p class="blog-date">Physics • Cosmology</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card">
+              <a
+                href="https://blogs.tirthdhandhukia.com/blog/time-travel"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-link"
+              >
+                <div class="blog-image-container">
+                  <img
+                    src="images/timetravel.jpg"
+                    alt="Time Travel"
+                    class="blog-image"
+                  />
+                </div>
+                <div class="blog-content">
+                  <h3 class="blog-title">Time Travel Exists</h3>
+                  <p class="blog-date">Physics • Mathematics</p>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <h2 class="section-heading">Projects</h2>
+
+          <div class="projects-list">
+            <!-- Project 1 - NOVA AI -->
+            <article class="project-card">
+              <a
+                href="https://novatirth.vercel.app"
+                target="_blank"
+                class="card-link"
+              >
+                <div class="card-image-container">
+                  <img
+                    src="images/novai.png"
+                    alt="NOVA AI Preview"
+                    class="card-image"
+                  />
+                </div>
+                <div class="card-content">
+                  <p class="card-label">Featured Project</p>
+                  <h3 class="card-title">NOVA AI</h3>
+                  <p class="card-description">
+                    A custom AI chatbot showcasing API integration and real-time
+                    chat.
+                  </p>
+                  <p class="technologies-label">Technologies</p>
+                  <div class="card-tags">
+                    <span class="card-tag">React</span>
+                    <span class="card-tag">Vite</span>
+                    <span class="card-tag">Supabase</span>
+                    <span class="card-tag">Gemini API</span>
                   </div>
-                  <span class="card-action">View Details</span>
-                </div>
-              </div>
-            </a>
-          </article>
-
-          <!-- Project 2 - InvoiceGen -->
-          <article class="project-card">
-            <a href="https://invoicegen-tirth.vercel.app/" class="card-link">
-              <div class="card-image-container card-image-placeholder">
-                <img
-                  src="images/invoicegen.png"
-                  alt="InvoiceGen Preview"
-                  class="card-image invoicegen-image"
-                />
-              </div>
-              <div class="card-content">
-                <p class="card-label">Featured Project</p>
-                <h3 class="card-title">InvoiceGen</h3>
-                <p class="card-description">
-                  A SaaS platform for generating and managing professional
-                  invoices.
-                </p>
-                <p class="technologies-label">Technologies</p>
-                <div class="card-tags">
-                  <span class="card-tag">React</span>
-                  <span class="card-tag">Vite</span>
-                  <span class="card-tag">Tailwind CSS</span>
-                  <span class="card-tag">ShadCN</span>
-                </div>
-                <div class="card-status-section">
-                  <div class="card-status">
-                    <div class="status-indicator"></div>
-                    <span class="status-text">All Systems Operational</span>
+                  <div class="card-status-section">
+                    <div class="card-status">
+                      <div class="status-indicator"></div>
+                      <span class="status-text">All Systems Operational</span>
+                    </div>
+                    <span class="card-action">View Details</span>
                   </div>
-                  <span class="card-action">View Details</span>
                 </div>
-              </div>
-            </a>
-          </article>
-        </div>
+              </a>
+            </article>
 
-        <!-- Projects Footer Text -->
-        <div class="projects-footer-text">
-          <p>
-            Make sure to star the projects you like. Check out my other cool
-            work on my
-            <a
-              href="https://github.com/TirthDhandhukia30"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </p>
+            <!-- Project 2 - InvoiceGen -->
+            <article class="project-card">
+              <a href="https://invoicegen-tirth.vercel.app/" class="card-link">
+                <div class="card-image-container card-image-placeholder">
+                  <img
+                    src="images/invoicegen.png"
+                    alt="InvoiceGen Preview"
+                    class="card-image invoicegen-image"
+                  />
+                </div>
+                <div class="card-content">
+                  <p class="card-label">Featured Project</p>
+                  <h3 class="card-title">InvoiceGen</h3>
+                  <p class="card-description">
+                    A SaaS platform for generating and managing professional
+                    invoices.
+                  </p>
+                  <p class="technologies-label">Technologies</p>
+                  <div class="card-tags">
+                    <span class="card-tag">React</span>
+                    <span class="card-tag">Vite</span>
+                    <span class="card-tag">Tailwind CSS</span>
+                    <span class="card-tag">ShadCN</span>
+                  </div>
+                  <div class="card-status-section">
+                    <div class="card-status">
+                      <div class="status-indicator"></div>
+                      <span class="status-text">All Systems Operational</span>
+                    </div>
+                    <span class="card-action">View Details</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <!-- Projects Footer Text -->
+          <div class="projects-footer-text">
+            <p>
+              Make sure to star the projects you like. Check out my other cool
+              work on my
+              <a
+                href="https://github.com/TirthDhandhukia30"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </p>
+          </div>
         </div>
       </section>
 
@@ -436,178 +473,167 @@
         class="skills-section scroll-section sparkles-section"
       >
         <div class="skills-wrap">
-          <h2 class="skills-title">Technical Skills</h2>
-
-          <!-- Category Filters -->
-          <div class="skills-categories">
-            <button class="category-btn active" data-category="proficient">
-              <i class="fa-solid fa-layer-group"></i>
-              <span>Proficient</span>
-            </button>
-            <button class="category-btn" data-category="languages">
-              <i class="fa-solid fa-code"></i>
-              <span>Languages</span>
-            </button>
-            <button class="category-btn" data-category="frontend">
-              <i class="fa-solid fa-palette"></i>
-              <span>Frontend</span>
-            </button>
-            <button class="category-btn" data-category="backend">
-              <i class="fa-solid fa-server"></i>
-              <span>Backend</span>
-            </button>
-            <button class="category-btn" data-category="database">
-              <i class="fa-solid fa-database"></i>
-              <span>Database</span>
-            </button>
-            <button class="category-btn" data-category="cloud">
-              <i class="fa-solid fa-cloud"></i>
-              <span>Cloud</span>
-            </button>
-            <button class="category-btn" data-category="tools">
-              <i class="fa-solid fa-wrench"></i>
-              <span>Tools</span>
-            </button>
+          <h2 class="section-heading">Stack</h2>
+          <div class="stack-grid">
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="JavaScript"
+            >
+              <img src="images/JavaScript.svg" alt="JavaScript" />
+            </a>
+            <a
+              href="https://www.typescriptlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="TypeScript"
+            >
+              <img src="images/TypeScript.svg" alt="TypeScript" />
+            </a>
+            <a
+              href="https://www.python.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Python"
+            >
+              <img src="images/Python.png" alt="Python" />
+            </a>
+            <a
+              href="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="React"
+            >
+              <img src="images/React.svg" alt="React" />
+            </a>
+            <a
+              href="https://nodejs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Node.js"
+            >
+              <img src="images/Node.js.svg" alt="Node.js" />
+            </a>
+            <a
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Tailwind CSS"
+            >
+              <img src="images/Tailwind CSS.svg" alt="Tailwind CSS" />
+            </a>
+            <a
+              href="https://getbootstrap.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Bootstrap"
+            >
+              <img src="images/Bootstrap.svg" alt="Bootstrap" />
+            </a>
+            <a
+              href="https://firebase.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Firebase"
+            >
+              <img src="images/Firebase.png" alt="Firebase" />
+            </a>
+            <a
+              href="https://supabase.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Supabase"
+            >
+              <img src="images/Supabase.svg" alt="Supabase" />
+            </a>
+            <a
+              href="https://www.mongodb.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="MongoDB"
+            >
+              <img src="images/MongoDB.svg" alt="MongoDB" />
+            </a>
+            <a
+              href="https://www.postgresql.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="PostgreSQL"
+            >
+              <img src="images/PostgresSQL.png" alt="PostgreSQL" />
+            </a>
+            <a
+              href="https://aws.amazon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="AWS"
+            >
+              <img src="images/AWS.png" alt="AWS" />
+            </a>
+            <a
+              href="https://git-scm.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Git"
+            >
+              <img src="images/Git.svg" alt="Git" />
+            </a>
+            <a
+              href="https://www.docker.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Docker"
+            >
+              <img src="images/Docker.svg" alt="Docker" />
+            </a>
+            <!-- <a
+              href="https://vercel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Vercel"
+            >
+              <img src="images/Vercel.svg" alt="Vercel" />
+            </a> -->
+            <a
+              href="https://www.postman.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Postman"
+            >
+              <img src="images/Postman.png" alt="Postman" />
+            </a>
           </div>
 
-          <!-- Skills Grid -->
-          <ul class="skills-grid">
-            <!-- Languages -->
-            <li class="skill-card" data-category="languages proficient">
-              <img src="images/JavaScript.svg" alt="JavaScript" />
-              <span>JavaScript</span>
-            </li>
-            <li class="skill-card" data-category="languages proficient">
-              <img src="images/TypeScript.svg" alt="TypeScript" />
-              <span>TypeScript</span>
-            </li>
-            <li class="skill-card" data-category="languages">
-              <img src="images/Python.png" alt="Python" />
-              <span>Python</span>
-            </li>
-            <li class="skill-card" data-category="languages proficient">
-              <img src="images/cpp.png" alt="C++" />
-              <span>C++</span>
-            </li>
-            <li class="skill-card" data-category="languages proficient">
-              <img src="images/SQL.svg" alt="SQL" />
-              <span>SQL</span>
-            </li>
-
-            <!-- Frontend -->
-            <li class="skill-card" data-category="frontend proficient">
-              <img src="images/React.svg" alt="React JS" />
-              <span>React</span>
-            </li>
-            <li class="skill-card" data-category="frontend proficient">
-              <img src="images/Vite.js.svg" alt="Vite" />
-              <span>Vite</span>
-            </li>
-            <li class="skill-card" data-category="frontend proficient">
-              <img src="images/Bootstrap.svg" alt="Bootstrap" />
-              <span>Bootstrap</span>
-            </li>
-            <li class="skill-card" data-category="frontend proficient">
-              <img src="images/Tailwind CSS.svg" alt="Tailwind CSS" />
-              <span>Tailwind CSS</span>
-            </li>
-            <li class="skill-card" data-category="frontend">
-              <img src="images/ShadCN.svg" alt="ShadCN UI" />
-              <span>ShadCN UI</span>
-            </li>
-            <li class="skill-card" data-category="frontend">
-              <img src="images/aceternity.png" alt="Aceternity UI" />
-              <span>Aceternity UI</span>
-            </li>
-
-            <!-- Backend -->
-            <li class="skill-card" data-category="backend proficient">
-              <img src="images/Node.js.svg" alt="Node.js" />
-              <span>Node.js</span>
-            </li>
-            <li class="skill-card" data-category="backend proficient">
-              <img src="images/Express.svg" alt="Express" />
-              <span>Express</span>
-            </li>
-            <li class="skill-card" data-category="backend">
-              <img src="images/Firebase.png" alt="Firebase" />
-              <span>Firebase</span>
-            </li>
-            <li class="skill-card" data-category="backend proficient">
-              <img src="images/Supabase.svg" alt="Supabase" />
-              <span>Supabase</span>
-            </li>
-
-            <!-- Database -->
-            <li class="skill-card" data-category="database">
-              <img src="images/MongoDB.svg" alt="MongoDB" />
-              <span>MongoDB</span>
-            </li>
-            <li class="skill-card" data-category="database proficient">
-              <img src="images/PostgresSQL.png" alt="PostgreSQL" />
-              <span>PostgreSQL</span>
-            </li>
-
-            <!-- Cloud -->
-            <li class="skill-card" data-category="cloud proficient">
-              <img src="images/AWS.png" alt="AWS" />
-              <span>AWS</span>
-            </li>
-            <li class="skill-card" data-category="cloud">
-              <img src="images/Azure.png" alt="Azure" />
-              <span>Azure</span>
-            </li>
-            <li class="skill-card" data-category="cloud">
-              <img src="images/Oracle.png" alt="Oracle OCI" />
-              <span>Oracle OCI</span>
-            </li>
-            <li class="skill-card" data-category="cloud proficient">
-              <img src="images/Cloudflare.png" alt="Cloudflare" />
-              <span>Cloudflare</span>
-            </li>
-            <li class="skill-card" data-category="cloud proficient">
-              <img src="images/Kubernetes.png" alt="Kubernetes" />
-              <span>Kubernetes</span>
-            </li>
-
-            <!-- Tools -->
-            <li class="skill-card" data-category="tools proficient">
-              <img src="images/Git.svg" alt="Git" />
-              <span>Git</span>
-            </li>
-            <li class="skill-card" data-category="tools proficient">
-              <img src="images/GitHub.svg" alt="GitHub" />
-              <span>GitHub</span>
-            </li>
-            <li class="skill-card" data-category="tools proficient">
-              <img src="images/Docker.svg" alt="Docker" />
-              <span>Docker</span>
-            </li>
-            <li class="skill-card" data-category="tools proficient">
-              <img src="images/Vercel.svg" alt="Vercel" />
-              <span>Vercel</span>
-            </li>
-            <li class="skill-card" data-category="tools">
-              <img src="images/Netlify.svg" alt="Netlify" />
-              <span>Netlify</span>
-            </li>
-            <li class="skill-card" data-category="tools">
-              <img src="images/Postman.png" alt="Postman" />
-              <span>Postman</span>
-            </li>
-            <li class="skill-card" data-category="tools">
-              <img src="images/Figma.svg" alt="Figma" />
-              <span>Figma</span>
-            </li>
-            <li class="skill-card" data-category="tools proficient">
-              <img src="images/canva.png" alt="Canva" />
-              <span>Canva</span>
-            </li>
-            <li class="skill-card" data-category="tools">
-              <img src="images/CLI.svg" alt="CLI" />
-              <span>CLI</span>
-            </li>
-          </ul>
+          <h2 class="section-heading">GitHub Contributions</h2>
+          <a
+            href="https://github.com/TirthDhandhukia30"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-chart-link"
+          >
+            <img
+              src="https://ghchart.rshah.org/TirthDhandhukia30"
+              alt="2,967 contributions in 2024 on GitHub"
+              class="github-chart"
+            />
+          </a>
         </div>
       </section>
       <!--Section 4: Contact-->
