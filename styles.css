@@ -2545,30 +2545,6 @@ nav .right a span {
   /* border-radius: 16px 16px 0 0; */
 }
 
-/* Landing Pages Split Diagonal */
-.landing-split {
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-.landing-split .card-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.landing-image-1 {
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  z-index: 2;
-}
-
-.landing-image-2 {
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-  z-index: 1;
-}
-
 .placeholder-icon {
   font-size: 48px;
   color: rgba(255, 255, 255, 0.8);
