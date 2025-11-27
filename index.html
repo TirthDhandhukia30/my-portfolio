@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- HTML Meta Tags -->
+    <title>Tirth Dhandhukia</title>
+    <meta
+      name="description"
+      content="I make things that work. Sometimes they matter"
+    />
+    <meta name="author" content="Tirth Dhandhukia" />
+    <meta
+      name="keywords"
+      content="Tirth Dhandhukia, Full Stack Developer, Web Developer, React, Node.js, JavaScript, TypeScript, Portfolio"
+    />
+    <link rel="canonical" href="https://tirthdhandhukia.com" />
+    <link rel="icon" href="images/pfp.jpg" type="image/jpeg" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://tirthdhandhukia.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tirth Dhandhukia" />
+    <meta
+      property="og:description"
+      content="I make things that work. Sometimes they matter"
+    />
+    <meta
+      property="og:image"
+      content="https://tirthdhandhukia.com/images/og-image.png"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="tirthdhandhukia.com" />
+    <meta property="twitter:url" content="https://tirthdhandhukia.com" />
+    <meta name="twitter:title" content="Tirth Dhandhukia" />
+    <meta
+      name="twitter:description"
+      content="I make things that work. Sometimes they matter"
+    />
+    <meta
+      name="twitter:image"
+      content="https://tirthdhandhukia.com/images/og-image.png"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="sparkles.js"></script>
+    <script src="tooltip.js"></script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tirth Dhandhukia",
+        "url": "https://tirthdhandhukia.com",
+        "image": "https://tirthdhandhukia.com/images/pfp.jpg",
+        "sameAs": [
+          "https://github.com/TirthDhandhukia30",
+          "https://twitter.com/Tirthhh30",
+          "https://www.linkedin.com/in/tirthdhandhukia/",
+          "https://leetcode.com/u/TirthDhandhukia/"
+        ],
+        "jobTitle": "Full Stack Developer",
+        "description": "I make things that work. Sometimes they matter. Now exploring Web3.",
+        "email": "tirth30.info@gmail.com"
+      }
+    </script>
+  </head>
+
+  <body id="name">
+    <!-- Intro Overlay -->
+    <div class="intro-overlay" id="introOverlay">
+      <svg
+        class="hello-svg"
+        id="helloIntro"
+        viewBox="0 0 638 200"
+        xmlns="http://www.w3.org/2000/svg"
+        data-speed="0.8"
+        aria-label="hello"
+        role="img"
+      >
+        <title>hello</title>
+
+        <!-- h1 -->
+        <path
+          data-duration="0.8"
+          data-delay="0"
+          d="M8.69214 166.553C36.2393 151.239 61.3409 131.548 89.8191 98.0295C109.203 75.1488 119.625 49.0228 120.122 31.0026C120.37 17.6036 113.836 7.43883 101.759 7.43883C88.3598 7.43883 79.9231 17.6036 74.7122 40.9363C69.005 66.5793 64.7866 96.0036 54.1166 190.356"
+        />
+
+        <!-- h2, ello -->
+        <path
+          data-duration="2.8"
+          data-delay="0.7"
+          data-opacity-duration="0.7"
+          data-opacity-delay="0.7"
+          d="M55.1624 181.135C60.6251 133.114 81.4118 98.0479 107.963 98.0479C123.844 98.0479 133.937 110.703 131.071 128.817C129.457 139.487 127.587 150.405 125.408 163.06C122.869 178.941 130.128 191.348 152.122 191.348C184.197 191.348 219.189 173.523 237.097 145.915C243.198 136.509 245.68 128.073 245.928 119.884C246.176 104.996 237.739 93.8296 222.851 93.8296C203.992 93.8296 189.6 115.17 189.6 142.465C189.6 171.745 205.481 192.341 239.208 192.341C285.066 192.341 335.86 137.292 359.199 75.8585C365.788 58.513 368.26 42.4065 368.26 31.1512C368.26 17.8057 364.042 7.55823 352.131 7.55823C340.469 7.55823 332.777 16.6141 325.829 30.9129C317.688 47.4967 311.667 71.4162 309.203 98.4549C303 166.301 316.896 191.348 349.936 191.348C390 191.348 434.542 135.534 457.286 75.6686C463.803 58.513 466.275 42.4065 466.275 31.1512C466.275 17.8057 462.057 7.55823 450.146 7.55823C438.484 7.55823 430.792 16.6141 423.844 30.9129C415.703 47.4967 409.682 71.4162 407.218 98.4549C401.015 166.301 414.911 191.348 444.416 191.348C473.874 191.348 489.877 165.67 499.471 138.402C508.955 111.447 520.618 94.8221 544.935 94.8221C565.035 94.8221 580.916 109.71 580.916 137.75C580.916 168.768 560.792 192.093 535.362 192.341C512.984 192.589 498.285 174.475 499.774 147.179C501.511 116.907 519.873 94.8221 543.943 94.8221C557.839 94.8221 569.51 100.999 578.682 107.725C603.549 125.866 622.709 114.656 630.047 96.7186"
+        />
+      </svg>
+    </div>
+
+    <!--NAV-->
+    <nav id="navbar">
+      <div class="left">
+        <div class="nav-clock">
+          <div class="clock-time" id="navClockTime">12:00:00 PM</div>
+          <div class="clock-location">GMT + 5 : 30 • Mumbai, India</div>
+        </div>
+      </div>
+
+      <div class="right">
+        <label class="theme-toggle" aria-label="Toggle theme">
+          <input type="checkbox" id="themeToggle" class="theme-checkbox" />
+          <span class="slider">
+            <svg
+              class="slider-icon sun-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="slider-icon moon-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </label>
+        <a
+          href="https://github.com/TirthDhandhukia30"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip="@TirthDhandhukia30"
+        >
+          <i class="fa-brands fa-github theme-icon"></i>
+          <span>Github</span></a
+        >
+        <a
+          href="https://www.linkedin.com/in/tirthdhandhukia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip="@tirthdhandhukia"
+        >
+          <i class="fa-brands fa-linkedin theme-icon"></i>
+          <span>Linkedin</span></a
+        >
+      </div>
+    </nav>
+    <main>
+      <!-- CLI Command Section -->
+      <section class="cli-section cli-top">
+        <div class="cli-minimal">
+          <span class="cli-label">Try it:</span>
+          <code class="cli-code">npx tirthh</code>
+          <button
+            class="cli-copy-mini"
+            onclick="navigator.clipboard.writeText('npx tirthh'); this.innerHTML='<i class=\'fa-solid fa-check\'></i>'; setTimeout(() => this.innerHTML='<i class=\'fa-regular fa-copy\'></i>', 1500)"
+            aria-label="Copy"
+          >
+            <i class="fa-regular fa-copy"></i>
+          </button>
+        </div>
+      </section>
+
+      <section id="hero" class="hero scroll-section sparkles-section">
+        <div class="hero-starfield" aria-hidden="true">
+          <span class="shooting-star star-1"></span>
+          <span class="shooting-star star-2"></span>
+          <span class="shooting-star star-3"></span>
+          <span class="shooting-star star-4"></span>
+        </div>
+        <!--Section 1:Hero - Terminal Card-->
+        <div class="terminal-card" id="terminalCard">
+          <!-- Corner Highlights -->
+          <div class="corner-highlight corner-tl"></div>
+          <div class="corner-highlight corner-tr"></div>
+          <div class="corner-highlight corner-bl"></div>
+          <div class="corner-highlight corner-br"></div>
+
+          <!-- Top Bar with Icons -->
+          <div class="terminal-header">
+            <div class="terminal-icons terminal-icons-right">
+
+              <a
+                href="https://twitter.com/Tirthhh30"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="icon-button"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+
+              <a
+                href="https://leetcode.com/u/TirthDhandhukia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="icon-button"
+              >
+                <i class="fa-solid fa-code"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="terminal-content">
+            <!-- Profile Image -->
+            <div
+              class="profile-image-wrapper"
+              id="profileImageTrigger"
+              style="cursor: pointer"
+            >
+              <img
+                src="images/pfp.jpg"
+                alt="Tirth Dhandhukia"
+                class="profile-image"
+              />
+              <div class="game-hint-label">
+                <svg
+                  class="hint-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+                click me
+              </div>
+            </div>
+
+            <!-- Profile Info -->
+            <div class="profile-info">
+              <div class="name-row">
+                <h1 class="profile-name">
+                  Tirth Dhandhukia
+                  <svg
+                    class="verified-badge"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1DA1F2"
+                  >
+                    <path
+                      d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5c-1.51 0-2.818.915-3.437 2.25-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.51 0 2.817-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"
+                    />
+                  </svg>
+                </h1>
+              </div>
+              <p class="profile-title">
+                <span id="roleText" class="role-text" aria-live="polite"></span>
+              </p>
+              <div class="profile-email">
+                <i class="fa-solid fa-envelope"></i>
+                <span>tirth30.info@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <div class="terminal-tagline">
+            I make things that work. Sometimes they matter. Now exploring Web3.
+          </div>
+        </div>
+
+        <!-- Dino Game (Hidden by default) -->
+        <div
+          class="dino-game-container"
+          id="dinoGameContainer"
+          style="display: none"
+        >
+          <button
+            class="game-close-btn"
+            id="closeDinoGame"
+            aria-label="Close game"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <canvas id="dinoCanvas" width="600" height="200"></canvas>
+          <div class="dino-game-score">
+            <span>HI <span id="hiScore">00000</span></span>
+            <span id="currentScore">00000</span>
+          </div>
+          <div class="dino-game-instructions">Press SPACE or click to jump</div>
+        </div>
+      </section>
+
+      <!-- GitHub Activity - Between Hero and Projects -->
+      <section
+        class="github-activity-section scroll-section sparkles-section"
+        id="githubActivity"
+      >
+        <div class="activity-pills-container">
+          <a
+            class="building-activity"
+            href="https://github.com/TirthDhandhukia30/InvoiceGen"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-github"></i>
+            <div class="building-info">
+              <p class="building-label">Currently Building</p>
+              <p class="building-project">InvoiceGen</p>
+            </div>
+          </a>
+          <div class="spotify-activity" id="spotifyPill">
+            <i class="fa-brands fa-spotify spotify-activity-icon"></i>
+            <div class="spotify-info">
+              <p class="spotify-song">Gyalchester</p>
+              <p class="spotify-artist">Drake</p>
+            </div>
+            <i
+              class="fa-solid fa-play spotify-play-icon"
+              id="spotifyPlayIcon"
+            ></i>
+          </div>
+        </div>
+
+        <!-- Hidden Audio Element -->
+        <audio id="audioPlayer" preload="metadata" style="display: none">
+          <source src="audio/song.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </section>
+
+      <!--Section 3: Projects-->
+      <section id="projects" class="projects scroll-section sparkles-section">
+        <div class="projects-wrap">
+          <h2 class="projects-title">Blogs</h2>
+
+          <!-- Blogs Section -->
+          <div class="blogs-grid">
+            <article class="blog-card">
+              <a
+                href="https://blogs.tirthdhandhukia.com/blog/cloud-outage"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-link"
+              >
+                <div class="blog-image-container">
+                  <img
+                    src="images/cloudoutage.png"
+                    alt="When the Cloud Broke All at Once"
+                    class="blog-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="blog-content">
+                  <h3 class="blog-title">When the Cloud Broke All at Once</h3>
+                  <p class="blog-date">Cloud • Backend</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="blog-card">
+              <a
+                href="https://blogs.tirthdhandhukia.com/blog/talwinder"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="blog-link"
+              >
+                <div class="blog-image-container">
+                  <img
+                    src="images/talwinder.jpeg"
+                    alt="talwinder"
+                    class="blog-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="blog-content">
+                  <h3 class="blog-title">` npx talwinder `</h3>
+                  <p class="blog-date">npm • cli</p>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <h2 class="section-heading">Projects</h2>
+
+          <div class="projects-list">
+            <!-- Project 1 - NOVA AI -->
+            <article class="project-card">
+              <a
+                href="https://novatirth.vercel.app"
+                target="_blank"
+                class="card-link"
+              >
+                <div class="card-image-container">
+                  <img
+                    src="images/novai.png"
+                    alt="NOVA AI Preview"
+                    class="card-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <p class="card-label">Featured Project</p>
+                  <h3 class="card-title">NOVA AI</h3>
+                  <p class="card-description">
+                    A custom AI chatbot showcasing API integration and real-time
+                    chat.
+                  </p>
+                  <p class="technologies-label">Technologies</p>
+                  <div class="card-tags">
+                    <span class="card-tag">React</span>
+                    <span class="card-tag">Vite</span>
+                    <span class="card-tag">Supabase</span>
+                    <span class="card-tag">Gemini API</span>
+                  </div>
+                  <div class="card-status-section">
+                    <div class="card-status">
+                      <div class="status-indicator"></div>
+                      <span class="status-text">All Systems Operational</span>
+                    </div>
+                    <span class="card-action">View Details</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Project 2 - InvoiceGen -->
+            <article class="project-card">
+              <a href="https://invoicegen-tirth.vercel.app/" class="card-link">
+                <div class="card-image-container card-image-placeholder">
+                  <img
+                    src="images/invoicegen.png"
+                    alt="InvoiceGen Preview"
+                    class="card-image invoicegen-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="card-content">
+                  <p class="card-label">Featured Project</p>
+                  <h3 class="card-title">InvoiceGen</h3>
+                  <p class="card-description">
+                    A SaaS platform for generating and managing professional
+                    invoices.
+                  </p>
+                  <p class="technologies-label">Technologies</p>
+                  <div class="card-tags">
+                    <span class="card-tag">React</span>
+                    <span class="card-tag">Vite</span>
+                    <span class="card-tag">Tailwind CSS</span>
+                    <span class="card-tag">ShadCN</span>
+                  </div>
+                  <div class="card-status-section">
+                    <div class="card-status">
+                      <div class="status-indicator"></div>
+                      <span class="status-text">All Systems Operational</span>
+                    </div>
+                    <span class="card-action">View Details</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <!-- Projects Footer Text -->
+          <div class="projects-footer-text">
+            <p>
+              Make sure to star the projects you like. Check out my other cool
+              work on my
+              <a
+                href="https://github.com/TirthDhandhukia30"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Experience Section -->
+      <section
+        id="experience"
+        class="experience-section scroll-section sparkles-section"
+      >
+        <div class="experience-wrap">
+          <h2 class="section-heading">Work experience</h2>
+          <div id="work-experience-container" class="dashed-border-left"></div>
+        </div>
+      </section>
+
+      <!-- ===== Skills Section ===== -->
+      <section
+        id="skills"
+        class="skills-section scroll-section sparkles-section"
+      >
+        <div class="skills-wrap">
+          <h2 class="section-heading">Stack</h2>
+          <div class="stack-grid">
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="JavaScript"
+            >
+              <img src="images/JavaScript.svg" alt="JavaScript" loading="lazy" />
+            </a>
+            <a
+              href="https://www.typescriptlang.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="TypeScript"
+            >
+              <img src="images/TypeScript.svg" alt="TypeScript" loading="lazy" />
+            </a>
+            <a
+              href="https://www.python.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Python"
+            >
+              <img src="images/Python.png" alt="Python" loading="lazy" />
+            </a>
+            <a
+              href="https://react.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="React"
+            >
+              <img src="images/React.svg" alt="React" loading="lazy" />
+            </a>
+            <a
+              href="https://nodejs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Node.js"
+            >
+              <img src="images/Node.js.svg" alt="Node.js" loading="lazy" />
+            </a>
+            <a
+              href="https://tailwindcss.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Tailwind CSS"
+            >
+              <img src="images/Tailwind CSS.svg" alt="Tailwind CSS" loading="lazy" />
+            </a>
+            <a
+              href="https://getbootstrap.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Bootstrap"
+            >
+              <img src="images/Bootstrap.svg" alt="Bootstrap" loading="lazy" />
+            </a>
+            <a
+              href="https://firebase.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Firebase"
+            >
+              <img src="images/Firebase.png" alt="Firebase" loading="lazy" />
+            </a>
+            <a
+              href="https://supabase.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Supabase"
+            >
+              <img src="images/Supabase.svg" alt="Supabase" loading="lazy" />
+            </a>
+            <a
+              href="https://www.mongodb.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="MongoDB"
+            >
+              <img src="images/MongoDB.svg" alt="MongoDB" loading="lazy" />
+            </a>
+            <a
+              href="https://www.postgresql.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="PostgreSQL"
+            >
+              <img src="images/PostgresSQL.png" alt="PostgreSQL" loading="lazy" />
+            </a>
+            <a
+              href="https://aws.amazon.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="AWS"
+            >
+              <img src="images/AWS.png" alt="AWS" loading="lazy" />
+            </a>
+            <a
+              href="https://git-scm.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Git"
+            >
+              <img src="images/Git.svg" alt="Git" loading="lazy" />
+            </a>
+            <a
+              href="https://www.docker.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Docker"
+            >
+              <img src="images/Docker.svg" alt="Docker" loading="lazy" />
+            </a>
+
+            <a
+              href="https://www.postman.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="stack-item"
+              data-tooltip="Postman"
+            >
+              <img src="images/Postman.png" alt="Postman" loading="lazy" />
+            </a>
+          </div>
+        </div>
+      </section>
+      <!--Section 4: Contact-->
+      <section id="contact" class="contact scroll-section sparkles-section">
+        <h2 class="contact-title">Let's connect!</h2>
+
+        <div class="contact-content">
+          <p class="contact-text">
+            Appreciate you stopping by. If a project sparked something or you
+            just want to jam on builds, drop me a line.
+          </p>
+
+          <p class="contact-text-highlight">
+            Always keen to collaborate, learn, and ship new ideas.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a
+            href="mailto:tirth30.info@gmail.com"
+            class="contact-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email Me</span>
+          </a>
+
+          <a
+            href="/Portfolio_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-button"
+          >
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Resume</span>
+          </a>
+        </div>
+
+        <div class="contact-quote">
+          <p>"Every vision deserves to be built into reality."</p>
+        </div>
+
+        <div class="contact-footer">
+          <div class="to-top">
+            <a href="#name">
+              <span class="to-top-icon">
+                <i class="fa-solid fa-arrow-up"></i>
+              </span>
+              <span class="to-top-label">back to top</span>
+            </a>
+          </div>
+
+          <div class="clicker" id="clickBtn">
+            <div class="clicker-wrapper">
+              <a aria-label="Appreciate">
+                <i class="fa-solid fa-hands-clapping"></i>
+              </a>
+              <span class="clicker-count" id="count">0</span>
+            </div>
+            <span class="clicker-label">appreciate ?</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer sparkles-section" id="siteFooter">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a
+            href="mailto:tirth30.info@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+            data-tooltip="tirth30.info@gmail.com"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            <span>Mail</span>
+          </a>
+          <a
+            href="https://github.com/TirthDhandhukia30"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+            data-tooltip="@TirthDhandhukia30"
+          >
+            <i class="fa-brands fa-github"></i>
+            <span>Github</span>
+          </a>
+          <a
+            href="https://twitter.com/Tirthhh30"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+            data-tooltip="@Tirthhh30"
+          >
+            <i class="fa-brands fa-x-twitter"></i>
+            <span>Twitter</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/tirthdhandhukia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+            data-tooltip="@tirthdhandhukia"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href="https://leetcode.com/u/TirthDhandhukia/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+            data-tooltip="@TirthDhandhukia"
+          >
+            <i class="fa-solid fa-code"></i>
+            <span>LeetCode</span>
+          </a>
+        </div>
+        <div class="footer-copyright">
+          <p>© 2025 Tirth Dhandhukia. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./work-experience.js"></script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
