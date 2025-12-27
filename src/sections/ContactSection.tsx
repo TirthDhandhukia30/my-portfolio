@@ -77,8 +77,8 @@ export function ContactSection() {
             hover:text-[var(--bg-color)] hover:-translate-y-[3px] hover:shadow-[0_8px_20px_rgba(128,128,128,0.3)]
             [&:hover::after]:opacity-100
             after:content-[''] after:absolute after:inset-0 after:bg-[var(--text-color)] after:opacity-0 after:transition-opacity after:duration-300 after:rounded after:z-0
-            max-sm:w-full max-sm:max-w-[320px] max-sm:text-sm max-sm:px-5 max-sm:py-3
-            max-[480px]:max-w-full max-[480px]:text-[13px] max-[480px]:px-[18px] max-[480px]:py-[11px]"
+            max-sm:text-sm max-sm:px-5 max-sm:py-3
+            max-[480px]:text-[13px] max-[480px]:px-4 max-[480px]:py-2.5"
         >
           <i className="fa-solid fa-calendar relative z-[1] text-base max-[480px]:text-sm" />
           <span className="relative z-[1]">Book a Call</span>
@@ -92,8 +92,8 @@ export function ContactSection() {
             hover:text-[var(--bg-color)] hover:-translate-y-[3px] hover:shadow-[0_8px_20px_rgba(128,128,128,0.3)]
             [&:hover::after]:opacity-100
             after:content-[''] after:absolute after:inset-0 after:bg-[var(--text-color)] after:opacity-0 after:transition-opacity after:duration-300 after:rounded after:z-0
-            max-sm:w-full max-sm:max-w-[320px] max-sm:text-sm max-sm:px-5 max-sm:py-3
-            max-[480px]:max-w-full max-[480px]:text-[13px] max-[480px]:px-[18px] max-[480px]:py-[11px]"
+            max-sm:text-sm max-sm:px-5 max-sm:py-3
+            max-[480px]:text-[13px] max-[480px]:px-4 max-[480px]:py-2.5"
         >
           <i className="fa-solid fa-file-pdf relative z-[1] text-base max-[480px]:text-sm" />
           <span className="relative z-[1]">Resume</span>

@@ -502,11 +502,9 @@ body::after {
 /* Intro Overlay */
 .intro-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  inset: 0;
+  width: 100%;
   height: 100dvh;
-  /* Use dynamic viewport height for mobile centering */
   background: var(--bg-color);
   display: flex;
   align-items: center;
@@ -515,16 +513,8 @@ body::after {
   opacity: 1;
   transition: opacity 1.2s ease;
   pointer-events: none;
-  /* Counteract root zoom if needed, but safer to stick to standard scale or just let it inherit */
+  /* Counteract root zoom to ensure proper centering */
   zoom: calc(1 / 0.85);
-}
-
-/* Mobile - remove zoom for proper centering */
-@media (max-width: 640px) {
-  .intro-overlay {
-    zoom: 1;
-    height: 100dvh;
-  }
 }
 
 .intro-overlay.hidden {
@@ -833,8 +823,7 @@ body.intro-active nav {
   }
 
   .footer-name-section {
-    --footer-text-size: clamp(4rem, 25vw, 7rem);
-    min-height: calc(var(--footer-text-size) * 0.55);
+    display: none;
   }
 }
 

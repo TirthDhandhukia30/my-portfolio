@@ -103,11 +103,8 @@ function ProjectCard({ project }: { project: Project }) {
         rel="noopener noreferrer"
         className="no-underline text-inherit flex flex-col h-full transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
       >
-        {/* Card Image */}
-        <div className="w-full h-40 overflow-hidden relative bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] flex items-center justify-center
-          max-md:h-[140px]
-          max-[480px]:h-[120px]"
-        >
+        {/* Card Image - same height on mobile as desktop */}
+        <div className="w-full h-40 overflow-hidden relative bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] flex items-center justify-center">
           <img
             src={project.image}
             alt={`${project.title} Preview`}
@@ -124,7 +121,7 @@ function ProjectCard({ project }: { project: Project }) {
           <p className="text-sm leading-relaxed text-[var(--text-color)] opacity-70 m-0 mb-4 flex-1 max-[480px]:text-[13px]">
             {project.description}
           </p>
-          <p className="text-[11px] text-[var(--text-color)] opacity-50 m-0 mb-2 font-medium uppercase tracking-[0.5px]">
+          <p className="text-[11px] text-[var(--text-color)] opacity-50 m-0 mb-2 mt-2 max-[480px]:mt-4 font-medium uppercase tracking-[0.5px]">
             Technologies
           </p>
           <div className="flex flex-wrap items-center gap-3 m-0 mb-4 max-[480px]:m-0 max-[480px]:mb-3 max-[480px]:gap-2">

@@ -154,7 +154,7 @@ export function ActivitySection() {
         max-sm:py-3 max-sm:px-5
         max-[480px]:py-2 max-[480px]:px-4"
     >
-      <div className="flex gap-4 items-center flex-wrap justify-center max-sm:flex-col max-sm:gap-2.5">
+      <div className="flex gap-4 items-center flex-wrap justify-center max-sm:gap-2.5">
         {/* Currently Building */}
         <a
           href="https://readDocs.vercel.app"

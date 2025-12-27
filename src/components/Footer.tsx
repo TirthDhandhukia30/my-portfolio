@@ -51,19 +51,7 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Giant Name Effect Section */}
-      <div className="footer-name-section">
-        {/* The large name text */}
-        <span className="footer-name-text">
-          TIRTH
-        </span>
 
-        {/* Dotted grid overlay effect */}
-        <div className="footer-grid" />
-
-        {/* Gradient fade overlay */}
-        <div className="footer-gradient" />
-      </div>
     </footer>
   );
 }
