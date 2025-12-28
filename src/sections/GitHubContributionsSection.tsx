@@ -44,7 +44,7 @@ export function GitHubContributionsSection() {
         max-[480px]:py-14 max-[480px]:px-4
         max-[360px]:py-[40px] max-[360px]:px-3"
     >
-      <div className="max-w-[700px] mx-auto">
+      <div className="max-w-[708px] mx-auto">
         <h2 className="text-2xl font-semibold mb-6 text-[var(--text-color)] tracking-[-0.025em]">
           GitHub Activity
         </h2>

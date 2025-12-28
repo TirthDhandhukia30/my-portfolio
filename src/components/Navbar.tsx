@@ -68,20 +68,14 @@ export function Navbar() {
       {/* Desktop Navigation - Hidden on mobile */}
       <div className="relative z-[2] flex items-center gap-4 max-sm:hidden">
         <ThemeToggle />
-        <SocialLink
-          href="https://github.com/TirthDhandhukia30"
-          icon="fa-brands fa-github"
-          label="Github"
-          tooltip="@TirthDhandhukia30"
-          showLabel={true}
-        />
-        <SocialLink
-          href="https://www.linkedin.com/in/tirthdhandhukia/"
-          icon="fa-brands fa-linkedin"
-          label="Linkedin"
-          tooltip="@tirthdhandhukia"
-          showLabel={true}
-        />
+        <button
+          onClick={() => window.dispatchEvent(new Event('openCommandPalette'))}
+          className="inline-flex items-center justify-center gap-1 h-8 px-3 rounded-md border border-[var(--border-color)] bg-[var(--bg-color)] hover:bg-[var(--hover-bg-color)] text-[var(--text-muted)] hover:text-[var(--text-color)] transition-all duration-200 text-xs font-medium"
+          aria-label="Open Command Menu"
+        >
+          <span className="text-sm">⌘</span>
+          <span>K</span>
+        </button>
       </div>
 
       {/* Mobile Menu Overlay */}

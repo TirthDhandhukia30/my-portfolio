@@ -3,6 +3,8 @@ import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { TooltipProvider } from './components/Tooltip';
 import { IntroOverlay } from './components/IntroOverlay';
+import { CommandPalette } from './components/CommandPalette';
+import { Dock } from './components/Dock';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { CliSection } from './sections/CliSection';
@@ -18,6 +20,8 @@ function App() {
     <Router>
       <ThemeProvider>
         <div id="name" className="max-w-[920px] mx-auto relative scroll-pt-[90px]">
+          <CommandPalette />
+          <Dock />
           <IntroOverlay />
           <TooltipProvider />
           <Navbar />
