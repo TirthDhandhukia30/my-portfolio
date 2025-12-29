@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
+
 
 interface Particle {
   x: number;
@@ -32,7 +32,7 @@ export function useSparkles(containerRef: React.RefObject<HTMLElement | null>, o
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
-  const { theme } = useTheme();
+
 
   const hexToRgba = useCallback((hex: string, alpha: number): string => {
     if (hex.startsWith('#')) {
@@ -79,7 +79,7 @@ export function useSparkles(containerRef: React.RefObject<HTMLElement | null>, o
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '0';
     canvas.style.opacity = String(opacity);
-    
+
     container.style.position = 'relative';
     container.appendChild(canvas);
     canvasRef.current = canvas;
@@ -100,7 +100,7 @@ export function useSparkles(containerRef: React.RefObject<HTMLElement | null>, o
 
     const animate = () => {
       if (!ctx || !canvas) return;
-      
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
 
@@ -165,7 +165,7 @@ export function useSparkles(containerRef: React.RefObject<HTMLElement | null>, o
         canvas.parentNode.removeChild(canvas);
       }
     };
-  }, [containerRef, opacity, particleColor, createParticles, hexToRgba, theme]);
+  }, [containerRef, opacity, particleColor, createParticles, hexToRgba]);
 
   return canvasRef;
 }
