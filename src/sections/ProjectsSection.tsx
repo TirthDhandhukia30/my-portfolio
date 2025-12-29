@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { SparklesSection } from '../components/SparklesSection';
 
 // Map technology names to their icon paths
@@ -137,7 +137,6 @@ function ProjectCard({ project }: { project: Project }) {
 
 export function ProjectsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Duplicate the projects array enough times to create a smooth infinite scroll feel
   const displayedProjects = [...PROJECTS, ...PROJECTS, ...PROJECTS, ...PROJECTS, ...PROJECTS, ...PROJECTS];
@@ -149,8 +148,6 @@ export function ProjectsSection() {
     const autoScroll = () => {
       // Don't auto-scroll on mobile where we show a vertical stack
       if (window.innerWidth < 768) return;
-
-      if (isPaused) return;
 
       // Desktop logic only now
       const cardWidth = 350;
@@ -167,9 +164,9 @@ export function ProjectsSection() {
       }
     };
 
-    const interval = setInterval(autoScroll, 3000);
+    const interval = setInterval(autoScroll, 3500);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, []);
 
   return (
     <SparklesSection
@@ -202,8 +199,6 @@ export function ProjectsSection() {
           <div
             className="w-full overflow-x-auto pb-8 pt-4 no-scrollbar [&::-webkit-scrollbar]:hidden"
             ref={scrollRef}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {/* Mobile: Vertical Grid, Desktop: Horizontal Flex */}

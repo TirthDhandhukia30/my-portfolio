@@ -33,7 +33,7 @@ const TESTIMONIALS: TestimonialData[] = [
   },
   {
     authorAvatar: '/images/Bun.svg',
-    authorName: 'Programmer Filthy',
+    authorName: 'Programmer Filthi',
     authorTagline: 'Youtuber',
     url: '#',
     quote: 'Impressive UI/UX and projects',
@@ -55,7 +55,7 @@ export function TestimonialsSection() {
         before:content-[''] before:absolute before:left-1/2 before:top-0 before:-translate-x-1/2 before:w-screen before:border-t before:border-dashed before:border-[var(--edge)] before:h-0 before:pointer-events-none before:z-0 before:transition-colors before:duration-300"
     >
       <div className="w-full bg-[var(--bg-color)] relative overflow-hidden">
-        <div className="relative">
+        <div className="relative max-w-[750px] mx-auto">
           <MarqueeFade side="left" />
           <MarqueeFade side="right" />
           <Marquee

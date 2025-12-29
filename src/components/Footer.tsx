@@ -2,11 +2,11 @@ import { useRef } from 'react';
 import { useSparkles } from '../hooks/useSparkles';
 
 const FOOTER_LINKS = [
-  { href: 'mailto:tirth30.info@gmail.com', icon: 'fa-solid fa-envelope', label: 'Mail', tooltip: 'tirth30.info@gmail.com' },
-  { href: 'https://github.com/TirthDhandhukia30', icon: 'fa-brands fa-github', label: 'Github', tooltip: '@TirthDhandhukia30' },
+  { href: '/rss.xml', icon: 'fa-solid fa-rss', label: 'RSS', tooltip: 'Subscribe to RSS' },
   { href: 'https://twitter.com/Tirthhh30', icon: 'fa-brands fa-x-twitter', label: 'Twitter', tooltip: '@Tirthhh30' },
   { href: 'https://www.linkedin.com/in/tirthdhandhukia/', icon: 'fa-brands fa-linkedin', label: 'LinkedIn', tooltip: '@tirthdhandhukia' },
   { href: 'https://leetcode.com/u/TirthDhandhukia/', icon: 'fa-solid fa-code', label: 'LeetCode', tooltip: '@TirthDhandhukia' },
+  { href: 'https://github.com/TirthDhandhukia30', icon: 'fa-brands fa-github', label: 'Github', tooltip: '@TirthDhandhukia30' },
 ];
 
 export function Footer() {
