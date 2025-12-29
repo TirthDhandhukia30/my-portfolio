@@ -16,6 +16,7 @@ const ActivitySection = lazy(() => import('./sections/ActivitySection').then(m =
 const GitHubContributionsSection = lazy(() => import('./sections/GitHubContributionsSection').then(m => ({ default: m.GitHubContributionsSection })));
 const ProjectsSection = lazy(() => import('./sections/ProjectsSection').then(m => ({ default: m.ProjectsSection })));
 const StackSection = lazy(() => import('./sections/StackSection').then(m => ({ default: m.StackSection })));
+const TestimonialsSection = lazy(() => import('./sections/TestimonialsSection').then(m => ({ default: m.TestimonialsSection })));
 const ContactSection = lazy(() => import('./sections/ContactSection').then(m => ({ default: m.ContactSection })));
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
             </Suspense>
             <Suspense fallback={null}>
               <ContactSection />
+            </Suspense>
+            <Suspense fallback={null}>
+              <TestimonialsSection />
             </Suspense>
           </main>
           <Footer />
