@@ -112,7 +112,7 @@ interface TestimonialAvatarRingProps {
   className?: string;
 }
 
-export function TestimonialAvatarRing({ className }: TestimonialAvatarRingProps) {
+export function TestimonialAvatarRing(_: TestimonialAvatarRingProps) {
   return null; // Removed ring for cleaner Twitter/X style
 }
 
